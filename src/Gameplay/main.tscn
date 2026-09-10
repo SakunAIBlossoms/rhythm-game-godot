@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dgw6dw15p8kbg"]
+
+[ext_resource type="Script" uid="uid://dr31qmbfyj2le" path="res://src/Gameplay/main.gd" id="1_7alqp"]
+[ext_resource type="Script" uid="uid://dn2u6fssubewg" path="res://src/Conductor.gd" id="1_du0r1"]
+[ext_resource type="Texture2D" uid="uid://decnfgy10pmq2" path="res://Assets/Skins/Default/Health/background.png" id="4_g2td4"]
+[ext_resource type="Texture2D" uid="uid://v62hgpkbcwny" path="res://Assets/Skins/Default/Health/foreground.png" id="5_kh3eh"]
+
+[node name="Main" type="Node2D" unique_id=866178733]
+script = ExtResource("1_7alqp")
+
+[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=1448135209]
+script = ExtResource("1_du0r1")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1949891178]
+
+[node name="Health" type="TextureProgressBar" parent="HUD" unique_id=2070241564]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.19995
+offset_top = -466.2
+offset_right = 0.8000488
+offset_bottom = 97.79999
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("4_g2td4")
+texture_progress = ExtResource("5_kh3eh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Health" unique_id=1019820964]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
