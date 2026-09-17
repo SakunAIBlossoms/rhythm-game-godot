@@ -2,12 +2,11 @@ extends Control
 
 var BaseNote = preload("res://src/Gameplay/note.tscn")
 
-@export var song_position = 0.0
-
 @export var ID = -1
-@export var Hitpoint:float = 620
+@export var Hitpoint:float = Config.Hitpoint
 @export var BackgroundAlpha:float = 0.4
-@export var speed = 100.0
+
+var Notes = []
 
 @onready var Background:ColorRect = $Background
 @onready var Receptor:Control = $Receptor
@@ -15,6 +14,10 @@ var BaseNote = preload("res://src/Gameplay/note.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if ID < 0 or typeof(ID) != TYPE_INT: push_error("ID is not valid")
+	if Config.Binds[ID] != null:
+		Receptor.get_node("Bind").text = Config.Binds[ID].to_upper()
+	else:
+		Receptor.get_node("Bind").visible = false
 
 func CreateNotes(notes):
 	var id = -1
@@ -24,21 +27,47 @@ func CreateNotes(notes):
 		nobj.name = str(id)
 		nobj.type = notes[note]["type"]
 		nobj.time = notes[note]["time"]
-		#nobj.position.y = 
+		Notes.push_back(nobj)
 		$Notes.add_child(nobj)
+	
+	Notes.sort_custom(func(a, b):
+		if a.time < b.time:
+			return true
+		return false
+		)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Receptor.position.y != Hitpoint:
 		Receptor.position.y = lerpf(Receptor.position.y, Hitpoint, 12*delta)
 	if Background != null:
 		if Background.color.a != BackgroundAlpha:
 			Background.color.a = lerpf(Background.color.a, BackgroundAlpha, 12*delta)
-	
+	if Config.Upscroll:
+		Receptor.get_node("Timing")
 
-func _physics_process(delta: float) -> void:
+func _unhandled_input(event: InputEvent):
+	if event is InputEventKey:
+		if Config.Binds[ID].to_upper() == event.as_text() and event.is_pressed():
+			HitNote()
+		if Config.Binds[ID].to_upper() == event.as_text() and event.is_released():
+			LetGo()
+
+func HitNote():
+	return
+	for note in Notes:
+		if Conductor.songPosition < note.time + 450 and Conductor.songPosition > note.time - 450:
+			var state = false
+			if Conductor.songPosition > note.time - 350 and Conductor.songPosition < note.time - 350: state = true
+			Notes.pop_front().Hit(state)
+			Receptor.Press(true)
+			Receptor.get_node("Timing").text = str(Conductor.songPosition - note.time)+"ms"
+			break
+
+func LetGo():
+	Receptor.Press(false)
+
+func _physics_process(_delta: float) -> void:
 	for note in $Notes.get_children():
-		note.position.y = note.time
-		#print(note.position.y)
-		#if note.position.y > self.size.y:
-		#	note.queue_free()
+		note.position.y = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
+		if note.position.y > self.size.y:
+			Notes.pop_at(Notes.find(note)).queue_free()

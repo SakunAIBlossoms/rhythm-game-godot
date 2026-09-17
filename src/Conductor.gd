@@ -7,5 +7,5 @@ var songPosition := -1.0
 
 @warning_ignore("unused_parameter")
 func _physics_process(dt:float) -> void:
-	songPosition = get_playback_position() * 100
+	songPosition = get_playback_position() * 1000
 	curBeat = songPosition * BPM / 60

@@ -8,13 +8,16 @@ var Playfield = preload("res://src/Gameplay/Playfield.tscn")
 @export var toload = "spaceoddity"
 var chartdata = {}
 
-func _ready() -> void:
+var playfields = []
+
+func _ready():
 	var rawchart = FileAccess.open("res://Songs/"+toload+"/chart.hdc", FileAccess.READ)
 	chartdata = ChartParser.ParseCustomChart(rawchart.get_as_text())
 	# Playfield
 	var pf = Playfield.instantiate()
 	pf.setup(chartdata)
 	pf.name = "Playfield"
+	playfields.push_back(pf)
 	$Playfields.add_child(pf)
 	
 	if FileAccess.file_exists("res://Songs/"+toload+"/effects.json"):
@@ -25,11 +28,24 @@ func _ready() -> void:
 	else:
 		Log.pr("Cannot find an effect file, skipping!")
 	
-	Conductor.BPM = 175.0
-	Conductor.stream = load("res://Songs/spaceoddity/ARForest - Space Oddity.mp3")
+	if FileAccess.file_exists("res://Songs/"+toload+"/meta.txt"):
+		var file = FileAccess.open("res://Songs/"+toload+"/meta.txt", FileAccess.READ)
+		var raw = file.get_as_text()
+		var data = raw.split(":")
+		if float(data[2]) == null: Log.error("Failed to parse BPM")
+		else: Conductor.BPM = float(data[2])
+		if data[4] == null: Log.error("Failed to parse song file location")
+		else: Conductor.stream = load("res://Songs/"+toload+"/"+data[4])
+	else:
+		Log.error("Cannot find the metadata file")
 	
 	Conductor.play()
 
-func _physics_process(_delta: float) -> void:
-	for playfield in $Playfields.get_children():
-		playfield.song_position = Conductor.curBeat
+#func _unhandled_key_input(event: InputEvent) -> void:
+#	print(event.as_text())
+#	for pf in playfields:
+#		for lane in pf.get_children():
+#			if Config.Binds[lane.ID].to_upper() == event.as_text() and event.is_pressed():
+#				lane.HitNote()
+#			if Config.Binds[lane.ID].to_upper() == event.as_text() and event.is_released():
+#				lane.LetGo()

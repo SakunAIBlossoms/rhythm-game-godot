@@ -42,3 +42,6 @@ func GetfluXisTrans(trans:int) -> Tween.TransitionType:
 				Log.warn(trans, " is not an implemented easing!")
 	
 	return t
+
+func round_to_dec(num, digit):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)
