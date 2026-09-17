@@ -1,0 +1,5528 @@
+{
+  "laneswitch": [],
+  "flash": [
+    {
+      "time": 22931.857421875,
+      "duration": 1371.4285888671875,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0.45,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 33903.2861328125,
+      "duration": 1371.4285888671875,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0.45,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 44874.71484375,
+      "duration": 685.7142944335938,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0.5,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 66477.4294128418,
+      "duration": 342.8571472167969,
+      "background": false,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "end-alpha": 1
+    },
+    {
+      "time": 66820.2865600586,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 66820.2865600586,
+      "duration": 342.8571472167969,
+      "background": false,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 67163.14370727539,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 67506.00085449219,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 67848.85800170898,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 68191.71514892578,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 72306.00091552734,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 72648.85806274414,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 72991.71520996094,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 73334.57235717773,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 73677.42950439453,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 77789.0009765625,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 78131.8581237793,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 78474.7152709961,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 78817.57241821289,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 79160.42956542969,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 79503.28671264648,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 79846.14385986328,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 80189.00100708008,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 80531.85815429688,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 80874.71530151367,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 81217.57244873047,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 81560.42959594727,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 81903.28674316406,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 82246.14389038086,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 82589.00103759766,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 82931.85818481445,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 83274.71533203125,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 83617.57247924805,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 83960.42962646484,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 84303.28677368164,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 84646.14392089844,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 84989.00106811523,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 85331.85821533203,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 85674.71536254883,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 86017.57250976562,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 86360.42965698242,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 88760.4296875,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 89103.2868347168,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 89446.1439819336,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 89789.00112915039,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 90131.85827636719,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 94246.14404296875,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 94589.00119018555,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 94931.85833740234,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 95274.71548461914,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 95617.57263183594,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 99731.8583984375,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 100074.7155456543,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 100417.5726928711,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 100760.42984008789,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 101103.28698730469,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 101446.14413452148,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 101789.00128173828,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 102131.85842895508,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 102474.71557617188,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 102817.57272338867,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 103160.42987060547,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 103503.28701782227,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 103846.14416503906,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 104189.00131225586,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 104531.85845947266,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 104874.71560668945,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 105217.57275390625,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 105560.42990112305,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 105903.28704833984,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 106246.14419555664,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 106589.00134277344,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 106931.85848999023,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 107274.71563720703,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 107617.57278442383,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 107960.42993164062,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 108303.28707885742,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 110703.287109375,
+      "duration": 342.8571472167969,
+      "background": false,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.28,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 132646.14453125,
+      "duration": 1371.4285888671875,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0.45,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 154589.001953125,
+      "duration": 685.7142944335938,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0.5,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 176189.0022277832,
+      "duration": 342.8571472167969,
+      "background": false,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "end-alpha": 1
+    },
+    {
+      "time": 176531.859375,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 176531.859375,
+      "duration": 342.8571472167969,
+      "background": false,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 176874.7165222168,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 177217.5736694336,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 177560.4308166504,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 177903.2879638672,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 182017.57373046875,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 182360.43087768555,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 182703.28802490234,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 183046.14517211914,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 183389.00231933594,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 187503.2880859375,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 187846.1452331543,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 188189.0023803711,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 188531.8595275879,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 188874.7166748047,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 189217.57382202148,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 189560.43096923828,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 189903.28811645508,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 190246.14526367188,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 190589.00241088867,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 190931.85955810547,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 191274.71670532227,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 191617.57385253906,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 191960.43099975586,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 192303.28814697266,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 192646.14529418945,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 192989.00244140625,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 193331.85958862305,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 193674.71673583984,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 194017.57388305664,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 194360.43103027344,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 194703.28817749023,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 195046.14532470703,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 195389.00247192383,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 197789.0025024414,
+      "duration": 171.42857360839844,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0.8
+    },
+    {
+      "time": 197960.4310760498,
+      "duration": 171.42857360839844,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "end-alpha": 0.8
+    },
+    {
+      "time": 198131.8596496582,
+      "duration": 171.42857360839844,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0.8
+    },
+    {
+      "time": 198303.2882232666,
+      "duration": 171.42857360839844,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "end-alpha": 0.8
+    },
+    {
+      "time": 198474.716796875,
+      "duration": 0,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 198474.716796875,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 198817.5739440918,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 199160.4310913086,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 199503.2882385254,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 199846.1453857422,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 200189.00253295898,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 200531.85968017578,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 200874.71682739258,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 201217.57397460938,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 201560.43112182617,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 201903.28826904297,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 202246.14541625977,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 202589.00256347656,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 202931.85971069336,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 203274.71685791016,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 203617.57400512695,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 203960.43115234375,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 204303.28829956055,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 204646.14544677734,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 204989.00259399414,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 205331.85974121094,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 205674.71688842773,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 206017.57403564453,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 206360.43118286133,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 206703.28833007812,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 207046.14547729492,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 207389.00262451172,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 207731.85977172852,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 208074.7169189453,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 208417.5740661621,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 208760.4312133789,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 209103.2883605957,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 209103.2883605957,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 209446.1455078125,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 209789.0026550293,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 210131.8598022461,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 210474.7169494629,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 210817.5740966797,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 211160.43124389648,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 211503.28839111328,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 211846.14553833008,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 212189.00268554688,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 212531.85983276367,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 212874.71697998047,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 213217.57412719727,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 213560.43127441406,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 213903.28842163086,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 214246.14556884766,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 214931.85986328125,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 215274.71701049805,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 215617.57415771484,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 215960.43130493164,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 216303.28845214844,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 216646.14559936523,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 216989.00274658203,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 217331.85989379883,
+      "duration": 342.8571472167969,
+      "background": true,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 219389.0027770996,
+      "duration": 1028.5714111328125,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "start-alpha": 0,
+      "end-color": {
+        "R": 0,
+        "G": 0,
+        "B": 0,
+        "A": 1
+      },
+      "end-alpha": 1
+    },
+    {
+      "time": 220417.57421875,
+      "duration": 685.7142944335938,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 0,
+        "G": 0.93571424,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0.24,
+      "end-color": {
+        "R": 0,
+        "G": 0.93570375,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 240989.0030517578,
+      "duration": 1371.4285888671875,
+      "background": false,
+      "ease": 0,
+      "start-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "start-alpha": 0.35,
+      "end-color": {
+        "R": 1,
+        "G": 1,
+        "B": 1,
+        "A": 1
+      },
+      "end-alpha": 0
+    },
+    {
+      "time": 242017.5744934082,
+      "duration": 342.8571472167969,
+      "background": false,
+      "ease": 5,
+      "start-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "start-alpha": 0.2,
+      "end-color": {
+        "R": 0,
+        "G": 0.7529412,
+        "B": 0.8666667,
+        "A": 1
+      },
+      "end-alpha": 0
+    }
+  ],
+  "colorfade": [],
+  "pulse": [],
+  "playfieldmove": [],
+  "playfieldscale": [],
+  "playfieldrotate": [],
+  "hitease": [],
+  "layerfade": [
+    {
+      "time": 164537.8592224121,
+      "duration": 1028.5714416503906,
+      "alpha": 0,
+      "ease": 0,
+      "layer": 4,
+      "playfield": 0,
+      "subfield": 0
+    },
+    {
+      "time": 176195.0022277832,
+      "duration": 342.8571472167969,
+      "alpha": 1,
+      "ease": 0,
+      "layer": 4,
+      "playfield": 0,
+      "subfield": 0
+    }
+  ],
+  "shake": [],
+  "shader": [
+    {
+      "time": -5000,
+      "shader": "Vignette",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 0,
+      "shader": "Vignette",
+      "duration": 1028.5714416503906,
+      "ease": 0,
+      "use-start": true,
+      "start-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.2,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 0,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 989,
+      "group": "reflectiongroup",
+      "shader": "Reflections",
+      "duration": 1371.4285888671875,
+      "ease": 0,
+      "use-start": true,
+      "start-params": {
+        "strength": 0.15,
+        "strength2": 0.05,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 2360.4285888671875,
+      "group": "reflectiongroup",
+      "shader": "Reflections",
+      "duration": 1371.4285888671875,
+      "ease": 0,
+      "use-start": true,
+      "start-params": {
+        "strength": 0.15,
+        "strength2": 0.05,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 3731.8541666666665,
+      "group": "reflectiongroup",
+      "shader": "Reflections",
+      "duration": 1371.4285888671875,
+      "ease": 0,
+      "use-start": true,
+      "start-params": {
+        "strength": 0.15,
+        "strength2": 0.05,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 42131.857666015625,
+      "shader": "Vignette",
+      "duration": 2742.857177734375,
+      "ease": 3,
+      "use-start": true,
+      "start-params": {
+        "strength": 0.2,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 66477.4294128418,
+      "shader": "Retro",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 66820.2865600586,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 66821,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 67163.14370727539,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 67163.8571472168,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 67506.00085449219,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 67506.7142944336,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 67848.85800170898,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 67849.57144165039,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 68191.71514892578,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 68192.42858886719,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 69563.14373779297,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 69563.85717773438,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 70934.57232666016,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 70935.28576660156,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 72306.00091552734,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 72306.71435546875,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 72648.85806274414,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 72649.57150268555,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 72991.71520996094,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 72992.42864990234,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 73334.57235717773,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 73335.28579711914,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 73677.42950439453,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 73678.14294433594,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 75048.85809326172,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 75049.57153320312,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 76420.2866821289,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 76421.00012207031,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 88760.4296875,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 88761.1431274414,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 89103.2868347168,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 89104.0002746582,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 89446.1439819336,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 89446.857421875,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 89789.00112915039,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 89789.7145690918,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 90131.85827636719,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 90132.5717163086,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 91503.28686523438,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 91504.00030517578,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 92874.71545410156,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 92875.42889404297,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 94246.14404296875,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 94246.85748291016,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 94589.00119018555,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 94589.71463012695,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 94931.85833740234,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 94932.57177734375,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 95274.71548461914,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 95275.42892456055,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 95617.57263183594,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 95618.28607177734,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 96989.00122070312,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 96989.71466064453,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 98360.42980957031,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 98361.14324951172,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 109331.85852050781,
+      "shader": "Vignette",
+      "duration": 1028.5714416503906,
+      "ease": 0,
+      "use-start": true,
+      "start-params": {
+        "strength": 0.37,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.2,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 109331.85852050781,
+      "shader": "Retro",
+      "duration": 1371.4285888671875,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 109331.85852050781,
+      "shader": "Bloom",
+      "duration": 685.7142944335938,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 164195.0020751953,
+      "shader": "Vignette",
+      "duration": 1371.4285888671875,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.45,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 175160.4307861328,
+      "shader": "Vignette",
+      "duration": 1028.5714111328125,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 176189.0022277832,
+      "shader": "Retro",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 176531.859375,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 176532.5728149414,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 176874.7165222168,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 176875.4299621582,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 177217.5736694336,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 177218.287109375,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 177560.4308166504,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 177561.1442565918,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 177903.2879638672,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 177904.0014038086,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 179274.71655273438,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 179275.42999267578,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 180646.14514160156,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 180646.85858154297,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 182017.57373046875,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 182018.28717041016,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 182360.43087768555,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 182361.14431762695,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 182703.28802490234,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 182704.00146484375,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 183046.14517211914,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 183046.85861206055,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 183389.00231933594,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 183389.71575927734,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 184760.43090820312,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 184761.14434814453,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 186131.8594970703,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0.5,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 186132.57293701172,
+      "shader": "Bloom",
+      "duration": 342.8571472167969,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 198480.716796875,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 219052.1456298828,
+      "shader": "Retro",
+      "duration": 1371.4285888671875,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 220417.57421875,
+      "shader": "Bloom",
+      "duration": 0,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    },
+    {
+      "time": 242360.431640625,
+      "shader": "Vignette",
+      "duration": 685.7142944335938,
+      "ease": 0,
+      "use-start": false,
+      "start-params": {
+        "strength": 0,
+        "strength2": 0,
+        "strength3": 0
+      },
+      "end-params": {
+        "strength": 1,
+        "strength2": 0,
+        "strength3": 0
+      }
+    }
+  ],
+  "beatpulse": [
+    {
+      "time": 55846.1435546875,
+      "strength": 1.05,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 65446.14367675781,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    },
+    {
+      "time": 66817.572265625,
+      "strength": 1.05,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 77103.2866821289,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    },
+    {
+      "time": 77789.0009765625,
+      "strength": 1.05,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 87389.00109863281,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    },
+    {
+      "time": 88760.4296875,
+      "strength": 1.05,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 99046.1441040039,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    },
+    {
+      "time": 99731.8583984375,
+      "strength": 1.05,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 109331.85852050781,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    },
+    {
+      "time": 176531.859375,
+      "strength": 1.1,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 197103.2882080078,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    },
+    {
+      "time": 198474.716796875,
+      "strength": 1.1,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 219046.1456298828,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    },
+    {
+      "time": 220417.57421875,
+      "strength": 1.05,
+      "zoom": 0.25,
+      "interval": 1
+    },
+    {
+      "time": 240989.0030517578,
+      "strength": 1,
+      "zoom": 0,
+      "interval": 1
+    }
+  ],
+  "scroll-multiply": [
+    {
+      "time": 87389.00109863281,
+      "duration": 0,
+      "multiplier": 0.4,
+      "ease": 0,
+      "groups": [
+        "$1",
+        "$2",
+        "$3",
+        "$4"
+      ]
+    },
+    {
+      "time": 87390,
+      "duration": 1371.4285888671875,
+      "multiplier": 1,
+      "ease": 4,
+      "groups": [
+        "$1",
+        "$2",
+        "$3",
+        "$4"
+      ]
+    }
+  ],
+  "time-offset": [],
+  "camera-move": [],
+  "camera-scale": [],
+  "camera-rotate": [],
+  "loops": [
+    {
+      "time": 989,
+      "target": "reflectiongroup",
+      "distance": 5485.71435546875,
+      "count": 4
+    }
+  ],
+  "notes": []
+}

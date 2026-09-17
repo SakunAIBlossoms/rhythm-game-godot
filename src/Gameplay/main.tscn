@@ -1,17 +1,54 @@
 [gd_scene format=3 uid="uid://dgw6dw15p8kbg"]
 
 [ext_resource type="Script" uid="uid://dr31qmbfyj2le" path="res://src/Gameplay/main.gd" id="1_7alqp"]
-[ext_resource type="Script" uid="uid://dn2u6fssubewg" path="res://src/Conductor.gd" id="1_du0r1"]
 [ext_resource type="Texture2D" uid="uid://decnfgy10pmq2" path="res://Assets/Skins/Default/Health/background.png" id="4_g2td4"]
+[ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="4_rfkh6"]
+[ext_resource type="PackedScene" uid="uid://drqixw2gb3qmn" path="res://src/Gameplay/Effects/EffectHandler.tscn" id="5_g2td4"]
 [ext_resource type="Texture2D" uid="uid://v62hgpkbcwny" path="res://Assets/Skins/Default/Health/foreground.png" id="5_kh3eh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oyu2m"]
+viewport_path = NodePath("Playfields")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nasuu"]
+content_margin_left = 0.0
+bg_color = Color(0.50980395, 0, 0, 0.42745098)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27450982, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="GDScript" id="GDScript_7wh0t"]
+resource_name = "ConductorDebug"
+script/source = "extends Panel
+
+func _process(_d):
+	%SongPosition.text = \"Song Position: \"+str(Conductor.songPosition)
+	%Beat.text = \"Beat: \"+str(Conductor.curBeat)
+"
 
 [node name="Main" type="Node2D" unique_id=866178733]
 script = ExtResource("1_7alqp")
 
-[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=1448135209]
-script = ExtResource("1_du0r1")
+[node name="Gameplay" type="CanvasLayer" parent="." unique_id=43334772]
+layer = 3
+follow_viewport_enabled = true
+
+[node name="Render" type="TextureRect" parent="Gameplay" unique_id=93254400]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_oyu2m")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1949891178]
+layer = 4
 
 [node name="Health" type="TextureProgressBar" parent="HUD" unique_id=2070241564]
 anchors_preset = 3
@@ -31,7 +68,72 @@ fill_mode = 3
 texture_under = ExtResource("4_g2td4")
 texture_progress = ExtResource("5_kh3eh")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Health" unique_id=1019820964]
+[node name="Fail" type="RichTextLabel" parent="HUD/Health" unique_id=1019820964]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.25
+offset_top = 6.5
+offset_right = -6.25
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_rfkh6")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_nasuu")
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Playfields" type="SubViewport" parent="." unique_id=664092758]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="Cam" type="Camera2D" parent="." unique_id=185870602]
+position = Vector2(640, 360)
+
+[node name="Debug" type="CanvasLayer" parent="." unique_id=2021371934]
+layer = 15
+
+[node name="Conductor" type="Panel" parent="Debug" unique_id=1980176241]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 176.0
+offset_bottom = 144.0
+script = SubResource("GDScript_7wh0t")
+
+[node name="Title" type="RichTextLabel" parent="Debug/Conductor" unique_id=1104985544]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 161.0
+offset_bottom = 24.0
+bbcode_enabled = true
+text = "[wave]Conductor Debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Values" type="VBoxContainer" parent="Debug/Conductor" unique_id=2115269189]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 24.0
+offset_right = 161.0
+offset_bottom = 129.0
+
+[node name="SongPosition" type="RichTextLabel" parent="Debug/Conductor/Values" unique_id=828362146]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 9
+text = "Song Position: "
+vertical_alignment = 1
+
+[node name="Beat" type="RichTextLabel" parent="Debug/Conductor/Values" unique_id=932957445]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 9
+text = "Beat: "
+vertical_alignment = 1
+
+[node name="EffectHandler" parent="." unique_id=1605707571 instance=ExtResource("5_g2td4")]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d4bihiufq6u7h"]
+
+[ext_resource type="Texture2D" uid="uid://ce5rffsqcab0y" path="res://Assets/Skins/Default/HitObjects/Note/1.png" id="1_igsku"]
+[ext_resource type="Script" uid="uid://cse8f36h52hst" path="res://src/Gameplay/Note.gd" id="2_nvqhd"]
+
+[node name="Note" type="TextureRect" unique_id=2014177056]
+custom_minimum_size = Vector2(90, 90)
+offset_right = 90.0
+offset_bottom = 90.0
+texture = ExtResource("1_igsku")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_nvqhd")

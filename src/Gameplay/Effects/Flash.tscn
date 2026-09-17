@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c3bjptnd1l788"]
+
+[ext_resource type="Script" uid="uid://dqotd48keyqjj" path="res://src/Gameplay/Effects/Flash.gd" id="1_gjik0"]
+
+[node name="Flash" type="ColorRect" unique_id=1939005273]
+script = ExtResource("1_gjik0")
