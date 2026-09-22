@@ -53,21 +53,14 @@ func _unhandled_input(event: InputEvent):
 			LetGo()
 
 func HitNote():
-	return
-	for note in Notes:
-		if Conductor.songPosition < note.time + 450 and Conductor.songPosition > note.time - 450:
-			var state = false
-			if Conductor.songPosition > note.time - 350 and Conductor.songPosition < note.time - 350: state = true
-			Notes.pop_front().Hit(state)
-			Receptor.Press(true)
-			Receptor.get_node("Timing").text = str(Conductor.songPosition - note.time)+"ms"
-			break
+	Receptor.Press(true)
 
 func LetGo():
 	Receptor.Press(false)
 
 func _physics_process(_delta: float) -> void:
-	for note in $Notes.get_children():
+	for note in Notes:
 		note.position.y = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
+		
 		if note.position.y > self.size.y:
 			Notes.pop_at(Notes.find(note)).queue_free()

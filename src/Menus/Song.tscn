@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://eoe43wdq7qnc"]
+
+[ext_resource type="Script" uid="uid://dmii2n0p31vef" path="res://src/Menus/Song.gd" id="1_88ml2"]
+[ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="1_xi2xo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xi2xo"]
+content_margin_left = 15.0
+
+[node name="Song" type="RichTextLabel" unique_id=352103893]
+custom_minimum_size = Vector2(480, 60)
+clip_contents = false
+theme_override_colors/default_color = Color(0.50980395, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_fonts/normal_font = ExtResource("1_xi2xo")
+theme_override_font_sizes/normal_font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xi2xo")
+bbcode_enabled = true
+text = "[wave amp=60.0 freq=2.0 connected=0]Song Name"
+vertical_alignment = 1
+script = ExtResource("1_88ml2")
+
+[node name="Preview" type="AudioStreamPlayer" parent="." unique_id=1195441645]

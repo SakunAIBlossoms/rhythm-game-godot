@@ -2,5 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dqotd48keyqjj" path="res://src/Gameplay/Effects/Flash.gd" id="1_gjik0"]
 
-[node name="Flash" type="ColorRect" unique_id=1939005273]
+[node name="Flash" type="Control" unique_id=1280471149]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_gjik0")
+
+[node name="TemplateFlash" type="ColorRect" parent="." unique_id=1939005273]
+visible = false
+layout_mode = 0

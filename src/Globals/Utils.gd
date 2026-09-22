@@ -1,9 +1,10 @@
 extends Node
 
+var NextSongToPlay = ""
+
 func GetBeatFromTime(beat, time):
 	print(time * beat / 60)
 	return time * beat / 60
-
 
 func GetfluXisEasing(easing:int) -> Tween.EaseType:
 	var e:Tween.EaseType
@@ -45,3 +46,33 @@ func GetfluXisTrans(trans:int) -> Tween.TransitionType:
 
 func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+
+func GetKeyEnumFromString(string:String):
+	match(string):
+		"Q": return Key.KEY_Q
+		"W": return Key.KEY_W
+		"E": return Key.KEY_E
+		"R": return Key.KEY_R
+		"T": return Key.KEY_T
+		"Y": return Key.KEY_Y
+		"U": return Key.KEY_U
+		"I": return Key.KEY_I
+		"O": return Key.KEY_O
+		"P": return Key.KEY_P
+		"A": return Key.KEY_A
+		"S": return Key.KEY_S
+		"D": return Key.KEY_D
+		"F": return Key.KEY_F
+		"G": return Key.KEY_G
+		"H": return Key.KEY_H
+		"J": return Key.KEY_J
+		"K": return Key.KEY_K
+		"L": return Key.KEY_L
+		"Z": return Key.KEY_Z
+		"X": return Key.KEY_X
+		"C": return Key.KEY_C
+		"V": return Key.KEY_V
+		"B": return Key.KEY_B
+		"N": return Key.KEY_N
+		"M": return Key.KEY_M
+		_: return Key.KEY_NONE

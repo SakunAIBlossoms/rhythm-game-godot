@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://b8rvgonqqu8re"]
+
+[ext_resource type="Script" uid="uid://dm1y8bncvwxbk" path="res://src/Menus/SongSelect.gd" id="1_t7agu"]
+[ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="2_30wvq"]
+[ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="3_c7kw3"]
+[ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://src/Shaders/SongSelect.gdshader" id="4_30wvq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
+shader = ExtResource("4_30wvq")
+shader_parameter/speed = 0.3
+shader_parameter/pixelation = 1.0
+shader_parameter/zoom = 10.0
+shader_parameter/gradient_pixelation = 0.0010000000475
+shader_parameter/background_threshold = 0.0
+shader_parameter/color_low_threshold = 0.25600001216
+shader_parameter/color_mid_threshold = 0.31600001501
+shader_parameter/color_low = Color(0.011137841, 0.44593006, 0.55052865, 1)
+shader_parameter/color_mid = Color(0.2973955, 0.32764742, 0.7043561, 1)
+shader_parameter/color_high = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7agu"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.101960786, 0.101960786, 0.101960786, 0.4)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyu2m"]
+content_margin_left = 5.0
+
+[node name="SongSelect" type="Control" unique_id=43018158]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7agu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1085413255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Shader" type="ColorRect" parent="Background" unique_id=1166524252]
+material = SubResource("ShaderMaterial_oyu2m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SongList" type="Control" parent="." unique_id=708210038]
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 720.0
+
+[node name="CurrentSong" type="Control" parent="." unique_id=355762994]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -337.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="CurrentSong" unique_id=293351171]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.5
+offset_top = 60.0
+offset_right = 90.0
+offset_bottom = 241.5
+grow_horizontal = 2
+texture = ExtResource("2_30wvq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="CurrentSong" unique_id=1181381457]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -3.0
+offset_top = 248.0
+offset_right = 337.0
+offset_bottom = 315.0
+theme_override_colors/default_color = Color(0.58611006, 0.9999997, 0.9983652, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
+theme_override_constants/shadow_outline_size = 6
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("3_c7kw3")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[wave amp=60.0 freq=2.0 connected=0]Song Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Artist" type="RichTextLabel" parent="CurrentSong" unique_id=539991513]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -7.0
+offset_top = 309.0
+offset_right = 329.0
+offset_bottom = 349.0
+theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
+theme_override_constants/text_highlight_h_padding = 3
+theme_override_fonts/normal_font = ExtResource("3_c7kw3")
+bbcode_enabled = true
+text = "[wave amp=60.0 freq=2.0 connected=0]Artist Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mapper" type="RichTextLabel" parent="CurrentSong" unique_id=624146450]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = 342.0
+offset_right = 332.0
+offset_bottom = 382.0
+theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
+theme_override_constants/text_highlight_h_padding = 3
+theme_override_fonts/normal_font = ExtResource("3_c7kw3")
+bbcode_enabled = true
+text = "[wave amp=60.0 freq=2.0 connected=0]Mapper Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loading" type="Panel" parent="." unique_id=1287150088]
+custom_minimum_size = Vector2(450, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t7agu")
+
+[node name="Background" type="ColorRect" parent="Loading" unique_id=455658419]
+show_behind_parent = true
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="Loading" unique_id=68793771]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.6745098, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_c7kw3")
+theme_override_font_sizes/normal_font_size = 38
+text = "Loading song select..."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentlyLoading" type="RichTextLabel" parent="Loading" unique_id=509210821]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 55.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.6745098, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_c7kw3")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oyu2m")
+text = "Currently loading nothing"
+fit_content = true
+vertical_alignment = 1

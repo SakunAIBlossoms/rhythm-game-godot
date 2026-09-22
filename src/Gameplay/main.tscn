@@ -50,6 +50,7 @@ texture = SubResource("ViewportTexture_oyu2m")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1949891178]
 layer = 4
+follow_viewport_enabled = true
 
 [node name="Health" type="TextureProgressBar" parent="HUD" unique_id=2070241564]
 anchors_preset = 3
