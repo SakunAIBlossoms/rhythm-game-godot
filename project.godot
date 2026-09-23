@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 Utils="*uid://dh0pxffewudm7"
 Conductor="*uid://1ci1gkouynhw"
 Config="*uid://hiamjfq661ki"
+Volume="*uid://c0r5r2p80ycsd"
 
 [display]
 
