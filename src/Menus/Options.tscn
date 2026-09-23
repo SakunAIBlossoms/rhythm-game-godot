@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://krri1aoirckl"]
+
+[ext_resource type="PackedScene" uid="uid://1ci1gkouynhw" path="res://src/Globals/Conductor.tscn" id="1_k8jn6"]
+[ext_resource type="Script" uid="uid://c6156dhwhw0pe" path="res://src/Menus/Options.gd" id="1_m17q0"]
+[ext_resource type="AudioStream" uid="uid://dvdk407b0ph3i" path="res://Assets/Music/nico's nextbots ost - sherbet lobby w／ bxnji - nicopatty.mp3" id="3_arff4"]
+[ext_resource type="Texture2D" uid="uid://b55wq5iig0pqp" path="res://Assets/Icons/gear-fill.svg" id="3_v8mh4"]
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="4_arff4"]
+
+[node name="Options" type="Control" unique_id=1418505487]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m17q0")
+
+[node name="BackgroundMusic" parent="." unique_id=1849668629 instance=ExtResource("1_k8jn6")]
+stream = ExtResource("3_arff4")
+autoplay = true
+BPM = 170.0
+
+[node name="Topbar" type="Control" parent="." unique_id=1231205173]
+custom_minimum_size = Vector2(1280, 65)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 65.0
+grow_horizontal = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Topbar" unique_id=1074154034]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cog" type="TextureRect" parent="Topbar" unique_id=750684149]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 65.0
+offset_bottom = 65.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_v8mh4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Title" type="RichTextLabel" parent="Topbar" unique_id=1421640709]
+layout_mode = 0
+offset_left = 84.0
+offset_right = 1281.0
+offset_bottom = 65.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 2.08)
+theme_override_fonts/normal_font = ExtResource("4_arff4")
+theme_override_font_sizes/normal_font_size = 60
+text = "OPTIONS"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=635451574]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 114.0
+offset_right = 308.0
+offset_bottom = 670.0

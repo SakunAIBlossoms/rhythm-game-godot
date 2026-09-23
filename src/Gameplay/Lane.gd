@@ -42,8 +42,8 @@ func _process(delta: float) -> void:
 	if Background != null:
 		if Background.color.a != BackgroundAlpha:
 			Background.color.a = lerpf(Background.color.a, BackgroundAlpha, 12*delta)
-	if Config.Upscroll:
-		Receptor.get_node("Timing")
+	#if Config.Upscroll:
+	#	Receptor.get_node("Timing").position.y = Receptor.get_node("Timing").position.y
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventKey:
@@ -63,4 +63,5 @@ func _physics_process(_delta: float) -> void:
 		note.position.y = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
 		
 		if note.position.y > self.size.y:
-			Notes.pop_at(Notes.find(note)).queue_free()
+			note.visible = false
+			note.Missed = true

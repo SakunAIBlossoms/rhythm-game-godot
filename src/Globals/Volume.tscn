@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://c0r5r2p80ycsd"]
+
+[ext_resource type="Script" uid="uid://b00bsax2bplps" path="res://src/Globals/Volume.gd" id="1_ehgdu"]
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="2_nulcf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyu2m"]
+bg_color = Color(0.12955844, 0.1295585, 0.12955838, 1)
+border_width_left = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.011087579, 0.011087578, 0.01108758, 0.6862745)
+border_blend = true
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+anti_aliasing_size = 0.818
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul7al"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.029506553, 0.029506562, 0.029506536, 1)
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd56w"]
+bg_color = Color(0.14767182, 0.14767182, 0.14767176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.09998604, 0.09998598, 0.09998601, 1)
+border_blend = true
+corner_radius_top_left = 1000000000
+corner_radius_top_right = 1000000000
+corner_radius_bottom_right = 1000000000
+corner_radius_bottom_left = 1000000000
+corner_detail = 20
+
+[node name="Volume" type="CanvasLayer" unique_id=339640661]
+
+[node name="Volume" type="Control" parent="." unique_id=37775117]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_ehgdu")
+
+[node name="ShowTime" type="Timer" parent="Volume" unique_id=868353587]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+ignore_time_scale = true
+
+[node name="Background" type="Panel" parent="Volume" unique_id=897658757]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oyu2m")
+
+[node name="Bar" type="ProgressBar" parent="Volume" unique_id=1088608421]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ul7al")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hd56w")
+min_value = -80.0
+max_value = 0.0
+value = -40.0
+show_percentage = false
+
+[node name="Text" type="RichTextLabel" parent="Volume" unique_id=1341645219]
+layout_mode = 0
+offset_right = 148.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("2_nulcf")
+theme_override_font_sizes/normal_font_size = 14
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="timeout" from="Volume/ShowTime" to="Volume" method="_on_show_time_timeout"]
