@@ -1,6 +1,7 @@
 extends Node
 
 var NextSongToPlay = ""
+var CurrentPulse = null
 
 func GetBeatFromTime(beat, time):
 	print(time * beat / 60)

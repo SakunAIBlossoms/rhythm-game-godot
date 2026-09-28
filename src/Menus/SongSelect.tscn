@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dm1y8bncvwxbk" path="res://src/Menus/SongSelect.gd" id="1_t7agu"]
 [ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="2_30wvq"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="3_c7kw3"]
-[ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://src/Shaders/SongSelect.gdshader" id="4_30wvq"]
+[ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://Assets/Shaders/SongSelect.gdshader" id="4_30wvq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
 shader = ExtResource("4_30wvq")

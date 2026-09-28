@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://drqixw2gb3qmn" path="res://src/Gameplay/Effects/EffectHandler.tscn" id="5_g2td4"]
 [ext_resource type="Texture2D" uid="uid://v62hgpkbcwny" path="res://Assets/Skins/Default/Health/foreground.png" id="5_kh3eh"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oyu2m"]
-viewport_path = NodePath("Playfields")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nasuu"]
 content_margin_left = 0.0
 bg_color = Color(0.50980395, 0, 0, 0.42745098)
@@ -39,14 +36,7 @@ script = ExtResource("1_7alqp")
 layer = 3
 follow_viewport_enabled = true
 
-[node name="Render" type="TextureRect" parent="Gameplay" unique_id=93254400]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("ViewportTexture_oyu2m")
+[node name="Playfields" type="Node2D" parent="Gameplay" unique_id=492413280]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1949891178]
 layer = 4
@@ -58,13 +48,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -78.19995
-offset_top = -466.2
-offset_right = 0.8000488
-offset_bottom = 97.79999
+offset_left = -53.0
+offset_top = -344.0
+offset_right = 26.0
+offset_bottom = 220.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.6, 0.6)
 value = 100.0
 fill_mode = 3
 texture_under = ExtResource("4_g2td4")
@@ -89,11 +79,9 @@ text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cam" type="Camera2D" parent="." unique_id=185870602]
-position = Vector2(640, 360)
-
 [node name="Debug" type="CanvasLayer" parent="." unique_id=2021371934]
 layer = 15
+visible = false
 
 [node name="Conductor" type="Panel" parent="Debug" unique_id=1980176241]
 offset_left = 15.0
@@ -136,5 +124,5 @@ vertical_alignment = 1
 
 [node name="EffectHandler" parent="." unique_id=1605707571 instance=ExtResource("5_g2td4")]
 
-[node name="Playfields" type="Node2D" parent="." unique_id=492413280]
-position = Vector2(640, 0)
+[node name="Cam" type="Camera2D" parent="." unique_id=185870602]
+position = Vector2(640, 360)

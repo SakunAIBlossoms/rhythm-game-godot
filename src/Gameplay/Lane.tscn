@@ -49,6 +49,7 @@ offset_bottom = 720.0
 script = ExtResource("2_xg7bb")
 
 [node name="Timing" type="RichTextLabel" parent="Receptor" unique_id=1327665945]
+visible = false
 layout_mode = 0
 offset_top = -30.0
 offset_right = 90.0
@@ -87,6 +88,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Bind" type="Label" parent="Receptor" unique_id=451540579]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

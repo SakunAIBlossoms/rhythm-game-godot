@@ -1,10 +1,15 @@
 extends Control
 
 var _visfill := 0.0
-var volume := 0.0
+var volume := -10.0
 var shown = false
 
 var amount = 5
+
+func _ready():
+	UpdateVolume()
+	shown = true
+	$ShowTime.start()
 
 func _process(delta: float) -> void:
 	_visfill = lerp(_visfill, volume, 8*delta)

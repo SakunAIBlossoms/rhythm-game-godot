@@ -48,6 +48,7 @@ corner_radius_bottom_left = 1000000000
 corner_detail = 20
 
 [node name="Volume" type="CanvasLayer" unique_id=339640661]
+layer = 100
 
 [node name="Volume" type="Control" parent="." unique_id=37775117]
 custom_minimum_size = Vector2(150, 45)

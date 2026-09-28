@@ -1,67 +1,86 @@
 [gd_scene format=3 uid="uid://drqixw2gb3qmn"]
 
 [ext_resource type="Script" uid="uid://clbj3unlfhoma" path="res://src/Gameplay/Effects/EffectHandler.gd" id="1_7wh0t"]
-[ext_resource type="PackedScene" uid="uid://c3bjptnd1l788" path="res://src/Gameplay/Effects/Flash.tscn" id="1_68aps"]
 [ext_resource type="Shader" uid="uid://csafs0gxo016v" path="res://Assets/Shaders/Retro.gdshader" id="2_7wh0t"]
 [ext_resource type="Shader" uid="uid://7cy4o4m4idcr" path="res://Assets/Shaders/Bloom.gdshader" id="3_ptdj1"]
+[ext_resource type="Script" uid="uid://dy1e7gevck601" path="res://src/Gameplay/Effects/UpdateShader.gd" id="3_yl1jg"]
+[ext_resource type="Shader" uid="uid://cm5rd8v0lqueu" path="res://Assets/Shaders/Vignette.gdshader" id="4_7wh0t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yl1jg"]
 shader = ExtResource("2_7wh0t")
-shader_parameter/brightness = 1.02
-shader_parameter/contrast = 1.08
-shader_parameter/saturation = 1.1
-shader_parameter/gamma = 1.05
-shader_parameter/curvature = 0.14
-shader_parameter/corner_soften = 0.06
-shader_parameter/vignette = 0.38
-shader_parameter/scanline_strength = 0.95
-shader_parameter/scanline_density = 1.15
-shader_parameter/interlace_strength = 0.2
-shader_parameter/mask_strength = 0.22
-shader_parameter/mask_scale = 1.0
-shader_parameter/chroma_offset_px = 1.6
-shader_parameter/luma_smear_px = 2.2
-shader_parameter/jitter_px = 1.8
-shader_parameter/wobble_px = 1.5
-shader_parameter/tape_noise = 0.22
-shader_parameter/tape_lines = 0.35
-shader_parameter/roll_speed = 0.1
-shader_parameter/roll_strength = 0.15
-shader_parameter/glow_strength = 0.25
-shader_parameter/glow_threshold = 0.65
+shader_parameter/total_shader_scale = 0.0
+shader_parameter/crt_curve = 0.030000001425
+shader_parameter/crt_scan_line_color = 0.347
+shader_parameter/aperture_grille_rate = 0.4
+shader_parameter/rf_switch_esque_blur = 1.0
+shader_parameter/white_noise_rate = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o37jj"]
 shader = ExtResource("3_ptdj1")
 shader_parameter/bloom_spread = 1.0
 shader_parameter/bloom_intensity = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68aps"]
+shader = ExtResource("4_7wh0t")
+shader_parameter/alpha = 0.0
+shader_parameter/inner_radius = 0.2
+shader_parameter/outer_radius = 1.4
+
 [node name="EffectHandler" type="CanvasLayer" unique_id=1605707571]
+layer = 14
 script = ExtResource("1_7wh0t")
 
-[node name="Flash" parent="." unique_id=1939005273 instance=ExtResource("1_68aps")]
+[node name="Flashes" type="Control" parent="." unique_id=2078803836]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0)
 
 [node name="Shaders" type="Node2D" parent="." unique_id=703890628]
 
-[node name="CRT" type="ColorRect" parent="Shaders" unique_id=2107525317]
-visible = false
+[node name="Retro" type="ColorRect" parent="Shaders" unique_id=2107525317]
 material = SubResource("ShaderMaterial_yl1jg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter = &"total_shader_scale"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/Retro" unique_id=214546382]
+copy_mode = 2
 
 [node name="Bloom" type="ColorRect" parent="Shaders" unique_id=2093639793]
-visible = false
 material = SubResource("ShaderMaterial_o37jj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter = &"bloom_intensity"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/Bloom" unique_id=970725147]
+copy_mode = 2
+
+[node name="Vignette" type="ColorRect" parent="Shaders" unique_id=1154450089]
+material = SubResource("ShaderMaterial_68aps")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter = &"alpha"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/Vignette" unique_id=315323962]
+copy_mode = 2

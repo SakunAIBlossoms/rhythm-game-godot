@@ -3,11 +3,7 @@
 [ext_resource type="Script" uid="uid://cv8k0nsmrspqu" path="res://src/Gameplay/playfield.gd" id="1_ar1bw"]
 
 [node name="Playfield" type="Control" unique_id=2115817700]
+custom_minimum_size = Vector2(0, 720)
 layout_mode = 3
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_ar1bw")

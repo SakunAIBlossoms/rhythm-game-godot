@@ -6,6 +6,8 @@ var Playfield = preload("res://src/Gameplay/Playfield.tscn")
 @onready var Camera = get_node("Cam")
 var chartdata = {}
 
+var pulse
+
 var playfields = []
 
 func _ready():
@@ -16,13 +18,14 @@ func _ready():
 	pf.setup(chartdata)
 	pf.name = "Playfield"
 	playfields.push_back(pf)
-	$Playfields.add_child(pf)
+	$Gameplay/Playfields.add_child(pf)
 	
 	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/effects.json"):
 		Log.pr("Found an effect file!")
 		var file = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/effects.json", FileAccess.READ)
 		var raw = JSON.parse_string(file.get_as_text())
 		$EffectHandler.Setup(raw)
+		Conductor.Beat.connect(BeatHit)
 	else:
 		Log.pr("Cannot find an effect file, skipping!")
 	
@@ -37,7 +40,19 @@ func _ready():
 	else:
 		Log.error("Cannot find the metadata file")
 	
+	for playfield in $Gameplay/Playfields.get_children():
+		playfield.position.x = (1280/2) - (playfield.size.x/2)
+	
 	Conductor.play()
+
+func BeatHit(beat):
+	if Utils.CurrentPulse != null:
+		if beat % int(Utils.CurrentPulse.interval) == 0:
+			Camera.zoom += Vector2((Utils.CurrentPulse.zoom/10), (Utils.CurrentPulse.zoom/10))
+
+func _process(dt:float):
+	if Utils.CurrentPulse != null: Camera.zoom = lerp(Camera.zoom, Vector2(1.0, 1.0), (12*Utils.CurrentPulse.strength)*dt)
+
 
 #func _unhandled_key_input(event: InputEvent) -> void:
 #	print(event.as_text())

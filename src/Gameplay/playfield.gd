@@ -18,9 +18,9 @@ func setup(data) -> void:
 			templane.name = str(key)
 			add_child(templane)
 			templane.position.x = templane.size.x * key
+			self.size.x += templane.size.x
 		else:
 			push_error("Cannot instantiate lane "+str(key))
-	self.position.x = self.position.x - self.size.x / 2
 
 func _physics_process(_delta: float) -> void:
 	if Config.Upscroll:
