@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cprlibb87hy1q"]
+
+[ext_resource type="Script" uid="uid://n1qkjpjlgfk8" path="res://src/Gameplay/Storyboard/storyboard.gd" id="1_wfu4v"]
+
+[node name="Storyboard" type="Node2D" unique_id=1555083176]
+script = ExtResource("1_wfu4v")
+
+[node name="Back" type="CanvasLayer" parent="." unique_id=875778674]
+
+[node name="Top" type="CanvasLayer" parent="." unique_id=1554580350]
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1999875430]

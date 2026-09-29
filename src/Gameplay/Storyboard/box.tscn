@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://becqrqo1nxtea"]
+
+[ext_resource type="Script" uid="uid://b8wti6of4eiuo" path="res://src/Gameplay/Storyboard/box.gd" id="1_rmse0"]
+
+[node name="Square" type="Panel" unique_id=2113122386]
+script = ExtResource("1_rmse0")

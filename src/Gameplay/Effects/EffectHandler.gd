@@ -62,7 +62,7 @@ func _physics_process(_delta: float) -> void:
 		if int(Conductor.songPosition) >= int(shader.time) and shader.Triggered == false:
 			if ShaderNodes.get(shader.shader, null) != null:
 				Log.pr("Updating values for "+shader.shader+" shader at "+str(int(Conductor.songPosition))+" from value "+str(shader.startparams.x)+" to value "+str(shader.endparams.x))
-				ShaderNodes.get(shader.shader, null).UpdateShader(shader.duration, shader.usestart, shader.startparams.x, shader.endparams.x, shader.transease)
+				ShaderNodes.get(shader.shader, null).UpdateShader(shader.duration, shader.usestart, shader.startparams, shader.endparams, shader.transease)
 			else: Log.pr("Cannot find "+shader.shader)
 			shader.Triggered = true
 

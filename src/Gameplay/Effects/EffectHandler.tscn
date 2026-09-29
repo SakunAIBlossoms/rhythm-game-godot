@@ -6,15 +6,6 @@
 [ext_resource type="Script" uid="uid://dy1e7gevck601" path="res://src/Gameplay/Effects/UpdateShader.gd" id="3_yl1jg"]
 [ext_resource type="Shader" uid="uid://cm5rd8v0lqueu" path="res://Assets/Shaders/Vignette.gdshader" id="4_7wh0t"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yl1jg"]
-shader = ExtResource("2_7wh0t")
-shader_parameter/total_shader_scale = 0.0
-shader_parameter/crt_curve = 0.030000001425
-shader_parameter/crt_scan_line_color = 0.347
-shader_parameter/aperture_grille_rate = 0.4
-shader_parameter/rf_switch_esque_blur = 1.0
-shader_parameter/white_noise_rate = 0.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o37jj"]
 shader = ExtResource("3_ptdj1")
 shader_parameter/bloom_spread = 1.0
@@ -25,6 +16,15 @@ shader = ExtResource("4_7wh0t")
 shader_parameter/alpha = 0.0
 shader_parameter/inner_radius = 0.2
 shader_parameter/outer_radius = 1.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yl1jg"]
+shader = ExtResource("2_7wh0t")
+shader_parameter/total_shader_scale = 0.0
+shader_parameter/crt_curve = 0.030000001425
+shader_parameter/crt_scan_line_color = 0.347
+shader_parameter/aperture_grille_rate = 0.4
+shader_parameter/rf_switch_esque_blur = 1.0
+shader_parameter/white_noise_rate = 0.0
 
 [node name="EffectHandler" type="CanvasLayer" unique_id=1605707571]
 layer = 14
@@ -40,21 +40,6 @@ grow_vertical = 2
 
 [node name="Shaders" type="Node2D" parent="." unique_id=703890628]
 
-[node name="Retro" type="ColorRect" parent="Shaders" unique_id=2107525317]
-material = SubResource("ShaderMaterial_yl1jg")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 720.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_yl1jg")
-ShaderParameter = &"total_shader_scale"
-
-[node name="Buffer" type="BackBufferCopy" parent="Shaders/Retro" unique_id=214546382]
-copy_mode = 2
-
 [node name="Bloom" type="ColorRect" parent="Shaders" unique_id=2093639793]
 material = SubResource("ShaderMaterial_o37jj")
 anchors_preset = 15
@@ -65,7 +50,7 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_yl1jg")
-ShaderParameter = &"bloom_intensity"
+ShaderParameter1 = &"bloom_intensity"
 
 [node name="Buffer" type="BackBufferCopy" parent="Shaders/Bloom" unique_id=970725147]
 copy_mode = 2
@@ -80,7 +65,22 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_yl1jg")
-ShaderParameter = &"alpha"
+ShaderParameter1 = &"alpha"
 
 [node name="Buffer" type="BackBufferCopy" parent="Shaders/Vignette" unique_id=315323962]
+copy_mode = 2
+
+[node name="Retro" type="ColorRect" parent="Shaders" unique_id=2107525317]
+material = SubResource("ShaderMaterial_yl1jg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter1 = &"total_shader_scale"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/Retro" unique_id=214546382]
 copy_mode = 2
