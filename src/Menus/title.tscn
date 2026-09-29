@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dbk27jtkg5xve"]
+
+[ext_resource type="AudioStream" uid="uid://dndmywpe18tsp" path="res://Assets/Music/Ponder.mp3" id="1_2feq6"]
+[ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="2_wm58i"]
+
+[node name="Title" type="Control" unique_id=1716394695]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="AudioStreamPlayer" parent="." unique_id=2094560384]
+stream = ExtResource("1_2feq6")
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2122286555]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 654.0
+offset_right = 517.0
+offset_bottom = 774.0
+theme_override_colors/default_color = Color(0.6627451, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_wm58i")
+theme_override_font_sizes/normal_font_size = 49
+bbcode_enabled = true
+text = "[wave]Press CONFIRM"
