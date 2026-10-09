@@ -5,17 +5,20 @@ var BaseNote = preload("res://src/Gameplay/note.tscn")
 @export var ID = -1
 @export var Hitpoint:float = Config.Hitpoint
 @export var BackgroundAlpha:float = 0.4
+@export var fake:bool = false
 
 var Notes = []
 
 @onready var Background:ColorRect = $Background
 @onready var Receptor:Control = $Receptor
 
-# Called when the node enters the scene tree for the first time.
+var Bind:String = "Space"
+
 func _ready() -> void:
 	if ID < 0 or typeof(ID) != TYPE_INT: push_error("ID is not valid")
-	if Config.Binds[ID] != null:
+	if Config.Binds.get(ID) != null:
 		Receptor.get_node("Bind").text = Config.Binds[ID].to_upper()
+		Bind = Config.Binds.get(ID)
 	else:
 		Receptor.get_node("Bind").visible = false
 
@@ -46,10 +49,11 @@ func _process(delta: float) -> void:
 	#	Receptor.get_node("Timing").position.y = Receptor.get_node("Timing").position.y
 
 func _unhandled_input(event: InputEvent):
+	if fake: return
 	if event is InputEventKey:
-		if Config.Binds[ID].to_upper() == event.as_text() and event.is_pressed():
+		if Bind.to_upper() == event.as_text() and event.is_pressed():
 			HitNote()
-		if Config.Binds[ID].to_upper() == event.as_text() and event.is_released():
+		if Bind.to_upper() == event.as_text() and event.is_released():
 			LetGo()
 
 func HitNote():

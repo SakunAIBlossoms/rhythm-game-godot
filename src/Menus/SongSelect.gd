@@ -12,6 +12,7 @@ func _ready() -> void:
 	var list = DirAccess.get_directories_at("res://Songs/")
 	var i = -1
 	for song in list:
+		i += 1
 		%CurrentlyLoading.text = "Currently loading "+song
 		var file = FileAccess.open("res://Songs/"+song+"/meta.txt", FileAccess.READ)
 		var raw = file.get_as_text()
@@ -19,12 +20,13 @@ func _ready() -> void:
 		var dict = {
 			"RawName" = song,
 			"Name" = data[0],
-			"Cover" = data[1],
+			"Cover" = load("res://Songs/"+song+"/"+data[1]),
 			"BPM" = float(data[2]),
 			"PreviewTime" = float(data[3]),
 			"AudioFile" = data[4],
 			"Artist" = data[5],
-			"Mapper" = data[6]
+			"Mapper" = data[6],
+			"ExtraPlayfields" = data[7]
 		}
 		SongList.push_front(dict)
 		
@@ -43,16 +45,18 @@ func _input(event:InputEvent):
 	if event is InputEventKey:
 		if event.is_action_released("ui_down"):
 			ChangeID(1)
-		if event.is_action_released("ui_accept"):
+		if event.is_action_released("ui_up"):
 			ChangeID(-1)
 		
 		if event.is_action_released("ui_accept"):
 			SelectSong()
 
 func ChangeID(amount):
-	curSel = wrapi(amount, 0, SongList.size()-1)
+	curSel = wrapi(curSel+amount, 0, SongList.size())
 	UpdateInformation(SongList[curSel])
-	SongObjects[curSel].Selected()
+	for obj in SongObjects:
+		if obj.ID == curSel: obj.Selected()
+		else: obj.Unselected()
 
 func SelectSong():
 	Utils.NextSongToPlay = SongList[curSel].get("RawName")
@@ -62,9 +66,9 @@ func UpdateInformation(data):
 	%Name.text = WaveTextBBCode+data.get("Name")
 	%Artist.text = WaveTextBBCode+data.get("Artist")
 	%Mapper.text = WaveTextBBCode+data.get("Mapper")
+	%Icon.texture = data.get("Cover", Utils.MissingIcon)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float):
 	for child in $SongList.get_children():
-		@warning_ignore("integer_division")
-		child.position.y = (720/2)+15*child.ID
+		child.position.y = child.size.y+15*child.ID

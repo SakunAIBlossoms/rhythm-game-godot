@@ -16,6 +16,12 @@ func UpdateShader(duration:float, usestart:bool, startvalue:Variant, endvalue:Va
 	return twn
 
 func _internal_shader_value_update(value:Variant) -> void:
+	if value.x == 0.0: self.visible = false
+	else: self.visible = true
+	
 	if ShaderParameter1 != "": get_material().set_shader_parameter(ShaderParameter1, value.x)
 	if ShaderParameter2 != "": get_material().set_shader_parameter(ShaderParameter2, value.y)
 	if ShaderParameter3 != "": get_material().set_shader_parameter(ShaderParameter3, value.z)
+	
+	if self.name == "SplitScreen":
+		get_material().set_shader_parameter("SplitInv", Vector2(1.0/float(get_material().get_shader_parameter(ShaderParameter2)), 1.0/float(get_material().get_shader_parameter(ShaderParameter3))))

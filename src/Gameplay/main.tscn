@@ -38,6 +38,9 @@ follow_viewport_enabled = true
 
 [node name="Playfields" type="Node2D" parent="Gameplay" unique_id=492413280]
 
+[node name="1" type="TextureRect" parent="Gameplay/Playfields" unique_id=862301730]
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1949891178]
 layer = 4
 follow_viewport_enabled = true
@@ -81,7 +84,6 @@ vertical_alignment = 1
 
 [node name="Debug" type="CanvasLayer" parent="." unique_id=2021371934]
 layer = 15
-visible = false
 
 [node name="Conductor" type="Panel" parent="Debug" unique_id=1980176241]
 offset_left = 15.0
@@ -126,3 +128,7 @@ vertical_alignment = 1
 
 [node name="Cam" type="Camera2D" parent="." unique_id=185870602]
 position = Vector2(640, 360)
+ignore_rotation = false
+limit_enabled = false
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true

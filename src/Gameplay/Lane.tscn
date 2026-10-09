@@ -16,6 +16,7 @@ shadow_color = Color(0, 0, 0, 0.4509804)
 shadow_offset = Vector2(2, 2)
 
 [node name="Lane" type="Control" unique_id=79486202]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 90.0

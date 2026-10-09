@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bxs5saju2mok6"]
+
+[ext_resource type="FontFile" uid="uid://bfp7txpy8drfv" path="res://Assets/Fonts/Debug.ttf" id="1_6ngkf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6w52"]
+bg_color = Color(0, 0, 0, 0.8039216)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6w52"]
+content_margin_left = 5.0
+
+[node name="Template" type="Panel" unique_id=1643280147]
+custom_minimum_size = Vector2(250, 45)
+theme_override_styles/panel = SubResource("StyleBoxFlat_x6w52")
+
+[node name="ErrorText" type="RichTextLabel" parent="." unique_id=1812540210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_6ngkf")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x6w52")
+bbcode_enabled = true
+text = "Error goes here."
+fit_content = true
+scroll_active = false
+vertical_alignment = 1

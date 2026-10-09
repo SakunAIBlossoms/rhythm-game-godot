@@ -1,38 +1,38 @@
 shader_type canvas_item;
 
-// The texture to receive the effect.
-uniform sampler2D input_texture: hint_default_black, filter_linear_mipmap, repeat_enable;
-// Defines the origin point of the zoom effect relative to the texture size.
-uniform vec2 zoom_center = vec2(0.5, 0.5);
-// Adjusts the number of times the texture should get mirrored.
-uniform int layers = 5;
-// Adjusts the alpha/transparency of each layer relative to the last.
-uniform float opacity = 0.5;
-// Adjusts the boost given to the colors of the input texture.
-uniform float original_opacity_mod: hint_range(0.0, 1.0) = 0.0;
-// Adjusts the magnification of each layer relative to the last.
-uniform float zoom = 0.25;
-// Range between 0 and 1 of how much to use a normalized vector from the zoom origin.
-uniform float normalization: hint_range(0.0, 1.0) = 1.0;
-// Range between -1 and 1 of how much to zoom the normalized vector relative to the texture size.
-uniform float normalized_scale: hint_range(-1.0, 1.0) = 0.01;
+uniform vec2 TexSize = vec2(1280,720);
+uniform float Strength = 0.0;
+uniform float Scale = 0.0;
 
-// Adjust UV per new scale and pivot
-vec2 adj_uv(vec2 a_uv, float a_scale, vec2 a_pivot){
-	return a_pivot + (a_uv - a_pivot) * pow(a_scale, -1.0);
-}
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
-void fragment() {
-	vec4 original_color = texture(input_texture, UV);
-	COLOR = original_color;
-	for (int iter = 1; iter < layers + 1; iter++){
-		vec2 adjusted_uv = adj_uv(UV, 1.0 + (zoom * float(iter)), zoom_center);
-		vec2 adjusted_vector = adjusted_uv - UV;
-		vec2 zoom_vector = (zoom_center - UV);
-		vec2 normalized_vector = normalize(zoom_vector) * float(iter) * normalized_scale;
-		zoom_vector = mix(adjusted_vector, normalized_vector, normalization);
-		vec4 sample_color = texture(input_texture, zoom_vector + UV);
-		float opacity_mod = 1.0 - (original_color.a * original_opacity_mod);
-		COLOR = mix(COLOR, sample_color, sample_color.a * pow(opacity, float(iter)) * opacity_mod);
+const float threshold = 0.01;
+const float maxSamples = 10.0;
+
+void fragment()
+{
+	vec2 uv = FRAGCOORD.xy / TexSize;
+	
+	// Iterate until barely visible, caps at 20
+	float samples = maxSamples;
+	if (Strength != 1.0)
+		float samples = min(floor(log(threshold)/ log(Strength)) + 1.0, maxSamples);
+	vec2 toCenter = uv - vec2(0.5,0.5);
+	
+	// Initialise parameters
+	vec3 color = vec3(0.0,0.0,0.0);
+	vec2 scaleFactor = Scale + vec2(1.0,1.0);
+	vec2 scale = vec2(1.0,1.0);
+	float strength = 1.0;
+	
+	for (float i=0.0; i<samples; i++)
+	{
+		vec2 sampleUV = toCenter / scale + vec2(0.5,0.5);
+		vec4 sampled = texture(SCREEN_TEXTURE, sampleUV);
+		color += strength * sampled.w * sampled.xyz;
+		scale *= scaleFactor;
+		strength *= Strength;
 	}
+	
+	COLOR = vec4(color,1.0);
 }

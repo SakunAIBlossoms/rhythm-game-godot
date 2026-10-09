@@ -22,13 +22,13 @@ This plugin is available in the Asset Library as:
 - Select which Lua libraries and Godot APIs will be available per Lua state, making sandboxing easier:
   + Lua libraries are the same as Lua/C, like `base`, `package` and `io` libraries
   + Godot APIs:
-    + Create and manipulate Variant values
-    + Instantiate objects and access class constants
-    + Access singleton objects by name
-    + Global utility functions, like Godot's `print_rich`, `lerp` and `is_same`.
-      Also adds an `await` function that mimics GDScript's `await` keyword (only supported when running in a coroutine).
-    + Global enums, like `OK`, `TYPE_STRING` and `SIDE_LEFT`
-    + Patch Lua `package.searchers`, `require`, `loadfile` and `dofile` to accept paths relative to `res://` and `user://`
+	+ Create and manipulate Variant values
+	+ Instantiate objects and access class constants
+	+ Access singleton objects by name
+	+ Global utility functions, like Godot's `print_rich`, `lerp` and `is_same`.
+	  Also adds an `await` function that mimics GDScript's `await` keyword (only supported when running in a coroutine).
+	+ Global enums, like `OK`, `TYPE_STRING` and `SIDE_LEFT`
+	+ Patch Lua `package.searchers`, `require`, `loadfile` and `dofile` to accept paths relative to `res://` and `user://`
 - Editor plugin with Lua REPL for testing out Lua snippets
 - Choose between Lua 5.4 or LuaJIT v2.1 runtimes (distributed as separate addons)
   + Note: LuaJIT does not support WebAssebly, so Lua 5.4 is always used in Web platform
@@ -130,7 +130,7 @@ else:
 assert(lua.globals is LuaTable)
 lua.globals["a_godot_callable"] = func(): print("Hello from GDScript!")
 lua.do_string("""
-    a_godot_callable()  -- 'Hello from GDScript!'
+	a_godot_callable()  -- 'Hello from GDScript!'
 """)
 ```
 

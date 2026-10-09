@@ -7,6 +7,7 @@ signal Deleted()
 
 func Setup():
 	self.name = str(time)
+	self.texture = Config.NoteSkin.HitObject.get(type)
 
 var canHit = true
 var HasBeenHit = false

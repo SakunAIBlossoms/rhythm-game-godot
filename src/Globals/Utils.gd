@@ -3,6 +3,14 @@ extends Node
 var NextSongToPlay = ""
 var CurrentPulse = null
 
+var MissingIcon = load("res://icon.svg")
+
+var DefaultLuaScript = """
+local Script = {}
+
+
+"""
+
 func GetBeatFromTime(beat, time):
 	print(time * beat / 60)
 	return time * beat / 60

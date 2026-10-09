@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cv8k0nsmrspqu" path="res://src/Gameplay/playfield.gd" id="1_ar1bw"]
 
-[node name="Playfield" type="Control" unique_id=2115817700]
-custom_minimum_size = Vector2(0, 720)
-layout_mode = 3
-anchors_preset = 0
+[node name="Playfield" type="SubViewport" unique_id=1909160708]
+transparent_bg = true
+size = Vector2i(2, 720)
 script = ExtResource("1_ar1bw")

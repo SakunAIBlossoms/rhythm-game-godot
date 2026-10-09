@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8a8ar4loysre"
+path="res://.godot/imported/Camellia - Arche.mp3-8b8160b19a309f2b6ea4adc50ef5fec8.mp3str"
+
+[deps]
+
+source_file="res://Songs/arche/Camellia - Arche.mp3"
+dest_files=["res://.godot/imported/Camellia - Arche.mp3-8b8160b19a309f2b6ea4adc50ef5fec8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
