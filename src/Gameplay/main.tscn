@@ -29,8 +29,18 @@ func _process(_d):
 	%Beat.text = \"Beat: \"+str(Conductor.curBeat)
 "
 
+[sub_resource type="GDScript" id="GDScript_g2td4"]
+script/source = "extends Camera2D
+
+@export var BaseCamZoom:Vector2 = Vector2(1.0,1.0)
+"
+
 [node name="Main" type="Node2D" unique_id=866178733]
 script = ExtResource("1_7alqp")
+
+[node name="3SecondIntroTimer" type="Timer" parent="." unique_id=1509939670]
+wait_time = 3.0
+one_shot = true
 
 [node name="Gameplay" type="CanvasLayer" parent="." unique_id=43334772]
 layer = 3
@@ -124,6 +134,17 @@ theme_override_font_sizes/normal_font_size = 9
 text = "Beat: "
 vertical_alignment = 1
 
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=937613068]
+layer = 14
+
+[node name="Background" type="ColorRect" parent="Overlay" unique_id=1737553708]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="EffectHandler" parent="." unique_id=1605707571 instance=ExtResource("5_g2td4")]
 
 [node name="Cam" type="Camera2D" parent="." unique_id=185870602]
@@ -131,4 +152,8 @@ position = Vector2(640, 360)
 ignore_rotation = false
 limit_enabled = false
 position_smoothing_enabled = true
+position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
+script = SubResource("GDScript_g2td4")
+
+[connection signal="timeout" from="3SecondIntroTimer" to="." method="_on_second_intro_timer_timeout"]

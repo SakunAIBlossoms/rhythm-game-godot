@@ -1,7 +1,6 @@
 // https://github.com/InventiveRhythm/fluXis/blob/main/fluXis.Resources/Shaders/sh_Glitch.fs
 shader_type canvas_item;
 
-uniform vec2 TexSize = vec2(1280,720);
 uniform float StrengthX = 0.0;
 uniform float StrengthY = 0.0;
 uniform float BlockSize = 0.0;
@@ -16,9 +15,9 @@ highp float random(highp vec2 st, float seed)
 void fragment() {
 	vec2 Strength = vec2(StrengthX / 10.0, StrengthY / 10.0);
 	
-	vec2 uv = FRAGCOORD.xy / TexSize;
+	vec2 uv = SCREEN_UV;
 	
-	float blockSizeInPixels = mix(1.0, min(TexSize.x, TexSize.y), BlockSize);
+	float blockSizeInPixels = mix(1.0, min(1280.0, 720.0), BlockSize);
 	
 	vec2 blockUV = floor(uv * blockSizeInPixels) / blockSizeInPixels;
 	

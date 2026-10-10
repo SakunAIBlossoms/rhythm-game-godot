@@ -14,7 +14,10 @@ var tweenlist = []
 	"Chromatic" = ShadeP.get_node("Chromatic"),
 	"Glitch" = ShadeP.get_node("Glitch"),
 	"Reflections" = ShadeP.get_node("Reflections"),
-	"SplitScreen" = ShadeP.get_node("SplitScreen")
+	"SplitScreen" = ShadeP.get_node("SplitScreen"),
+	"Glitch2" = ShadeP.get_node("Glitch2"),
+	"HueShift" = ShadeP.get_node("HueShift"),
+	"Greyscale" = ShadeP.get_node("Greyscale")
 }
 
 var playfields:Array
@@ -92,6 +95,23 @@ func Setup(sent, pfs, cam):
 			_:
 				print("I don't know what effect %s is, is this something new perhaps?" % obj)
 
+func TogglePauseState(state:bool):
+	if state:
+		Log.pr("Pausing all tweens to pause the game.")
+		for twn in tweenlist:
+			if twn.is_valid():
+				twn.pause()
+			else:
+				Log.pr("Tween has already ended and cannot be paused again, skipping...")
+	else:
+		Log.pr("Resuming all tweens to unpause the game.")
+		for twn in tweenlist:
+			if twn.is_valid():
+				twn.play()
+			else:
+				Log.pr("Tween has already ended and should not be restarted, skipping...")
+		
+
 func _physics_process(_delta: float) -> void:
 	for flash in Effects.flash:
 		if int(Conductor.songPosition) >= int(flash.time) and flash.Triggered == false:
@@ -109,47 +129,51 @@ func _physics_process(_delta: float) -> void:
 		if int(Conductor.songPosition) >= int(shader.time) and shader.Triggered == false:
 			if ShaderNodes.get(shader.shader, null) != null:
 				Log.pr("Updating values for "+shader.shader+" shader at "+str(int(Conductor.songPosition))+" from value "+str(shader.startparams.x)+" to value "+str(shader.endparams.x))
-				ShaderNodes.get(shader.shader, null).UpdateShader(shader.duration, shader.usestart, shader.startparams, shader.endparams, shader.transease)
+				tweenlist.push_front(ShaderNodes.get(shader.shader, null).UpdateShader(shader.duration, shader.usestart, shader.startparams, shader.endparams, shader.transease))
 			else: Log.pr("Cannot find "+shader.shader)
 			shader.Triggered = true
 	
 	for rotationtodo in Effects.playfieldrotate:
 		if int(Conductor.songPosition) >= int(rotationtodo.time) and rotationtodo.Triggered == false:
-			_rotateplayfield(rotationtodo.duration, rotationtodo.roll, rotationtodo.playfield, rotationtodo.subfield, rotationtodo.easing)
+			tweenlist.push_front(_rotateplayfield(rotationtodo.duration, rotationtodo.roll, rotationtodo.playfield, rotationtodo.subfield, rotationtodo.easing))
 			rotationtodo.Triggered = true
 	
 	for fade in Effects.layerfade:
 		if int(Conductor.songPosition) >= int(fade.time) and fade.Triggered == false:
-			_layerfade(fade.duration, fade.alpha, fade.mylayer, fade.playfield, fade.subfield, fade.easing)
+			tweenlist.push_front(_layerfade(fade.duration, fade.alpha, fade.mylayer, fade.playfield, fade.subfield, fade.easing))
 			fade.Triggered = true
 	
 	for scaletodo in Effects.playfieldscale:
 		if int(Conductor.songPosition) >= int(scaletodo.time) and scaletodo.Triggered == false:
-			_scaleplayfield(scaletodo.duration, scaletodo.scale, scaletodo.playfield, scaletodo.subfield, scaletodo.easing)
+			tweenlist.push_front(_scaleplayfield(scaletodo.duration, scaletodo.scale, scaletodo.playfield, scaletodo.subfield, scaletodo.easing))
 			scaletodo.Triggered = true
 	
 	for movement in Effects.camera_move:
 		if int(Conductor.songPosition) >= int(movement.time) and movement.Triggered == false:
-			_cameramove(movement.duration, movement.position, movement.easing)
+			tweenlist.push_front(_cameramove(movement.duration, movement.position, movement.easing))
 			movement.Triggered = true
 	
 	for zoom in Effects.camera_scale:
 		if int(Conductor.songPosition) >= int(zoom.time) and zoom.Triggered == false:
-			_scalecamera(zoom.duration, zoom.zoom, zoom.easing)
+			tweenlist.push_front(_scalecamera(zoom.duration, zoom.zoom, zoom.easing))
 			zoom.Triggered = true
 	
 	for rotate in Effects.camera_rotation:
 		if int(Conductor.songPosition) >= int(rotate.time) and rotate.Triggered == false:
-			_camerarotate(rotate.duration, rotate.roll, rotate.easing)
+			tweenlist.push_front(_camerarotate(rotate.duration, rotate.roll, rotate.easing))
 			rotate.Triggered = true
 
 func _flashScreen(flash):
 	var newnode = FlashNode.instantiate()
-	for child in $Flashes.get_children():
-		child.queue_free()
-	$Flashes.add_child(newnode)
-	if flash.background: newnode.layer = 2
-	else: newnode.layer = 4
+	
+	if flash.background:
+		for child in $Flashes/Background.get_children():
+			child.queue_free()
+		$Flashes/Background.add_child(newnode)
+	else:
+		for child in $Flashes/Foreground.get_children():
+			child.queue_free()
+		$Flashes/Foreground.add_child(newnode)
 	tweenlist.push_front(newnode.Flash(flash.duration, flash.startcolour, flash.endcolour, flash.transease))
 
 @warning_ignore("unused_parameter")
@@ -158,7 +182,7 @@ func _scaleplayfield(duration:float, scaleto:Vector2, playfield:int, subfield:in
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	if subfield != 0: 
-		var pf = playfields.get(subfield-1)
+		var pf = playfields.get(subfield)
 		twn.tween_property(pf, "scale", scaleto, duration)
 	else:
 		for field in playfields:
@@ -172,7 +196,7 @@ func _rotateplayfield(duration:float, roll:float, playfield:int, subfield:int, e
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	if subfield != 0: 
-		var pf = playfields.get(subfield-1)
+		var pf = playfields.get(subfield)
 		twn.tween_property(pf, "rotation_degrees", roll, duration)
 	else:
 		for field in playfields:
@@ -202,7 +226,7 @@ func _moveplayfield(duration:float, position:Vector3, playfield:int, subfield:in
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	if subfield != 0: 
-		var pf = playfields.get(subfield-1)
+		var pf = playfields.get(subfield)
 		twn.tween_property(pf, "position", position, duration)
 	else:
 		for field in playfields:
@@ -218,7 +242,7 @@ func _layerfade(duration:float, alpha:float, playfield:int, coollayer:int, subfi
 	match(coollayer):
 		3:
 			if subfield != 0: 
-				var pf = playfields.get(subfield-1)
+				var pf = playfields.get(subfield)
 				twn.tween_property(pf, "modulate:a", alpha, duration)
 			else:
 				for field in playfields:
@@ -233,7 +257,7 @@ func _scalecamera(duration:float, zoom:float, easing:int) -> Tween:
 	var twn = create_tween()
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
-	twn.tween_property(Camera, "scale", Vector2(zoom, zoom), duration)
+	twn.tween_property(Camera, "BaseCamZoom", Vector2(zoom, zoom), duration)
 	
 	return twn
 
@@ -372,7 +396,7 @@ class BeatPulseClass extends BaseEffectClass:
 		self.time = data.get("time")
 		self.strength = data.get("strength")
 		self.zoom = data.get("zoom")
-		self.interval = data.get("interval")
+		self.interval = data.get("interval") if data.get("interval") > 0 else 999
 
 class FlashClass extends BaseEffectClass:
 	var duration := 0.0

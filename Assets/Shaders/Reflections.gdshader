@@ -1,6 +1,5 @@
 shader_type canvas_item;
 
-uniform vec2 TexSize = vec2(1280,720);
 uniform float Strength = 0.0;
 uniform float Scale = 0.0;
 
@@ -11,7 +10,7 @@ const float maxSamples = 10.0;
 
 void fragment()
 {
-	vec2 uv = FRAGCOORD.xy / TexSize;
+	vec2 uv = SCREEN_UV;
 	
 	// Iterate until barely visible, caps at 20
 	float samples = maxSamples;

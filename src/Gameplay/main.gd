@@ -14,8 +14,9 @@ var Scripts:Array = []
 
 var playfields = []
 
+var Paused:bool = false
+
 func _ready():
-	
 	var rawchart = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/chart.hdc", FileAccess.READ)
 	chartdata = ChartParser.ParseCustomChart(rawchart.get_as_text())
 	
@@ -58,27 +59,41 @@ func _ready():
 		var file = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/effects.json", FileAccess.READ)
 		var raw = JSON.parse_string(file.get_as_text())
 		$EffectHandler.Setup(raw, playfields, Camera)
-		#Conductor.Beat.connect(BeatHit)
+		Conductor.Beat.connect(BeatHit)
 	else:
 		Log.pr("Cannot find an effect file, skipping!")
 	
-	Conductor.play()
+	$"3SecondIntroTimer".start(3.0)
 
 func BeatHit(beat):
 	if Utils.CurrentPulse != null:
-		if roundi(Utils.CurrentPulse.interval) != 0 and Utils.CurrentPulse.zoom != 0.0:
-			if beat % roundi(Utils.CurrentPulse.interval) == 0:
+		if int(Utils.CurrentPulse.interval) != 0:
+			if beat % int(Utils.CurrentPulse.interval) == 0:
 				Camera.zoom += Vector2((Utils.CurrentPulse.zoom/10), (Utils.CurrentPulse.zoom/10))
 
+func _input(event:InputEvent):
+	if event is InputEventKey:
+		if event.is_pressed() and event.keycode == Key.KEY_ESCAPE and not Paused:
+			TogglePause()
+
+func TogglePause():
+	Paused = not Paused
+	
+	$EffectHandler.TogglePauseState(Paused)
+	Conductor.stream_paused = Paused
+
 func _process(dt:float):
-	if Utils.CurrentPulse != null: if roundi(Utils.CurrentPulse.interval) != 0 and Utils.CurrentPulse.zoom != 0.0: Camera.zoom = lerp(Camera.zoom, Vector2(1.0, 1.0), (12*Utils.CurrentPulse.strength)*dt)
+	if Utils.CurrentPulse != null: Camera.zoom = lerp(Camera.zoom, Camera.BaseCamZoom, (12*Utils.CurrentPulse.strength)*dt)
+	else: Camera.zoom = lerp(Camera.zoom, Camera.BaseCamZoom, 12*dt)
 
+func _song_finished():
+	# Replace this with a score screen later.
+	get_tree().change_scene_to_file("res://src/Menus/SongSelect.tscn")
 
-#func _unhandled_key_input(event: InputEvent) -> void:
-#	print(event.as_text())
-#	for pf in playfields:
-#		for lane in pf.get_children():
-#			if Config.Binds[lane.ID].to_upper() == event.as_text() and event.is_pressed():
-#				lane.HitNote()
-#			if Config.Binds[lane.ID].to_upper() == event.as_text() and event.is_released():
-#				lane.LetGo()
+class PlayerStatistics:
+	var Misses := 0
+	var NotesHit := 0
+	var Accuracy := "100%"
+
+func _on_second_intro_timer_timeout():
+	Conductor.play()

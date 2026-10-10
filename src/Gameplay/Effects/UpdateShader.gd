@@ -9,7 +9,13 @@ func UpdateShader(duration:float, usestart:bool, startvalue:Variant, endvalue:Va
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	
-	var truestartval = startvalue if usestart else Vector3(get_material().get_shader_parameter(ShaderParameter1) if ShaderParameter1 != "" else 0.0, get_material().get_shader_parameter(ShaderParameter2) if ShaderParameter2 != "" else 0.0, get_material().get_shader_parameter(ShaderParameter3) if ShaderParameter3 != "" else 0.0)
+	var catch = Vector3(
+		get_material().get_shader_parameter(ShaderParameter1) if ShaderParameter1 != "" else 0.0,
+		get_material().get_shader_parameter(ShaderParameter2) if ShaderParameter2 != "" else 0.0,
+		get_material().get_shader_parameter(ShaderParameter3) if ShaderParameter3 != "" else 0.0
+		)
+	
+	var truestartval = startvalue if usestart else catch
 	twn.tween_method(_internal_shader_value_update, truestartval, endvalue, duration)
 	twn.play()
 	

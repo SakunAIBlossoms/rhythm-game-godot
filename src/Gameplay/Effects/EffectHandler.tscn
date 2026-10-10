@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://csafs0gxo016v" path="res://Assets/Shaders/Retro.gdshader" id="2_7wh0t"]
 [ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="2_o37jj"]
 [ext_resource type="Shader" uid="uid://drt6vnaggymlx" path="res://Assets/Shaders/Fisheye.gdshader" id="2_yl1jg"]
+[ext_resource type="Shader" uid="uid://jagdpdu7318b" path="res://Assets/Shaders/Greyscale.gdshader" id="3_fvdfs"]
 [ext_resource type="Shader" uid="uid://7cy4o4m4idcr" path="res://Assets/Shaders/Bloom.gdshader" id="3_ptdj1"]
 [ext_resource type="Shader" uid="uid://h2lq3nbcwyf8" path="res://Assets/Shaders/Reflections.gdshader" id="3_tcbtx"]
 [ext_resource type="Script" uid="uid://dy1e7gevck601" path="res://src/Gameplay/Effects/UpdateShader.gd" id="3_yl1jg"]
@@ -11,17 +12,26 @@
 [ext_resource type="Shader" uid="uid://bnlb1ammjibge" path="res://Assets/Shaders/Glitch.gdshader" id="5_8yo8h"]
 [ext_resource type="Shader" uid="uid://dc4diosaql4ds" path="res://Assets/Shaders/Chromatic.gdshader" id="5_wfv2h"]
 [ext_resource type="Shader" uid="uid://8b8rwkdpuuwq" path="res://Assets/Shaders/SplitScreen.gdshader" id="5_xxcgh"]
+[ext_resource type="Shader" uid="uid://djf7xysp3ufni" path="res://Assets/Shaders/Glitch2.gdshader" id="6_av1vo"]
+[ext_resource type="Shader" uid="uid://clvvd3ht5hljb" path="res://Assets/Shaders/HueShift.gdshader" id="13_wu0tj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d64mb"]
+shader = ExtResource("3_fvdfs")
+shader_parameter/Strength = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30wvq"]
 shader = ExtResource("5_8yo8h")
-shader_parameter/TexSize = Vector2(1280, 720)
 shader_parameter/StrengthX = 0.0
 shader_parameter/StrengthY = 0.0
 shader_parameter/BlockSize = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6w52"]
+shader = ExtResource("6_av1vo")
+shader_parameter/Amount = 0.0
+shader_parameter/Speed = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g2td4"]
 shader = ExtResource("5_xxcgh")
-shader_parameter/TexSize = Vector2(1280, 720)
 shader_parameter/SplitInv = Vector2(0, 0)
 shader_parameter/Strength = 0.0
 shader_parameter/SplitsX = 0
@@ -29,18 +39,17 @@ shader_parameter/SplitsY = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8yo8h"]
 shader = ExtResource("5_wfv2h")
-shader_parameter/displacement = Vector2(0, 0)
+shader_parameter/displacement = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7kw3"]
 shader = ExtResource("3_tcbtx")
-shader_parameter/TexSize = Vector2(1280, 720)
 shader_parameter/Strength = 0.0
 shader_parameter/Scale = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wfv2h"]
 shader = ExtResource("3_ptdj1")
-shader_parameter/bloom_spread = 1.0
-shader_parameter/bloom_intensity = 0.0
+shader_parameter/blurSize = 0.002
+shader_parameter/intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68aps"]
 shader = ExtResource("4_7wh0t")
@@ -50,7 +59,11 @@ shader_parameter/outer_radius = 1.4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o37jj"]
 shader = ExtResource("2_yl1jg")
-shader_parameter/effect_amount = 1.1875000005545645e-07
+shader_parameter/Strength = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_av1vo"]
+shader = ExtResource("13_wu0tj")
+shader_parameter/Strength = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yl1jg"]
 shader = ExtResource("2_7wh0t")
@@ -67,7 +80,7 @@ script = ExtResource("1_7wh0t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2132619473]
 visible = false
-position = Vector2(897, 384)
+position = Vector2(622, 361)
 scale = Vector2(1, 1.0076028)
 texture = ExtResource("2_o37jj")
 
@@ -79,7 +92,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Background" type="CanvasLayer" parent="Flashes" unique_id=953725584]
+layer = 2
+
+[node name="Foreground" type="CanvasLayer" parent="Flashes" unique_id=151404264]
+layer = 4
+
 [node name="Shaders" type="Node2D" parent="." unique_id=703890628]
+
+[node name="Greyscale" type="ColorRect" parent="Shaders" unique_id=1730832137]
+visible = false
+material = SubResource("ShaderMaterial_d64mb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter1 = &"Strength"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/Greyscale" unique_id=1685018755]
+copy_mode = 2
 
 [node name="Glitch" type="ColorRect" parent="Shaders" unique_id=892592697]
 visible = false
@@ -97,6 +132,23 @@ ShaderParameter2 = &"StrengthY"
 ShaderParameter3 = &"BlockSize"
 
 [node name="Buffer" type="BackBufferCopy" parent="Shaders/Glitch" unique_id=1332733219]
+copy_mode = 2
+
+[node name="Glitch2" type="ColorRect" parent="Shaders" unique_id=975355332]
+visible = false
+material = SubResource("ShaderMaterial_x6w52")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter1 = &"Amount"
+ShaderParameter2 = &"Speed"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/Glitch2" unique_id=97887353]
 copy_mode = 2
 
 [node name="SplitScreen" type="ColorRect" parent="Shaders" unique_id=1153550939]
@@ -161,7 +213,7 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_yl1jg")
-ShaderParameter1 = &"bloom_intensity"
+ShaderParameter1 = &"intensity"
 
 [node name="Buffer" type="BackBufferCopy" parent="Shaders/Bloom" unique_id=970725147]
 copy_mode = 2
@@ -193,9 +245,25 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_yl1jg")
-ShaderParameter1 = &"effect_amount"
+ShaderParameter1 = &"Strength"
 
 [node name="Buffer" type="BackBufferCopy" parent="Shaders/Fisheye" unique_id=599027819]
+copy_mode = 2
+
+[node name="HueShift" type="ColorRect" parent="Shaders" unique_id=509181158]
+visible = false
+material = SubResource("ShaderMaterial_av1vo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter1 = &"Strength"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/HueShift" unique_id=230366755]
 copy_mode = 2
 
 [node name="Retro" type="ColorRect" parent="Shaders" unique_id=2107525317]

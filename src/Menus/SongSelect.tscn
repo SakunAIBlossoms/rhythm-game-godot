@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dm1y8bncvwxbk" path="res://src/Menus/SongSelect.gd" id="1_t7agu"]
 [ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="2_30wvq"]
+[ext_resource type="Shader" uid="uid://udme8k87e74l" path="res://Assets/Shaders/CornerRadius.gdshader" id="3_bdm1n"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="3_c7kw3"]
+[ext_resource type="Texture2D" uid="uid://bq2yojqsl6i0o" path="res://Assets/Images/Menus/SongSelect/Highlight.png" id="3_dksta"]
 [ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://Assets/Shaders/SongSelect.gdshader" id="4_30wvq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
@@ -17,6 +19,41 @@ shader_parameter/color_mid_threshold = 0.31600001501
 shader_parameter/color_low = Color(0.011137841, 0.44593006, 0.55052865, 1)
 shader_parameter/color_mid = Color(0.2973955, 0.32764742, 0.7043561, 1)
 shader_parameter/color_high = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_x6w52"]
+offsets = PackedFloat32Array(0.20476191, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c7kw3"]
+gradient = SubResource("Gradient_x6w52")
+
+[sub_resource type="Curve" id="Curve_bdm1n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x6w52"]
+curve = SubResource("Curve_bdm1n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dksta"]
+lifetime_randomness = 0.11
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 27, 0)
+angle_min = -12.0
+angle_max = 12.0
+gravity = Vector3(980, 0, 0)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_x6w52")
+color = Color(0.5847179, 1, 1, 0.6)
+color_ramp = SubResource("GradientTexture1D_c7kw3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_30wvq"]
+shader = ExtResource("3_bdm1n")
+shader_parameter/size = Vector2(181.5, 181.5)
+shader_parameter/top = 35.0
+shader_parameter/right = 35.0
+shader_parameter/bottom = 35.0
+shader_parameter/left = 35.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7agu"]
 content_margin_left = 24.0
@@ -63,6 +100,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Overlay" type="ColorRect" parent="." unique_id=1056507634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="SelectedHighlight" type="Control" parent="." unique_id=626997239]
+custom_minimum_size = Vector2(480, 60)
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 60.0
+
+[node name="Highlight" type="TextureRect" parent="SelectedHighlight" unique_id=880738577]
+modulate = Color(1, 1, 1, 0.45000002)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dksta")
+
+[node name="CPUParticles2D" type="GPUParticles2D" parent="SelectedHighlight" unique_id=2077032979]
+position = Vector2(-4, 30)
+amount = 100
+fixed_fps = 60
+draw_order = 0
+trail_enabled = true
+trail_lifetime = 0.05
+process_material = SubResource("ParticleProcessMaterial_dksta")
+
 [node name="SongList" type="Control" parent="." unique_id=708210038]
 anchors_preset = 0
 offset_right = 480.0
@@ -80,14 +151,15 @@ grow_vertical = 2
 
 [node name="Icon" type="TextureRect" parent="CurrentSong" unique_id=293351171]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_30wvq")
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -91.5
-offset_top = 60.0
+offset_top = 150.0
 offset_right = 90.0
-offset_bottom = 241.5
+offset_bottom = 331.5
 grow_horizontal = 2
 texture = ExtResource("2_30wvq")
 expand_mode = 1
@@ -96,10 +168,9 @@ stretch_mode = 5
 [node name="Name" type="RichTextLabel" parent="CurrentSong" unique_id=1181381457]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -3.0
-offset_top = 248.0
-offset_right = 337.0
-offset_bottom = 315.0
+offset_top = 360.0
+offset_right = 340.0
+offset_bottom = 427.0
 theme_override_colors/default_color = Color(0.58611006, 0.9999997, 0.9983652, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
 theme_override_constants/shadow_outline_size = 6
@@ -115,10 +186,9 @@ vertical_alignment = 1
 [node name="Artist" type="RichTextLabel" parent="CurrentSong" unique_id=539991513]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -7.0
-offset_top = 309.0
-offset_right = 329.0
-offset_bottom = 349.0
+offset_top = 427.0
+offset_right = 336.0
+offset_bottom = 467.0
 theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
 theme_override_constants/text_highlight_h_padding = 3
@@ -131,10 +201,9 @@ vertical_alignment = 1
 [node name="Mapper" type="RichTextLabel" parent="CurrentSong" unique_id=624146450]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -4.0
-offset_top = 342.0
-offset_right = 332.0
-offset_bottom = 382.0
+offset_top = 467.0
+offset_right = 336.0
+offset_bottom = 507.0
 theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
 theme_override_constants/text_highlight_h_padding = 3

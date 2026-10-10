@@ -1,6 +1,6 @@
 extends Panel
 
-@export var corner := 0.0
+@export_range(0.0,100.0,0.1) var corner := 0.0
 @export var using_blend := false
 ## This does not work lmao
 @export_enum("None", "Mix", "Add", "Subtract", "Screen", "Multiply", "Difference") var blend_mode := 0

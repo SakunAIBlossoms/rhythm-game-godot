@@ -40,6 +40,7 @@ func _ready() -> void:
 	%CurrentlyLoading.text = "Loading Completed"
 	$Loading.visible = false
 	ChangeID(1)
+	
 
 func _input(event:InputEvent):
 	if event is InputEventKey:
@@ -53,10 +54,11 @@ func _input(event:InputEvent):
 
 func ChangeID(amount):
 	curSel = wrapi(curSel+amount, 0, SongList.size())
+	
+	# Extra functionality
+	for obj in SongObjects: obj.Unselected()
 	UpdateInformation(SongList[curSel])
-	for obj in SongObjects:
-		if obj.ID == curSel: obj.Selected()
-		else: obj.Unselected()
+	SongObjects[curSel].Selected()
 
 func SelectSong():
 	Utils.NextSongToPlay = SongList[curSel].get("RawName")
@@ -69,6 +71,7 @@ func UpdateInformation(data):
 	%Icon.texture = data.get("Cover", Utils.MissingIcon)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float):
+func _process(dt: float):
+	$SelectedHighlight.position.y = SongObjects[curSel].position.y
 	for child in $SongList.get_children():
-		child.position.y = child.size.y+15*child.ID
+		child.position.y = lerp(child.position.y, child.size.y+100*child.ID, 12*dt)
