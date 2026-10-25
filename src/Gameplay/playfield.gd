@@ -5,7 +5,10 @@ extends SubViewport
 var lanes = []
 
 # Called when the node enters the scene tree for the first time.
-func setup(data, fake) -> void:
+func setup(data:Array, fake) -> void:
+	#data.sort_custom(
+	#	)
+
 	var sortednotes = {"1" = {}, "2" = {}, "3" = {}, "4" = {}, "5" = {}}
 	
 	for note in data:

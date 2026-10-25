@@ -3,7 +3,7 @@ extends Node
 static func ParseCustomChart(data:String):
 	var eachnote = data.split("|", false)
 	
-	var finalchartdata = {}
+	var finalchartdata = []
 	
 	var outerid = -1
 	for note in eachnote:
@@ -23,5 +23,9 @@ static func ParseCustomChart(data:String):
 				_: print("Value for id number "+str(id)+" cannot be interpreted, the value is ["+str(value)+"]")
 		
 		#print("Completed parsing note "+str(outerid))
-		finalchartdata.set(outerid, finalnote)
+		finalchartdata.push_front(finalnote)
+	
+	finalchartdata.sort_custom(func(a, b):
+		if a["time"] < b["time"]: return true
+		return false)
 	return finalchartdata

@@ -2,7 +2,7 @@ extends Node2D
 
 var ChartParser = load("res://src/Globals/ChartParser.gd")
 
-var Playfield = preload("res://src/Gameplay/Playfield.tscn")
+var Playfield = preload("res://src/Gameplay/PlayfieldNode.tscn")
 @onready var Camera = get_node("Cam")
 var chartdata = {}
 
@@ -35,18 +35,19 @@ func _ready():
 		pf.Keycount = int(data[8])
 		pf.setup(chartdata, false)
 		pf.name = "Playfield"
-		$Gameplay.add_child(pf)
-		playfields.push_front($"Gameplay/Playfields/1")
-		$"Gameplay/Playfields/1".texture = pf.get_texture()
-		$"Gameplay/Playfields/1".size = pf.size
+		$Gameplay/Playfields.add_child(pf)
+		playfields.push_front(pf)
+		#playfields.push_front($"Gameplay/Playfields/1")
+		#$"Gameplay/Playfields/1".texture = pf.get_texture()
+		#$"Gameplay/Playfields/1".size = pf.size
 		
-		if int(data[7]) > 0:
-			for i in int(data[7]):
-				var fakepf = $"Gameplay/Playfields/1".duplicate()
-				fakepf.name = str(i+1)
-				playfields.push_front(fakepf)
-				$Gameplay/Playfields.add_child(fakepf)
-				fakepf.modulate.a = 0
+		#if int(data[7]) > 0:
+		#	for i in int(data[7]):
+		#		var fakepf = $"Gameplay/Playfields/1".duplicate()
+		#		fakepf.name = str(i+1)
+		#		playfields.push_front(fakepf)
+		#		$Gameplay/Playfields.add_child(fakepf)
+		#		fakepf.modulate.a = 0
 	else:
 		Log.error("Cannot find the metadata file")
 	
@@ -80,6 +81,7 @@ func TogglePause():
 	Paused = not Paused
 	
 	$EffectHandler.TogglePauseState(Paused)
+	$Pause.visible = true
 	Conductor.stream_paused = Paused
 
 func _process(dt:float):
@@ -97,3 +99,7 @@ class PlayerStatistics:
 
 func _on_second_intro_timer_timeout():
 	Conductor.play()
+	$Overlay/Background.visible = false
+
+func _on_pause_unpause() -> void:
+	TogglePause()

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c2gwaa0by1gam"]
+
+[ext_resource type="Script" uid="uid://dhnnif1n2iqal" path="res://src/Gameplay/pause.gd" id="1_5i1de"]
+
+[node name="Pause" type="CanvasLayer" unique_id=1406895685]
+layer = 99
+script = ExtResource("1_5i1de")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=144163259]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3019608)
+
+[node name="Resume" type="Button" parent="." unique_id=204746749]
+offset_left = 317.0
+offset_top = 230.0
+offset_right = 454.0
+offset_bottom = 357.0
+text = "Resume"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

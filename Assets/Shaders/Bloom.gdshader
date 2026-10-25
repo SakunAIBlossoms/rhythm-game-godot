@@ -9,8 +9,6 @@ void fragment()
 {
    vec4 sum = vec4(0);
    vec2 texcoord = FRAGCOORD.xy/ (1.0 / SCREEN_PIXEL_SIZE);
-   int j;
-   int i;
 
    //thank you! http://www.gamerendering.com/2008/10/11/gaussian-blur-filter-shader/ for the 
    //blur tutorial

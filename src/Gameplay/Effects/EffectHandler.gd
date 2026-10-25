@@ -17,7 +17,8 @@ var tweenlist = []
 	"SplitScreen" = ShadeP.get_node("SplitScreen"),
 	"Glitch2" = ShadeP.get_node("Glitch2"),
 	"HueShift" = ShadeP.get_node("HueShift"),
-	"Greyscale" = ShadeP.get_node("Greyscale")
+	"Greyscale" = ShadeP.get_node("Greyscale"),
+	"Mosaic" = ShadeP.get_node("Mosaic")
 }
 
 var playfields:Array
@@ -240,6 +241,15 @@ func _layerfade(duration:float, alpha:float, playfield:int, coollayer:int, subfi
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	match(coollayer):
+		0:
+			if subfield != 0: 
+				var pf = playfields.get(subfield) if playfields.get(subfield) != null else playfields[0]
+				for lane in pf.get_children():
+					twn.parallel().tween_property(lane.get_node("Notes"), "modulate:a", alpha, duration)
+			else:
+				for field in playfields:
+					for lane in field.get_children():
+						twn.parallel().tween_property(lane.get_node("Notes"), "modulate:a", alpha, duration)
 		3:
 			if subfield != 0: 
 				var pf = playfields.get(subfield)
@@ -247,8 +257,6 @@ func _layerfade(duration:float, alpha:float, playfield:int, coollayer:int, subfi
 			else:
 				for field in playfields:
 					twn.parallel().tween_property(field, "modulate:a", alpha, duration)
-		4:
-			pass
 		_: Log.pr("Layer %s ill not be implemented right now." % str(coollayer))
 	
 	return twn

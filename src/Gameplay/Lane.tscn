@@ -101,4 +101,4 @@ label_settings = SubResource("LabelSettings_x6w52")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Notes" type="Node2D" parent="." unique_id=1767626097]
+[node name="Notes" type="Node2D" parent="." unique_id=1374350337]

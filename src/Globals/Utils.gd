@@ -5,11 +5,13 @@ var CurrentPulse = null
 
 var MissingIcon = load("res://icon.svg")
 
-var DefaultLuaScript = """
+const DefaultLuaScript = """
 local Script = {}
 
-
+return Script
 """
+
+var perfectMode = false
 
 func GetBeatFromTime(beat, time):
 	print(time * beat / 60)
@@ -85,3 +87,13 @@ func GetKeyEnumFromString(string:String):
 		"N": return Key.KEY_N
 		"M": return Key.KEY_M
 		_: return Key.KEY_NONE
+
+func DoTweenProperty(object, property:NodePath, value,length:float, easing:Tween.EaseType = Tween.EaseType.EASE_IN_OUT, transition:Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR, callback:Callable = Callable()) -> Tween:
+	var twn = create_tween()
+	twn.set_ease(easing)
+	twn.set_trans(transition)
+	if callback.is_valid():
+		twn.finished.connect(callback.call)
+	twn.tween_property(object, property, value, length)
+	
+	return twn

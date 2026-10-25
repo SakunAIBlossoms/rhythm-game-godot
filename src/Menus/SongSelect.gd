@@ -6,6 +6,8 @@ var WaveTextBBCode = "[wave amp=60.0 freq=2.0 connected=0]"
 var SongList = []
 var SongObjects = []
 
+var inputEnabled = false
+
 var curSel = -1
 
 func _ready() -> void:
@@ -43,11 +45,11 @@ func _ready() -> void:
 	
 
 func _input(event:InputEvent):
-	if event is InputEventKey:
+	if event is InputEventKey and inputEnabled:
 		if event.is_action_released("ui_down"):
-			ChangeID(1)
-		if event.is_action_released("ui_up"):
 			ChangeID(-1)
+		if event.is_action_released("ui_up"):
+			ChangeID(1)
 		
 		if event.is_action_released("ui_accept"):
 			SelectSong()
@@ -58,6 +60,7 @@ func ChangeID(amount):
 	# Extra functionality
 	for obj in SongObjects: obj.Unselected()
 	UpdateInformation(SongList[curSel])
+	$SelectedHighlight.modulate.a = 0.0
 	SongObjects[curSel].Selected()
 
 func SelectSong():
@@ -73,5 +76,10 @@ func UpdateInformation(data):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(dt: float):
 	$SelectedHighlight.position.y = SongObjects[curSel].position.y
+	$SelectedHighlight.modulate.a = lerp($SelectedHighlight.modulate.a, 1.0, 12.0*dt)
+	$%Icon.rotation = sin(deg_to_rad(Time.get_ticks_msec() * 0.2)) * 0.08
 	for child in $SongList.get_children():
 		child.position.y = lerp(child.position.y, child.size.y+100*child.ID, 12*dt)
+
+func _input_enable() -> void:
+	inputEnabled = true

@@ -13,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://dc4diosaql4ds" path="res://Assets/Shaders/Chromatic.gdshader" id="5_wfv2h"]
 [ext_resource type="Shader" uid="uid://8b8rwkdpuuwq" path="res://Assets/Shaders/SplitScreen.gdshader" id="5_xxcgh"]
 [ext_resource type="Shader" uid="uid://djf7xysp3ufni" path="res://Assets/Shaders/Glitch2.gdshader" id="6_av1vo"]
+[ext_resource type="Shader" uid="uid://bfmn2tcghdn2t" path="res://Assets/Shaders/Mosaic.gdshader" id="8_w7miv"]
 [ext_resource type="Shader" uid="uid://clvvd3ht5hljb" path="res://Assets/Shaders/HueShift.gdshader" id="13_wu0tj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d64mb"]
@@ -36,6 +37,10 @@ shader_parameter/SplitInv = Vector2(0, 0)
 shader_parameter/Strength = 0.0
 shader_parameter/SplitsX = 0
 shader_parameter/SplitsY = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wu0tj"]
+shader = ExtResource("8_w7miv")
+shader_parameter/strength = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8yo8h"]
 shader = ExtResource("5_wfv2h")
@@ -167,6 +172,22 @@ ShaderParameter2 = &"SplitsX"
 ShaderParameter3 = &"SplitsY"
 
 [node name="Buffer" type="BackBufferCopy" parent="Shaders/SplitScreen" unique_id=2142834994]
+copy_mode = 2
+
+[node name="Mosaic" type="ColorRect" parent="Shaders" unique_id=1424591514]
+visible = false
+material = SubResource("ShaderMaterial_wu0tj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yl1jg")
+ShaderParameter1 = &"strength"
+
+[node name="Buffer" type="BackBufferCopy" parent="Shaders/Mosaic" unique_id=1605276688]
 copy_mode = 2
 
 [node name="Chromatic" type="ColorRect" parent="Shaders" unique_id=2085433004]

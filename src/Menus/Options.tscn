@@ -2,9 +2,94 @@
 
 [ext_resource type="PackedScene" uid="uid://1ci1gkouynhw" path="res://src/Globals/Conductor.tscn" id="1_k8jn6"]
 [ext_resource type="Script" uid="uid://c6156dhwhw0pe" path="res://src/Menus/Options.gd" id="1_m17q0"]
+[ext_resource type="Shader" uid="uid://bxfsfjf3v0ijw" path="res://Assets/Shaders/Options.gdshader" id="2_arff4"]
 [ext_resource type="AudioStream" uid="uid://dvdk407b0ph3i" path="res://Assets/Music/nico's nextbots ost - sherbet lobby w／ bxnji - nicopatty.mp3" id="3_arff4"]
 [ext_resource type="Texture2D" uid="uid://b55wq5iig0pqp" path="res://Assets/Icons/gear-fill.svg" id="3_v8mh4"]
 [ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="4_arff4"]
+[ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="7_ld8y6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
+shader = ExtResource("2_arff4")
+shader_parameter/bgColor = Vector3(0.01, 0.16, 0.42)
+shader_parameter/rectColor = Vector3(0.01, 0.26, 0.57)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyu2m"]
+bg_color = Color(0.242827, 0.2416619, 0.47203326, 1)
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.45332414, 0.461048, 0.7602565, 1)
+corner_radius_bottom_right = 50
+corner_detail = 20
+shadow_size = 6
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0q0a"]
+bg_color = Color(0.050708726, 0, 0.37342674, 0.102000006)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.13816993, 0.106126174, 0.53412783, 0.48800004)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 20
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+shadow_color = Color(0, 0, 0, 0.416)
+shadow_size = 6
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lem2h"]
+bg_color = Color(0.19215687, 0.050980393, 0.20392157, 0.43529412)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31475577, 0.10444593, 0.33226895, 0.69411767)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6jbh"]
+bg_color = Color(0.29470417, 0.095604666, 0.3112866, 0.5803922)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31475577, 0.10444593, 0.33226895, 0.69411767)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u25d3"]
+bg_color = Color(0.29470417, 0.095604666, 0.3112866, 0.5803922)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31475577, 0.10444593, 0.33226895, 0.69411767)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="Options" type="Control" unique_id=1418505487]
 layout_mode = 3
@@ -14,6 +99,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m17q0")
+
+[node name="Background" type="ColorRect" parent="." unique_id=684519033]
+material = SubResource("ShaderMaterial_oyu2m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BackgroundMusic" parent="." unique_id=1849668629 instance=ExtResource("1_k8jn6")]
 stream = ExtResource("3_arff4")
@@ -28,6 +122,16 @@ anchor_right = 1.0
 offset_bottom = 65.0
 grow_horizontal = 2
 
+[node name="Panel" type="Panel" parent="Topbar" unique_id=66944128]
+modulate = Color(1, 1, 1, 0.42800003)
+layout_mode = 0
+offset_left = -35.373726
+offset_top = -12.560194
+offset_right = 739.395
+offset_bottom = 115.086334
+rotation = -0.040484518
+theme_override_styles/panel = SubResource("StyleBoxFlat_oyu2m")
+
 [node name="ReferenceRect" type="ReferenceRect" parent="Topbar" unique_id=1074154034]
 layout_mode = 1
 anchors_preset = 15
@@ -37,6 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Cog" type="TextureRect" parent="Topbar" unique_id=750684149]
+modulate = Color(1, 1, 1, 0.59000003)
 layout_mode = 1
 offset_left = 12.0
 offset_top = 13.0
@@ -48,15 +153,16 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Title" type="RichTextLabel" parent="Topbar" unique_id=1421640709]
+modulate = Color(1, 1, 1, 0.54200006)
 layout_mode = 0
 offset_left = 199.0
-offset_top = 4.0
+offset_top = 9.0
 offset_right = 571.0
-offset_bottom = 69.0
+offset_bottom = 74.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 2.08)
 offset_transform_scale = Vector2(1.6, 1)
-offset_transform_rotation = 0.017453292
+theme_override_colors/default_color = Color(0.76862746, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("4_arff4")
 theme_override_font_sizes/normal_font_size = 60
 text = "OPTIONS"
@@ -64,9 +170,51 @@ fit_content = true
 scroll_active = false
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="." unique_id=635451574]
+[node name="Categories" type="Panel" parent="." unique_id=635451574]
 layout_mode = 0
 offset_left = 42.0
-offset_top = 114.0
-offset_right = 308.0
-offset_bottom = 670.0
+offset_top = 148.0
+offset_right = 302.0
+offset_bottom = 678.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0q0a")
+
+[node name="List" type="VBoxContainer" parent="Categories" unique_id=1721257592]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IndividualOptions" type="Panel" parent="." unique_id=79172489]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 148.0
+offset_right = 1222.0
+offset_bottom = 678.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0q0a")
+
+[node name="List" type="VBoxContainer" parent="IndividualOptions" unique_id=546228946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=859324731]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("7_ld8y6")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_lem2h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n6jbh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u25d3")
+text = "Return to menu"

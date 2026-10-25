@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bklfinmgfc6g"]
+
+[sub_resource type="GDScript" id="GDScript_oyu2m"]
+script/source = "extends Control
+
+@export var Keycount:int = 4
+
+var lanes = []
+
+# Called when the node enters the scene tree for the first time.
+func setup(data, fake) -> void:
+	Log.pr(data)
+	
+	#var sortednotes = {\"1\" = {}, \"2\" = {}, \"3\" = {}, \"4\" = {}, \"5\" = {}}
+	
+	#for note in data:
+	#	sortednotes[data[note][\"lane\"]].set(note, data[note])
+	
+	var lane = preload(\"res://src/Gameplay/Lane.tscn\")
+	for key in Keycount:
+		if lane.can_instantiate():
+			var templane = lane.instantiate()
+			templane.ID = key
+			var notes = []
+			for note in data:
+				if note[\"lane\"] == str(key+1): notes.push_front(note)
+			templane.CreateNotes(notes)
+			templane.name = str(key)
+			templane.fake = fake
+			add_child(templane)
+			templane.position.x = templane.size.x * key
+			self.size.x += templane.size.x
+			lanes.push_front(templane)
+		else:
+			push_error(\"Cannot instantiate lane \"+str(key))
+
+func _physics_process(_delta: float) -> void:
+	if Config.Upscroll:
+		for lane in lanes:
+			lane.scale.y = -1
+			lane.position.y = 720
+	else:
+		for lane in lanes:
+			self.scale.y = 1
+			self.position.y = 0
+"
+
+[node name="Playfield" type="Control" unique_id=359900010]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 360)
+pivot_offset_ratio = Vector2(0.5, 0)
+script = SubResource("GDScript_oyu2m")

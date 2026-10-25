@@ -7,7 +7,8 @@ var _data
 func Setup(data):
 	_data = data
 	text = WaveSetup+data.get("Name")
-	$Preview.stream = load("res://Songs/"+data.get("RawName")+"/"+data.get("AudioFile"))
+	var loadedstream = load("res://Songs/"+data.get("RawName")+"/"+data.get("AudioFile"))
+	$Preview.stream = loadedstream
 	Log.pr(data.get("RawName")+" has loaded successfully")
 
 func Selected():

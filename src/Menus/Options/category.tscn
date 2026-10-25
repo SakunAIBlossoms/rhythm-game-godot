@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dvtg45p43ejlq"]
+
+[ext_resource type="Script" uid="uid://dhb4xigeg3dwk" path="res://src/Menus/Options/category.gd" id="1_vvur4"]
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="1_w2phs"]
+[ext_resource type="Texture2D" uid="uid://b55wq5iig0pqp" path="res://Assets/Icons/gear-fill.svg" id="2_vvur4"]
+
+[node name="Category" type="Control" unique_id=1699009]
+custom_minimum_size = Vector2(260, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 260.0
+script = ExtResource("1_vvur4")
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=505400060]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_w2phs")
+bbcode_enabled = true
+text = "Category"
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1868117607]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -22.5
+offset_right = 45.0
+offset_bottom = 22.5
+grow_vertical = 2
+texture = ExtResource("2_vvur4")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

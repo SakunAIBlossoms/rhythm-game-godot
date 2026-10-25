@@ -24,12 +24,13 @@ func _ready() -> void:
 
 func CreateNotes(notes):
 	var id = -1
+	print(notes)
 	for note in notes:
 		id += 1
 		var nobj = BaseNote.instantiate()
 		nobj.name = str(id)
-		nobj.type = notes[note]["type"]
-		nobj.time = notes[note]["time"]
+		nobj.type = note["type"]
+		nobj.time = note["time"]
 		Notes.push_back(nobj)
 		$Notes.add_child(nobj)
 	
@@ -52,20 +53,70 @@ func _unhandled_input(event: InputEvent):
 	if fake: return
 	if event is InputEventKey:
 		if Bind.to_upper() == event.as_text() and event.is_pressed():
-			HitNote()
+			HitNote(event)
 		if Bind.to_upper() == event.as_text() and event.is_released():
-			LetGo()
+			LetGo(event)
 
-func HitNote():
+func HitNote(event:InputEventKey):
 	Receptor.Press(true)
+	var possible_notes = []
+	var deferred_delete_notes = []
+	for note in Notes:
+		if note.visible:
+			if note.canBeHit and note.mustPress and not note.tooLate and not note.wasGoodHit:
+				var nostuffhappened = true
+				for coolNote in possible_notes:
+					if coolNote == note and abs(note.time - coolNote.time < 10):
+						deferred_delete_notes.push_front(note)
+						nostuffhappened = false
+					elif coolNote == note and note.time < coolNote.time:
+						possible_notes.remove_at(possible_notes.find(coolNote))
+						possible_notes.push_front(note)
+						nostuffhappened = false
+				
+				if nostuffhappened:
+					possible_notes.push_front(note)
+	
+	for note in deferred_delete_notes:
+		Log.pr("Deleting note at "+note.time)
+		Notes.remove_at(Notes.find(note))
+		note.queue_free()
+	
+	possible_notes.sort_custom(func(a,b):
+		if a.time < b.time:
+			return true
+		else: return false
+		)
+	
+	if Utils.perfectMode:
+		goodNoteHit(possible_notes[0])
+	elif not possible_notes.is_empty():
+		for coolnote in possible_notes:
+			goodNoteHit(coolnote)
+	else: noteMiss()
 
-func LetGo():
+func noteMiss(): pass
+
+func goodNoteHit(note):
+	if not note.wasGoodHit:
+		note.wasGoodHit = true
+		Notes.remove_at(Notes.find(note))
+		note.queue_free()
+		Log.pr("note at "+str(note.time)+" hit successfully")
+
+func LetGo(event:InputEventKey):
 	Receptor.Press(false)
 
 func _physics_process(_delta: float) -> void:
 	for note in Notes:
-		note.position.y = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
-		
-		if note.position.y > self.size.y:
-			note.visible = false
-			note.Missed = true
+		var calculatedtiming = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
+		if calculatedtiming > 720 or calculatedtiming < -150:
+			if note.visible: note.visible = false
+		else:
+			note.visible = true
+			note.position.y = calculatedtiming
+
+		if note.tooLate or note.wasGoodHit:
+			Notes.remove_at(Notes.find(note))
+			note.queue_free()
+			Log.pr("note freed at "+str(note.time) + " the current time is "+str(Conductor.songPosition))
