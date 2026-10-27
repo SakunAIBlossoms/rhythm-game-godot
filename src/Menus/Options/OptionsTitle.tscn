@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dhb4mw5vfifol"]
+
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="1_rv2p4"]
+
+[sub_resource type="Gradient" id="Gradient_2krhm"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="OptionsTitle" type="Control" unique_id=273080533]
+custom_minimum_size = Vector2(865, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 865.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=916367448]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 5.0
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1905314188]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_rv2p4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Template title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line" type="Line2D" parent="." unique_id=1337997691]
+position = Vector2(32, 40)
+points = PackedVector2Array(0, 0, 400, 0, 800, 0)
+width = 3.0
+default_color = Color(1, 1, 1, 0.25)
+gradient = SubResource("Gradient_2krhm")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 24
+antialiased = true

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://t5eme8nrpxs3"]
+
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="1_fpt0d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpt0d"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.4)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbypy"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 0.4)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.4)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 6
+expand_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et2xj"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 0.8)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.4)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 6
+expand_margin_right = 8.0
+
+[node name="Slider" type="Control" unique_id=273080533]
+custom_minimum_size = Vector2(865, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 865.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=916367448]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 5.0
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1905314188]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 533.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_fpt0d")
+theme_override_font_sizes/normal_font_size = 24
+text = "Template title"
+vertical_alignment = 1
+
+[node name="Value" type="HSlider" parent="." unique_id=1643550005]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 188.5
+offset_right = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_fpt0d")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qbypy")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_et2xj")
+value = 50.0

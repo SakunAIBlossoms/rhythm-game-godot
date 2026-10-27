@@ -4,12 +4,15 @@ var _visfill := 0.0
 var volume := -10.0
 var shown = false
 
+var Enabled = true
+
 var amount = 5
 
 func _ready():
 	UpdateVolume()
 	shown = true
 	$ShowTime.start()
+	Utils.SetVolumeState.connect(func(state:bool): Enabled = state)
 
 func _process(delta: float) -> void:
 	_visfill = lerp(_visfill, volume, 8*delta)
@@ -22,20 +25,21 @@ func _process(delta: float) -> void:
 		modulate.a = lerp(modulate.a, 0.0, 12*delta)
 
 func _input(event:InputEvent):
-	if event is InputEventKey:
-		if event.is_action_pressed("volume_up") or event.is_action_pressed("volume_down"):
-			$ShowTime.stop()
-			shown = true
-		
-		if event.is_action("volume_up") and event.is_pressed():
-			volume = clampf(volume+amount, -80.0, 0.0)
-			UpdateVolume()
-		if event.is_action("volume_down") and event.is_pressed():
-			volume = clampf(volume-amount, -80.0, 0.0)
-			UpdateVolume()
-		
-		if event.is_action_released("volume_up") or event.is_action_released("volume_down"):
-			$ShowTime.start()
+	if Enabled:
+		if event is InputEventKey:
+			if event.is_action_pressed("volume_up") or event.is_action_pressed("volume_down"):
+				$ShowTime.stop()
+				shown = true
+
+			if event.is_action("volume_up") and event.is_pressed():
+				volume = clampf(volume+amount, -60.0, 0.0)
+				UpdateVolume()
+			if event.is_action("volume_down") and event.is_pressed():
+				volume = clampf(volume-amount, -60.0, 0.0)
+				UpdateVolume()
+
+			if event.is_action_released("volume_up") or event.is_action_released("volume_down"):
+				$ShowTime.start()
 
 func UpdateVolume():
 	if volume != AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")):

@@ -7,11 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://b55wq5iig0pqp" path="res://Assets/Icons/gear-fill.svg" id="3_v8mh4"]
 [ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="4_arff4"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="7_ld8y6"]
+[ext_resource type="PackedScene" uid="uid://dvtg45p43ejlq" path="res://src/Menus/Options/category.tscn" id="7_u25d3"]
+[ext_resource type="Texture2D" uid="uid://d1ili5wygyhoo" path="res://Assets/Icons/All.svg" id="8_ue33l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
 shader = ExtResource("2_arff4")
 shader_parameter/bgColor = Vector3(0.01, 0.16, 0.42)
 shader_parameter/rectColor = Vector3(0.01, 0.26, 0.57)
+shader_parameter/speed = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyu2m"]
 bg_color = Color(0.242827, 0.2416619, 0.47203326, 1)
@@ -22,26 +25,6 @@ corner_radius_bottom_right = 50
 corner_detail = 20
 shadow_size = 6
 shadow_offset = Vector2(0, 6)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0q0a"]
-bg_color = Color(0.050708726, 0, 0.37342674, 0.102000006)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.13816993, 0.106126174, 0.53412783, 0.48800004)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
-corner_detail = 20
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 16.0
-expand_margin_bottom = 16.0
-shadow_color = Color(0, 0, 0, 0.416)
-shadow_size = 6
-shadow_offset = Vector2(0, 8)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lem2h"]
 bg_color = Color(0.19215687, 0.050980393, 0.20392157, 0.43529412)
@@ -90,6 +73,26 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0q0a"]
+bg_color = Color(0.050708726, 0, 0.37342674, 0.102000006)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.13816993, 0.106126174, 0.53412783, 0.48800004)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 20
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+shadow_color = Color(0, 0, 0, 0.416)
+shadow_size = 6
+shadow_offset = Vector2(0, 8)
 
 [node name="Options" type="Control" unique_id=1418505487]
 layout_mode = 3
@@ -170,39 +173,7 @@ fit_content = true
 scroll_active = false
 vertical_alignment = 1
 
-[node name="Categories" type="Panel" parent="." unique_id=635451574]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 148.0
-offset_right = 302.0
-offset_bottom = 678.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_e0q0a")
-
-[node name="List" type="VBoxContainer" parent="Categories" unique_id=1721257592]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="IndividualOptions" type="Panel" parent="." unique_id=79172489]
-layout_mode = 0
-offset_left = 357.0
-offset_top = 148.0
-offset_right = 1222.0
-offset_bottom = 678.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_e0q0a")
-
-[node name="List" type="VBoxContainer" parent="IndividualOptions" unique_id=546228946]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="." unique_id=859324731]
+[node name="ReturnToMenu" type="Button" parent="Topbar" unique_id=859324731]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -218,3 +189,55 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lem2h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_n6jbh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_u25d3")
 text = "Return to menu"
+
+[node name="Categories" type="Panel" parent="." unique_id=635451574]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 148.0
+offset_right = 302.0
+offset_bottom = 678.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0q0a")
+
+[node name="Scroll" type="ScrollContainer" parent="Categories" unique_id=807298857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Categories/Scroll" unique_id=1721257592]
+layout_mode = 2
+
+[node name="All" parent="Categories/Scroll/List" unique_id=1699009 instance=ExtResource("7_u25d3")]
+layout_mode = 2
+
+[node name="Label" parent="Categories/Scroll/List/All" index="0" unique_id=505400060]
+text = "All"
+
+[node name="Icon" parent="Categories/Scroll/List/All" index="1" unique_id=1868117607]
+texture = ExtResource("8_ue33l")
+
+[node name="IndividualOptions" type="Panel" parent="." unique_id=79172489]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 148.0
+offset_right = 1222.0
+offset_bottom = 678.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0q0a")
+
+[node name="Scroll" type="ScrollContainer" parent="IndividualOptions" unique_id=2057033193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="IndividualOptions/Scroll" unique_id=546228946]
+layout_mode = 2
+
+[connection signal="pressed" from="Topbar/ReturnToMenu" to="." method="_return_to_menu"]
+[connection signal="pressed" from="Categories/Scroll/List/All/Button" to="." method="show_all_categories"]
+
+[editable path="Categories/Scroll/List/All"]

@@ -24,6 +24,8 @@ func _ready():
 		var file = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/meta.txt", FileAccess.READ)
 		var raw = file.get_as_text()
 		var data = raw.split(":")
+
+		Utils.CurrentKeycount = int(data[8])
 		
 		if float(data[2]) == null: Log.error("Failed to parse BPM")
 		else: Conductor.BPM = float(data[2])

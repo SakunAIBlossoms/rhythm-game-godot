@@ -1,4 +1,6 @@
 extends AudioStreamPlayer
+@warning_ignore_start("integer_division")
+@warning_ignore_start("unused_parameter")
 
 signal Beat(beat:int)
 signal Step(step:int)
@@ -17,7 +19,6 @@ var lastStep := -1
 var safeFrames:int = 10;
 var safeZoneOffset:float = (safeFrames / 60) * 1000;
 
-@warning_ignore("unused_parameter")
 func _physics_process(dt:float) -> void:
 	songPosition = get_playback_position() * 1000
 	var msperbeat = (60.0 / BPM) * 1000.0

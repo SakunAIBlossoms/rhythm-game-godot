@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bh6ml3ftqw7ra"]
+
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="1_l3s8k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2p6t0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5kbd"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.5)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y752n"]
+
+[sub_resource type="Theme" id="Theme_l3s8k"]
+LineEdit/fonts/font = ExtResource("1_l3s8k")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_2p6t0")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_c5kbd")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_y752n")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u25d3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ue33l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybgj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nk3ak"]
+
+[node name="NumberBox" type="Control" unique_id=273080533]
+custom_minimum_size = Vector2(865, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 865.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=916367448]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 5.0
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1905314188]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 533.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_l3s8k")
+theme_override_font_sizes/normal_font_size = 24
+text = "Template title"
+vertical_alignment = 1
+
+[node name="Value" type="SpinBox" parent="." unique_id=794151708]
+layout_mode = 0
+offset_left = 674.0
+offset_top = 6.0
+offset_right = 797.5
+offset_bottom = 37.0
+theme = SubResource("Theme_l3s8k")
+theme_override_styles/up_background_hovered = SubResource("StyleBoxEmpty_u25d3")
+theme_override_styles/up_background_pressed = SubResource("StyleBoxEmpty_ue33l")
+theme_override_styles/down_background_hovered = SubResource("StyleBoxEmpty_ybgj0")
+theme_override_styles/down_background_pressed = SubResource("StyleBoxEmpty_nk3ak")
+max_value = 20.0
+step = 0.01
+value = 1.0
+alignment = 1
+update_on_text_changed = true

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dm1y8bncvwxbk" path="res://src/Menus/SongSelect.gd" id="1_t7agu"]
 [ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="2_30wvq"]
-[ext_resource type="Shader" uid="uid://udme8k87e74l" path="res://Assets/Shaders/CornerRadius.gdshader" id="3_bdm1n"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="3_c7kw3"]
 [ext_resource type="Texture2D" uid="uid://bq2yojqsl6i0o" path="res://Assets/Images/Menus/SongSelect/Highlight.png" id="3_dksta"]
 [ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://Assets/Shaders/SongSelect.gdshader" id="4_30wvq"]
@@ -47,13 +46,38 @@ scale_curve = SubResource("CurveTexture_x6w52")
 color = Color(0.5847179, 1, 1, 0.6)
 color_ramp = SubResource("GradientTexture1D_c7kw3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_30wvq"]
-shader = ExtResource("3_bdm1n")
-shader_parameter/size = Vector2(181.5, 181.5)
-shader_parameter/top = 35.0
-shader_parameter/right = 35.0
-shader_parameter/bottom = 35.0
-shader_parameter/left = 35.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdm1n"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyu2m"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7kw3"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.31300002)
+border_blend = true
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7agu"]
 content_margin_left = 24.0
@@ -152,22 +176,48 @@ offset_left = -337.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Icon" type="TextureRect" parent="CurrentSong" unique_id=293351171]
+[node name="IconShadow" type="Panel" parent="CurrentSong" unique_id=848044686]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_30wvq")
+layout_mode = 0
+offset_left = 77.0
+offset_top = 150.0
+offset_right = 258.5
+offset_bottom = 331.5
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdm1n")
+
+[node name="IconContainer" type="Panel" parent="CurrentSong" unique_id=83129307]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 0
+offset_left = 77.0
+offset_top = 150.0
+offset_right = 258.5
+offset_bottom = 331.5
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_oyu2m")
+
+[node name="Icon" type="TextureRect" parent="CurrentSong/IconContainer" unique_id=293351171]
+unique_name_in_owner = true
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -91.5
-offset_top = 150.0
-offset_right = 90.0
-offset_bottom = 331.5
+offset_left = -90.75
+offset_right = 90.75
+offset_bottom = 181.5
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_30wvq")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Outline" type="Panel" parent="CurrentSong/IconContainer" unique_id=1157408139]
+layout_mode = 0
+offset_right = 181.5
+offset_bottom = 181.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_c7kw3")
 
 [node name="Name" type="RichTextLabel" parent="CurrentSong" unique_id=1181381457]
 unique_name_in_owner = true
@@ -218,6 +268,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Loading" type="Panel" parent="." unique_id=1287150088]
+visible = false
 custom_minimum_size = Vector2(450, 250)
 layout_mode = 1
 anchors_preset = 8

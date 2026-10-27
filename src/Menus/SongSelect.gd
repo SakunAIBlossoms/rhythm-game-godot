@@ -11,6 +11,7 @@ var inputEnabled = false
 var curSel = -1
 
 func _ready() -> void:
+	Overlay.get_node("Fade").color = Color.TRANSPARENT
 	var list = DirAccess.get_directories_at("res://Songs/")
 	var i = -1
 	for song in list:
@@ -42,6 +43,7 @@ func _ready() -> void:
 	%CurrentlyLoading.text = "Loading Completed"
 	$Loading.visible = false
 	ChangeID(1)
+
 	
 
 func _input(event:InputEvent):
@@ -77,7 +79,8 @@ func UpdateInformation(data):
 func _process(dt: float):
 	$SelectedHighlight.position.y = SongObjects[curSel].position.y
 	$SelectedHighlight.modulate.a = lerp($SelectedHighlight.modulate.a, 1.0, 12.0*dt)
-	$%Icon.rotation = sin(deg_to_rad(Time.get_ticks_msec() * 0.2)) * 0.08
+	%IconContainer.rotation = sin(deg_to_rad(Time.get_ticks_msec() * 0.2)) * 0.08
+	%IconShadow.rotation = %IconContainer.rotation
 	for child in $SongList.get_children():
 		child.position.y = lerp(child.position.y, child.size.y+100*child.ID, 12*dt)
 

@@ -5,6 +5,7 @@ precision mediump float;
 
 uniform vec3 bgColor = vec3(0.01, 0.16, 0.42);
 uniform vec3 rectColor = vec3(0.01, 0.26, 0.57);
+uniform float speed : hint_range(0.0,1.0) = 1.0;
 
 //noise background
 const float noiseIntensity = 2.8;
@@ -48,7 +49,7 @@ float fbm( in vec2 uv )
 
 vec3 bg(vec2 uv )
 {
-    float velocity = TIME/1.6;
+    float velocity = (TIME/1.6)*speed;
     float intensity = sin(uv.x*3.+velocity*2.)*1.1+1.5;
     uv.y -= 2.;
     vec2 bp = uv+glowPos;
@@ -93,10 +94,10 @@ void fragment()
     
     //bg
     vec3 color = bg(uv)*(2.-abs(uv.y*2.));
-    
+   
     //rectangles
-    float velX = -TIME/8.;
-    float velY = TIME/10.;
+    float velX = (-TIME/8.)*speed;
+    float velY = (TIME/10.)*speed;
     for(float i=0.; i<total; i++){
         float index = i/total;
         float rnd = random(vec2(index));
@@ -105,7 +106,7 @@ void fragment()
         pos.y = sin(index*rnd*1000.+velY) * yDistribution;
         pos.z = maxSize*rnd+minSize;
         vec2 uvRot = uv - pos.xy + pos.z/2.;
-    	uvRot = rotate2d( i+TIME/2. ) * uvRot;
+    	uvRot = rotate2d( (i+TIME/2.)*speed ) * uvRot;
         uvRot += pos.xy+pos.z/2.;
         float rect = rectangle(uvRot, pos.xy, pos.z, pos.z, (maxSize+minSize-pos.z)/2.);
 	    color += rectColor * rect * pos.z/maxSize;
