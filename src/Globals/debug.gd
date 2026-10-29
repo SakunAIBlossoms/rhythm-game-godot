@@ -2,7 +2,7 @@ extends CanvasLayer
 @warning_ignore_start("integer_division")
 
 
-var FPSVisible = true
+var FPSVisible = false
 
 func _ready():
 	ImGui.imgui_layout.connect(_show_debug)
