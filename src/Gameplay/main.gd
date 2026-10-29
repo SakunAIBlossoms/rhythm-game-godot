@@ -48,8 +48,13 @@ func _ready():
 	Log.pr("Chart loaded")
 	
 	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4"):
-		$VideoBackground.open("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4")
+		if Config.GetOption("VideoBackgroundEnabled") == false:
+			$VideoBackground.visible = false
+			$VideoBackground.queue_free()
+		else:
+			$VideoBackground.open("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4")
 	else:
+		$VideoBackground.queue_free()
 		$VideoBackground.visible = false
 	
 	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/meta.txt"):
@@ -152,9 +157,9 @@ func TogglePause():
 	$EffectHandler.TogglePauseState(Paused)
 	if (Paused):
 		$Pause.Pause()
-		$VideoBackground.pause()
+		if get_node("VideoBackground") != null: $VideoBackground.pause()
 	else:
-		$VideoBackground.resume()
+		if get_node("VideoBackground") != null: $VideoBackground.resume()
 	Conductor.stream_paused = Paused
 
 func _process(dt:float):
@@ -178,7 +183,7 @@ class PlayerStatistics:
 func _on_second_intro_timer_timeout():
 	Conductor.play()
 	Utils.DoTweenProperty($Overlay/Background, "color:a", 0.0, 0.8, Tween.EASE_OUT, Tween.TRANS_CIRC)
-	$VideoBackground.play_from_start()
+	if get_node("VideoBackground") != null: $VideoBackground.play_from_start()
 
 func _on_pause_unpause() -> void:
 	TogglePause()

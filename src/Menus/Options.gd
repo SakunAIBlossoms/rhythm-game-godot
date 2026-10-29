@@ -70,6 +70,11 @@ const defaultOptions = {
 			"Type" = "Checkbox",
 			"Default Value" = true,
 			"Save Variable" = "VisualEffectsEnabled"
+		},
+		"Video Background" = {
+			"Type" = "Checkbox",
+			"Default Value" = true,
+			"Save Variable" = "VideoBackgroundEnabled"
 		}
 	}
 }
