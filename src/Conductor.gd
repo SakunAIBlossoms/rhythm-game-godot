@@ -16,7 +16,7 @@ var songPositionBeats := -1.0
 var lastBeat := -1
 var lastStep := -1
 
-var safeFrames:int = 10;
+var safeFrames:int = 60;
 var safeZoneOffset:float = (safeFrames / 60) * 1000;
 
 func _physics_process(dt:float) -> void:

@@ -10,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dvtg45p43ejlq" path="res://src/Menus/Options/category.tscn" id="7_u25d3"]
 [ext_resource type="Texture2D" uid="uid://d1ili5wygyhoo" path="res://Assets/Icons/All.svg" id="8_ue33l"]
 
+[sub_resource type="Gradient" id="Gradient_u25d3"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 2.6327521e-05, 0.13211915, 0.4396647, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oyu2m"]
+gradient = SubResource("Gradient_u25d3")
+fill_to = Vector2(0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
 shader = ExtResource("2_arff4")
 shader_parameter/bgColor = Vector3(0.01, 0.16, 0.42)
@@ -103,6 +111,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m17q0")
 
+[node name="FallbackBackground" type="TextureRect" parent="." unique_id=1087610046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_oyu2m")
+
 [node name="Background" type="ColorRect" parent="." unique_id=684519033]
 material = SubResource("ShaderMaterial_oyu2m")
 layout_mode = 1
@@ -183,6 +200,7 @@ offset_top = 15.0
 offset_right = -15.0
 offset_bottom = 50.0
 grow_horizontal = 0
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("7_ld8y6")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_lem2h")

@@ -1,24 +1,270 @@
 [gd_scene format=3 uid="uid://c2gwaa0by1gam"]
 
 [ext_resource type="Script" uid="uid://dhnnif1n2iqal" path="res://src/Gameplay/pause.gd" id="1_5i1de"]
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="2_si35t"]
+[ext_resource type="AudioStream" uid="uid://cx54xy42o0tl4" path="res://Assets/Music/GLACIER.mp3" id="2_uoj35"]
+[ext_resource type="Script" uid="uid://dn2u6fssubewg" path="res://src/Conductor.gd" id="3_aua5r"]
+[ext_resource type="AudioStream" uid="uid://ba48iqss8m2nu" path="res://Assets/Sounds/pop_tooltip.wav" id="5_aua5r"]
+[ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="6_c6ie6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i1de"]
+bg_color = Color(0, 0.13335153, 0.43917835, 0.33100003)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.1897483, 0.58560264, 0.609)
+border_blend = true
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si35t"]
+bg_color = Color(0, 0.13335153, 0.43917835, 0.15)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.1897483, 0.58560264, 0.609)
+border_blend = true
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lasce"]
+bg_color = Color(0, 0.13335153, 0.43917835, 0.56)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.1897483, 0.58560264, 0.609)
+border_blend = true
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uoj35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aua5r"]
+
+[sub_resource type="GDScript" id="GDScript_oyu2m"]
+resource_name = "Ticker"
+script/source = "extends RichTextLabel
+
+var count = 3
+
+func StartTickdown():
+	$Timer.start(1)
+	visible = true
+	$Tick.play()
+
+func _on_timer_timeout() -> void:
+	count -= 1
+	text = str(count)
+	if count <= 0:
+		$Timer.stop()
+		visible = false
+		count = 3
+		get_parent().emit_signal(\"Unpause\")
+		get_parent().visible = false
+	else:
+		$Tick.play()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sr4qk"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahari"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oghh3"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.31300002)
+border_blend = true
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
 
 [node name="Pause" type="CanvasLayer" unique_id=1406895685]
 layer = 99
 script = ExtResource("1_5i1de")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=144163259]
+[node name="PauseMusic" type="AudioStreamPlayer" parent="." unique_id=1132354463]
+stream = ExtResource("2_uoj35")
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("3_aua5r")
+BPM = 100.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=144163259]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.3019608)
 
-[node name="Resume" type="Button" parent="." unique_id=204746749]
-offset_left = 317.0
-offset_top = 230.0
-offset_right = 454.0
-offset_bottom = 357.0
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1442144765]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = -200.0
+offset_right = 375.0
+offset_bottom = 200.0
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="Buttons" unique_id=204746749]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+offset_transform_enabled = true
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_si35t")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_5i1de")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_si35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lasce")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uoj35")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aua5r")
 text = "Resume"
 
-[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[node name="Restart" type="Button" parent="Buttons" unique_id=1109572488]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+offset_transform_enabled = true
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_si35t")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_5i1de")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_si35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lasce")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uoj35")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aua5r")
+text = "Restart"
+
+[node name="Back" type="Button" parent="Buttons" unique_id=967479871]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+offset_transform_enabled = true
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_si35t")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_5i1de")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_si35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lasce")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uoj35")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aua5r")
+text = "Back"
+
+[node name="Counter" type="RichTextLabel" parent="." unique_id=1957239696]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.554)
+theme_override_constants/shadow_outline_size = 40
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("2_si35t")
+theme_override_font_sizes/normal_font_size = 150
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_oyu2m")
+
+[node name="Timer" type="Timer" parent="Counter" unique_id=280760379]
+process_callback = 0
+
+[node name="Tick" type="AudioStreamPlayer" parent="Counter" unique_id=1823035640]
+stream = ExtResource("5_aua5r")
+pitch_scale = 1.25
+
+[node name="IconShadow" type="Panel" parent="." unique_id=471431695]
+unique_name_in_owner = true
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -129.0
+offset_right = -69.0
+offset_bottom = 121.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sr4qk")
+
+[node name="IconContainer" type="Panel" parent="." unique_id=1713596714]
+unique_name_in_owner = true
+clip_children = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -129.0
+offset_right = -69.0
+offset_bottom = 121.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ahari")
+
+[node name="Icon" type="TextureRect" parent="IconContainer" unique_id=817560854]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("6_c6ie6")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Outline" type="Panel" parent="IconContainer" unique_id=326057031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oghh3")
+
+[connection signal="Beat" from="PauseMusic" to="." method="_on_pause_music_beat"]
+[connection signal="pressed" from="Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_back"]
+[connection signal="timeout" from="Counter/Timer" to="Counter" method="_on_timer_timeout"]

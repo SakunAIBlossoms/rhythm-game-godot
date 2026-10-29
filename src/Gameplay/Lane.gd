@@ -12,19 +12,18 @@ var Notes = []
 @onready var Background:ColorRect = $Background
 @onready var Receptor:Control = $Receptor
 
-var Bind:String = "Space"
+var Bind:Key = Key.KEY_SPACE
 
 func _ready() -> void:
 	if ID < 0 or typeof(ID) != TYPE_INT: push_error("ID is not valid")
-	if Config.Binds.get(ID) != null:
-		Receptor.get_node("Bind").text = Config.Binds[ID].to_upper()
-		Bind = Config.Binds.get(ID)
+	if Config.Binds[str(Utils.CurrentKeycount)].get(ID) != null:
+		Receptor.get_node("Bind").text = var_to_str(Config.Binds[str(Utils.CurrentKeycount)].get(ID))
+		Bind = Config.Binds[str(Utils.CurrentKeycount)].get(ID)
 	else:
 		Receptor.get_node("Bind").visible = false
 
 func CreateNotes(notes):
 	var id = -1
-	print(notes)
 	for note in notes:
 		id += 1
 		var nobj = BaseNote.instantiate()
@@ -50,11 +49,10 @@ func _process(delta: float) -> void:
 	#	Receptor.get_node("Timing").position.y = Receptor.get_node("Timing").position.y
 
 func _unhandled_input(event: InputEvent):
-	if fake: return
 	if event is InputEventKey:
-		if Bind.to_upper() == event.as_text() and event.is_pressed():
+		if Bind == event.keycode and event.is_pressed():
 			HitNote(event)
-		if Bind.to_upper() == event.as_text() and event.is_released():
+		if Bind == event.keycode and event.is_released():
 			LetGo(event)
 
 func HitNote(event:InputEventKey):
@@ -70,15 +68,16 @@ func HitNote(event:InputEventKey):
 						deferred_delete_notes.push_front(note)
 						nostuffhappened = false
 					elif coolNote == note and note.time < coolNote.time:
-						possible_notes.remove_at(possible_notes.find(coolNote))
-						possible_notes.push_front(note)
-						nostuffhappened = false
+						pass
+						#possible_notes.remove_at(possible_notes.find(coolNote))
+						#possible_notes.push_front(note)
+						#nostuffhappened = false
 				
 				if nostuffhappened:
 					possible_notes.push_front(note)
 	
 	for note in deferred_delete_notes:
-		Log.pr("Deleting note at "+note.time)
+		if OS.is_debug_build(): Log.pr("Deleting note at "+note.time)
 		Notes.remove_at(Notes.find(note))
 		note.queue_free()
 	
@@ -102,7 +101,7 @@ func goodNoteHit(note):
 		note.wasGoodHit = true
 		Notes.remove_at(Notes.find(note))
 		note.queue_free()
-		Log.pr("note at "+str(note.time)+" hit successfully")
+		if OS.is_debug_build(): Log.pr("note at "+str(note.time)+" hit successfully")
 
 func LetGo(event:InputEventKey):
 	Receptor.Press(false)
@@ -119,4 +118,4 @@ func _physics_process(_delta: float) -> void:
 		if note.tooLate or note.wasGoodHit:
 			Notes.remove_at(Notes.find(note))
 			note.queue_free()
-			Log.pr("note freed at "+str(note.time) + " the current time is "+str(Conductor.songPosition))
+			if OS.is_debug_build(): Log.pr("note freed at "+str(note.time) + " the current time is "+str(Conductor.songPosition))

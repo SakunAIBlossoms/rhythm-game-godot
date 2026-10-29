@@ -40,6 +40,9 @@ var Effects = {
 	camera_rotation = []
 }
 
+# Configuration
+@onready var canUseShaders = Config.GetOption("GraphicsShadersEnabled")
+
 func sort_descending(a, b):
 	if a.get("time") > b.get("time"):
 		return true
@@ -64,9 +67,17 @@ func Setup(sent, pfs, cam):
 				newpulse.setup(o)
 				Effects.beatpulse.push_front(newpulse)
 			"shader": for o in sent[obj]:
-				var newshader = ShaderClass.new()
-				newshader.setup(o)
-				Effects.shader.push_front(newshader)
+				if canUseShaders:
+					var newshader = ShaderClass.new()
+					newshader.setup(o)
+					Effects.shader.push_front(newshader)
+				else:
+					# There are no shaders enabled so we skip processing the events and will dump the nodes for it by freeing them all.
+					Log.pr("Shaders are disabled")
+					for shader in $Shaders.get_children():
+						# Free all the shaders
+						shader.queue_free()
+					ShaderNodes = null
 			"playfieldmove": for o in sent[obj]:
 				var newmovement = PlayfieldMoveClass.new()
 				newmovement.setup(o)
@@ -126,13 +137,14 @@ func _physics_process(_delta: float) -> void:
 			Utils.CurrentPulse = pulse
 			pulse.Triggered = true
 	
-	for shader in Effects.shader:
-		if int(Conductor.songPosition) >= int(shader.time) and shader.Triggered == false:
-			if ShaderNodes.get(shader.shader, null) != null:
-				Log.pr("Updating values for "+shader.shader+" shader at "+str(int(Conductor.songPosition))+" from value "+str(shader.startparams.x)+" to value "+str(shader.endparams.x))
-				tweenlist.push_front(ShaderNodes.get(shader.shader, null).UpdateShader(shader.duration, shader.usestart, shader.startparams, shader.endparams, shader.transease))
-			else: Log.pr("Cannot find "+shader.shader)
-			shader.Triggered = true
+	if canUseShaders:
+		for shader in Effects.shader:
+			if int(Conductor.songPosition) >= int(shader.time) and shader.Triggered == false:
+				if ShaderNodes.get(shader.shader, null) != null:
+					Log.pr("Updating values for "+shader.shader+" shader at "+str(int(Conductor.songPosition))+" from value "+str(shader.startparams.x)+" to value "+str(shader.endparams.x))
+					tweenlist.push_front(ShaderNodes.get(shader.shader, null).UpdateShader(shader.duration, shader.usestart, shader.startparams, shader.endparams, shader.transease))
+				else: Log.pr("Cannot find "+shader.shader)
+				shader.Triggered = true
 	
 	for rotationtodo in Effects.playfieldrotate:
 		if int(Conductor.songPosition) >= int(rotationtodo.time) and rotationtodo.Triggered == false:
@@ -241,15 +253,15 @@ func _layerfade(duration:float, alpha:float, playfield:int, coollayer:int, subfi
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	match(coollayer):
-		0:
-			if subfield != 0: 
-				var pf = playfields.get(subfield) if playfields.get(subfield) != null else playfields[0]
-				for lane in pf.get_children():
-					twn.parallel().tween_property(lane.get_node("Notes"), "modulate:a", alpha, duration)
-			else:
-				for field in playfields:
-					for lane in field.get_children():
-						twn.parallel().tween_property(lane.get_node("Notes"), "modulate:a", alpha, duration)
+		#0:
+		#	if subfield != 0: 
+		#		var pf = playfields.get(subfield) if playfields.get(subfield) != null else playfields[0]
+		#		for lane in pf.get_children():
+		#			twn.parallel().tween_property(lane.get_node("Notes"), "modulate:a", alpha, duration)
+		#	else:
+		#		for field in playfields:
+		#			for lane in field.get_children():
+		#				twn.parallel().tween_property(lane.get_node("Notes"), "modulate:a", alpha, duration)
 		3:
 			if subfield != 0: 
 				var pf = playfields.get(subfield)

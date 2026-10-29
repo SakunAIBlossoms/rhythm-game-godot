@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="3_c7kw3"]
 [ext_resource type="Texture2D" uid="uid://bq2yojqsl6i0o" path="res://Assets/Images/Menus/SongSelect/Highlight.png" id="3_dksta"]
 [ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://Assets/Shaders/SongSelect.gdshader" id="4_30wvq"]
+[ext_resource type="Texture2D" uid="uid://b55wq5iig0pqp" path="res://Assets/Icons/gear-fill.svg" id="6_bdm1n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
 shader = ExtResource("4_30wvq")
@@ -96,6 +97,54 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyu2m"]
 content_margin_left = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dksta"]
+bg_color = Color(0.19215687, 0.050980393, 0.20392157, 0.43529412)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31475577, 0.10444593, 0.33226895, 0.69411767)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1bvp"]
+bg_color = Color(0.29470417, 0.095604666, 0.3112866, 0.5803922)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31475577, 0.10444593, 0.33226895, 0.69411767)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lisw7"]
+bg_color = Color(0.29470417, 0.095604666, 0.3112866, 0.5803922)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31475577, 0.10444593, 0.33226895, 0.69411767)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="SongSelect" type="Control" unique_id=43018158]
 layout_mode = 3
@@ -326,4 +375,25 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
+[node name="Options" type="Button" parent="." unique_id=1767412662]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 50.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_c7kw3")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dksta")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d1bvp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lisw7")
+text = "Options"
+icon = ExtResource("6_bdm1n")
+expand_icon = true
+
 [connection signal="timeout" from="InputActivateTimer" to="." method="_input_enable"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

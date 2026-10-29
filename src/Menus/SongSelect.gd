@@ -11,6 +11,8 @@ var inputEnabled = false
 var curSel = -1
 
 func _ready() -> void:
+	if Config.GetOption("GraphicsShadersEnabled") == false: $Background/Shader.queue_free()
+
 	Overlay.get_node("Fade").color = Color.TRANSPARENT
 	var list = DirAccess.get_directories_at("res://Songs/")
 	var i = -1
@@ -86,3 +88,8 @@ func _process(dt: float):
 
 func _input_enable() -> void:
 	inputEnabled = true
+
+func _on_options_pressed() -> void:
+	var twn = create_tween()
+	twn.tween_property(Overlay.get_node("Fade"), "color", Color.BLACK, 0.8).from(Color(0,0,0,0))
+	twn.finished.connect(func():get_tree().change_scene_to_file("uid://krri1aoirckl"))

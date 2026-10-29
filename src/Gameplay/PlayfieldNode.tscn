@@ -9,7 +9,6 @@ var lanes = []
 
 # Called when the node enters the scene tree for the first time.
 func setup(data, fake) -> void:
-	Log.pr(data)
 	
 	#var sortednotes = {\"1\" = {}, \"2\" = {}, \"3\" = {}, \"4\" = {}, \"5\" = {}}
 	

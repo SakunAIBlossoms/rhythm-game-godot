@@ -43,7 +43,7 @@ func UpdateOption(Option:String, value:Variant) -> bool:
 	return Options.set(Option, value)
 
 func GetOption(Option:String) -> Variant:
-	return Options.get(Option)
+	return Options.get(Option, null)
 
 func Save():
 	var OptionsFile = FileAccess.open("user://SettingsData.json", FileAccess.WRITE)

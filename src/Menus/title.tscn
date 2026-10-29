@@ -3,6 +3,10 @@
 [ext_resource type="AudioStream" uid="uid://dndmywpe18tsp" path="res://Assets/Music/Ponder.mp3" id="1_2feq6"]
 [ext_resource type="Script" uid="uid://dnorqbs14fak8" path="res://src/Menus/title.gd" id="1_wm58i"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="2_wm58i"]
+[ext_resource type="Shader" uid="uid://ba54jb8v6mhdh" path="res://Assets/Shaders/NightSky.gdshader" id="4_q3678"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
+shader = ExtResource("4_q3678")
 
 [node name="Title" type="Control" unique_id=1716394695]
 layout_mode = 3
@@ -12,6 +16,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wm58i")
+
+[node name="TemporarySkyBG" type="ColorRect" parent="." unique_id=1403594786]
+material = SubResource("ShaderMaterial_oyu2m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Background" type="Node2D" parent="." unique_id=886796589]
 

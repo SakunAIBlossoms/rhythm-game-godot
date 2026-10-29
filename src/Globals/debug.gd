@@ -1,4 +1,6 @@
 extends CanvasLayer
+@warning_ignore_start("integer_division")
+
 
 var FPSVisible = true
 
@@ -13,8 +15,14 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _show_debug():
 	if FPSVisible:
-		if ImGui.begin_ex("Performance", ImGuiApi.WINDOW_NO_RESIZE):
-			ImGui.text_colored("Gold","FPS - "+str(int(Engine.get_frames_per_second())))
+		var framerate = int(Engine.get_frames_per_second())
+		var framerate_color = "Gold" if framerate > 30 else "Red"
+		ImGui.set_next_window_size(250, 100, ImGuiApi.COND_ONCE)
+		if ImGui.begin("Performance"):
+			ImGui.text_colored(framerate_color,"FPS - "+str(framerate))
+			if framerate < 10:
+				ImGui.text("Concerning framerate detected!\nPlease check the render graph!")
+			ImGui.text("Memory Usage - "+str(OS.get_static_memory_usage()/1000000)+"mb / "+str(OS.get_static_memory_peak_usage()/1000000)+"mb")
 			if ImGui.button("Hide Performance", 0.0, 0.0):
 				FPSVisible = false
 		ImGui.end()

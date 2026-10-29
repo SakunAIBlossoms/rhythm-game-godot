@@ -65,6 +65,11 @@ const defaultOptions = {
 			"Type" = "Number",
 			"Default Value" = 2.4,
 			"Save Variable" = "ScrollSpeed"
+		},
+		"Disable Visual Effects" = {
+			"Type" = "Checkbox",
+			"Default Value" = true,
+			"Save Variable" = "VisualEffectsEnabled"
 		}
 	}
 }
@@ -75,9 +80,11 @@ const defaultOptions = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Utils.emit_signal("SetVolumeState", false);
+	if Config.GetOption("GraphicsShadersEnabled") == false: $Background.queue_free()
+
 	# Option loading and setup
 	for category in defaultOptions:
-		Log.pr(category)
+		#Log.pr(category)
 		var newcategory = CategoryNode.instantiate()
 		newcategory.Setup(category, "res://Assets/Icons/"+category+".svg")
 		newcategory.name = category
@@ -98,25 +105,28 @@ func _ready() -> void:
 			newoptionnode.get_node("Title").text = option
 
 			var value = newoptionnode.get_node("Value")
-
+			var defaultvalue = Config.GetOption(data.get("Save Variable")) if Config.GetOption(data.get("Save Variable")) != null else data.get("Default Value")
 			# Setup callbacks
 			if (value is Slider):
 				value.max_value = data.get("Max")
 				value.min_value = data.get("Min")
-				value.set_value_no_signal(data.get("Default Value"))
+				value.set_value_no_signal(defaultvalue)
 				
 				# Finish config before letting this be configured.
-				#value.value_changed.connect(func(): pass)
-			
+				value.value_changed.connect(func(v:float): Config.UpdateOption(data.get("Save Variable"), v))
+						
 			if (value is CheckButton):
-				value.button_pressed = data.get("Default Value", false)
+				value.button_pressed = defaultvalue
+				value.toggled.connect(func(state:bool): Config.UpdateOption(data.get("Save Variable"), state))
 			
 			if (value is SpinBox):
-				value.set_value_no_signal(data.get("Default Value", 1.0))
+				value.set_value_no_signal(defaultvalue)
+				value.value_changed.connect(func(newvalue:float): Config.UpdateOption(data.get("Save Variable"), newvalue))
 			
 			if (value is OptionButton):
 				newoptionnode.Setup(data.get("Values"))
-				value.select(data.get("Default Value"))
+				value.select(defaultvalue)
+				value.item_selected.connect(func(index:int): Config.UpdateOption(data.get("Save Variable"), index))
 			
 			newoptionnode.add_to_group(category)
 			OptionList.add_child(newoptionnode)
@@ -131,6 +141,9 @@ func _ready() -> void:
 	Music.Step.connect(func(_s:int):
 		$Topbar/Cog.scale += Vector2(0.1, 0.1)
 		)
+
+	var twn = create_tween()
+	twn.tween_property(Overlay.get_node("Fade"), "color", Color(0,0,0,0), 0.8).from(Color.BLACK)
 
 func get_option_type(type:String):
 	match(type):
@@ -161,7 +174,7 @@ func _return_to_menu():
 	var twn = create_tween().set_parallel(true)
 	twn.set_ease(Tween.EASE_IN)
 	twn.set_trans(Tween.TRANS_CIRC)
-	twn.tween_property(fade, "color", Color(0,0,0,1), 1.2).finished.connect(func(): Utils.emit_signal("SetVolumeState", true); get_tree().change_scene_to_file("uid://b8rvgonqqu8re"))
+	twn.tween_property(fade, "color", Color(0,0,0,1), 1.2).finished.connect(func(): Config.Save(); Utils.emit_signal("SetVolumeState", true); get_tree().change_scene_to_file("uid://b8rvgonqqu8re"))
 	twn.tween_property($BackgroundMusic, "volume_db", -60.0, 0.8)
 	var newtwn = create_tween().set_parallel(true)
 	newtwn.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)

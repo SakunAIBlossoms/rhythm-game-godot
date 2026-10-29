@@ -91,6 +91,7 @@ offset_left = 188.5
 offset_right = 392.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 10
 theme_override_styles/slider = SubResource("StyleBoxFlat_fpt0d")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qbypy")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_et2xj")
