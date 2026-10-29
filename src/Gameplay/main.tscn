@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://dgw6dw15p8kbg"]
 
 [ext_resource type="Script" uid="uid://dr31qmbfyj2le" path="res://src/Gameplay/main.gd" id="1_7alqp"]
+[ext_resource type="Shader" uid="uid://ba54jb8v6mhdh" path="res://Assets/Shaders/NightSky.gdshader" id="2_q6g5n"]
+[ext_resource type="Script" uid="uid://qrfv77io56w" path="res://addons/MP4Player/MP4VideoPlayer.gd" id="3_07fvg"]
 [ext_resource type="Texture2D" uid="uid://decnfgy10pmq2" path="res://Assets/Skins/Default/Health/background.png" id="4_g2td4"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="4_rfkh6"]
 [ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="5_47auu"]
 [ext_resource type="PackedScene" uid="uid://drqixw2gb3qmn" path="res://src/Gameplay/Effects/EffectHandler.tscn" id="5_g2td4"]
 [ext_resource type="Texture2D" uid="uid://v62hgpkbcwny" path="res://Assets/Skins/Default/Health/foreground.png" id="5_kh3eh"]
 [ext_resource type="PackedScene" uid="uid://c2gwaa0by1gam" path="res://src/Gameplay/Pause.tscn" id="6_kh3eh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07fvg"]
+shader = ExtResource("2_q6g5n")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nasuu"]
 content_margin_left = 0.0
@@ -35,9 +40,28 @@ script/source = "extends Camera2D
 [node name="Main" type="Node2D" unique_id=866178733]
 script = ExtResource("1_7alqp")
 
+[node name="TemporarySkyBG" type="ColorRect" parent="." unique_id=2092143727]
+material = SubResource("ShaderMaterial_07fvg")
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="3SecondIntroTimer" type="Timer" parent="." unique_id=1509939670]
 wait_time = 3.0
 one_shot = true
+
+[node name="VideoBackground" type="Control" parent="." unique_id=1960571500]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_07fvg")
+autoplay = false
+metadata/_custom_type_script = "uid://qrfv77io56w"
 
 [node name="Gameplay" type="CanvasLayer" parent="." unique_id=43334772]
 layer = 3
@@ -104,8 +128,51 @@ bbcode_enabled = true
 text = "[wave]Song: NAMEHERE"
 vertical_alignment = 2
 
+[node name="Hit" type="RichTextLabel" parent="HUD" unique_id=619835534]
+custom_minimum_size = Vector2(150, 50)
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -590.0
+offset_top = -25.0
+offset_right = -440.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("5_47auu")
+theme_override_font_sizes/normal_font_size = 21
+text = "Perfect!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HideDelay" type="Timer" parent="HUD/Hit" unique_id=1551210690]
+
+[node name="delay" type="Label" parent="HUD/Hit" unique_id=1747692239]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 73.0
+grow_horizontal = 2
+text = "0.0ms"
+horizontal_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HUD/Hit" unique_id=483954226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=937613068]
 layer = 14
+visible = false
 
 [node name="Background" type="ColorRect" parent="Overlay" unique_id=1737553708]
 anchors_preset = 15

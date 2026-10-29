@@ -1,5 +1,8 @@
 extends Control
 
+signal Hit(Rating:String, Delay:float)
+signal Missed()
+
 var BaseNote = preload("res://src/Gameplay/note.tscn")
 
 @export var ID = -1
@@ -8,6 +11,7 @@ var BaseNote = preload("res://src/Gameplay/note.tscn")
 @export var fake:bool = false
 
 var Notes = []
+var unspawnedNotes = []
 
 @onready var Background:ColorRect = $Background
 @onready var Receptor:Control = $Receptor
@@ -30,8 +34,11 @@ func CreateNotes(notes):
 		nobj.name = str(id)
 		nobj.type = note["type"]
 		nobj.time = note["time"]
-		Notes.push_back(nobj)
+		nobj.Setup()
+		unspawnedNotes.push_back(nobj)
 		$Notes.add_child(nobj)
+		nobj.visible = false
+		nobj.position.y = (Hitpoint + (Conductor.songPosition - nobj.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
 	
 	Notes.sort_custom(func(a, b):
 		if a.time < b.time:
@@ -57,65 +64,82 @@ func _unhandled_input(event: InputEvent):
 
 func HitNote(event:InputEventKey):
 	Receptor.Press(true)
-	var possible_notes = []
-	var deferred_delete_notes = []
-	for note in Notes:
-		if note.visible:
-			if note.canBeHit and note.mustPress and not note.tooLate and not note.wasGoodHit:
-				var nostuffhappened = true
-				for coolNote in possible_notes:
-					if coolNote == note and abs(note.time - coolNote.time < 10):
-						deferred_delete_notes.push_front(note)
-						nostuffhappened = false
-					elif coolNote == note and note.time < coolNote.time:
-						pass
-						#possible_notes.remove_at(possible_notes.find(coolNote))
-						#possible_notes.push_front(note)
-						#nostuffhappened = false
-				
-				if nostuffhappened:
-					possible_notes.push_front(note)
 	
-	for note in deferred_delete_notes:
-		if OS.is_debug_build(): Log.pr("Deleting note at "+note.time)
-		Notes.remove_at(Notes.find(note))
-		note.queue_free()
-	
-	possible_notes.sort_custom(func(a,b):
-		if a.time < b.time:
-			return true
-		else: return false
-		)
-	
-	if Utils.perfectMode:
-		goodNoteHit(possible_notes[0])
-	elif not possible_notes.is_empty():
-		for coolnote in possible_notes:
-			goodNoteHit(coolnote)
-	else: noteMiss()
+	var note = closest(Conductor.songPosition, Notes)
+	if note == null: return
+	var delay = Conductor.songPosition - note.time
+	Log.pr("Attempting to hit note with time difference of ", delay)
+	if note.type == 0:
+		if delay < 160 and delay > -160:
+			note.Hit(true)
+			HitWindowCalculations(delay)
+			$Hitsound.play()
+		elif delay > 160 and delay < 240:
+			note.Hit(false)
+			Log.pr("Hit failed because you were TOO LATE OR EARLY NOOB")
+			HitWindowCalculations(delay)
+			emit_signal("Missed")
+			$Hitsound.play()
+		elif delay < -160 and delay > -240:
+			note.Hit(false)
+			Log.pr("Hit failed because you were TOO LATE OR EARLY NOOB")
+			HitWindowCalculations(delay)
+			emit_signal("Missed")
+			$Hitsound.play()
+		else:
+			Log.pr("No note hit")
 
-func noteMiss(): pass
+func HitWindowCalculations(delay:float):
+	# Perfect
+	if delay < 45.0 and delay > -45.0:
+		emit_signal("Hit", "Perfect", delay)
+	elif delay < 90.0 and delay > -90.0:
+		emit_signal("Hit", "Good", delay)
+	elif delay < 135.0 and delay > -135.0:
+		emit_signal("Hit", "Bad", delay)
+	else:
+		emit_signal("Hit", "Horrid", delay)
 
-func goodNoteHit(note):
-	if not note.wasGoodHit:
-		note.wasGoodHit = true
-		Notes.remove_at(Notes.find(note))
-		note.queue_free()
-		if OS.is_debug_build(): Log.pr("note at "+str(note.time)+" hit successfully")
+func closest(timestamp:float, n:Array):
+	# Initialize
+	var closest_num
+	var closest_delta = 0
+	var temp_delta = 0
+	# Loop through entire array
+	for i in range(n.size()):
+		if n[i].time == timestamp: return n[i] # exact match found!
+		temp_delta = float(abs(n[i].time-timestamp))
+		if closest_delta == 0 or temp_delta < closest_delta:
+			closest_num = n[i]
+			closest_delta = temp_delta
+	# Return closest number found
+	return closest_num
 
 func LetGo(event:InputEventKey):
 	Receptor.Press(false)
 
 func _physics_process(_delta: float) -> void:
-	for note in Notes:
+	for note in unspawnedNotes:
 		var calculatedtiming = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
 		if calculatedtiming > 720 or calculatedtiming < -150:
 			if note.visible: note.visible = false
 		else:
+			if Notes.find(note) == -1:
+				unspawnedNotes.remove_at(unspawnedNotes.find(note))
+				Notes.push_front(note)
+				Log.pr("Pushed ", note, " to the front of the notes array")
+	
+	for note in Notes:
+		if note.canHit:
 			note.visible = true
-			note.position.y = calculatedtiming
-
-		if note.tooLate or note.wasGoodHit:
+			note.position.y = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
+			if note.type == 1:
+				if note.position.y >= Hitpoint and Receptor.state:
+					note.Hit(true)
+					$Hitsound.play()
+		
+		if note.HasBeenHit or note.Missed:
+			note.visible = false
+			note.canHit = false
 			Notes.remove_at(Notes.find(note))
-			note.queue_free()
 			if OS.is_debug_build(): Log.pr("note freed at "+str(note.time) + " the current time is "+str(Conductor.songPosition))

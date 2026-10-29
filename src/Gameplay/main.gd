@@ -19,8 +19,10 @@ var Paused:bool = false
 
 var roundedvaluesfordebug = false
 
-func _ready():
+var ScoreData:PlayerStatistics
 
+func _ready():
+	ScoreData = PlayerStatistics.new()
 	# Conductor debug
 	Log.pr("Setting up ImGui debug layer")
 	ImGui.imgui_layout.connect(func():
@@ -44,6 +46,11 @@ func _ready():
 	var rawchart = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/chart.hdc", FileAccess.READ)
 	chartdata = ChartParser.ParseCustomChart(rawchart.get_as_text())
 	Log.pr("Chart loaded")
+	
+	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4"):
+		$VideoBackground.open("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4")
+	else:
+		$VideoBackground.visible = false
 	
 	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/meta.txt"):
 		Log.pr("Loading ", Utils.NextSongToPlay, " metadata")
@@ -69,6 +76,10 @@ func _ready():
 		pf.name = "Playfield"
 		$Gameplay/Playfields.add_child(pf)
 		playfields.push_front(pf)
+		for lane in pf.get_children():
+			lane.Hit.connect(_hit)
+			lane.Missed.connect(func(): ScoreData.Misses += 1)
+		
 		#playfields.push_front($"Gameplay/Playfields/1")
 		#$"Gameplay/Playfields/1".texture = pf.get_texture()
 		#$"Gameplay/Playfields/1".size = pf.size
@@ -105,6 +116,25 @@ func _ready():
 	
 	$"3SecondIntroTimer".start(3.0)
 
+func _hit(rating:String, delay:float):
+	ScoreData.NotesHit += 1
+	$HUD/Hit.text = rating
+	$HUD/Hit/delay.text = str(roundi(delay))+"ms"
+	
+	var twn = create_tween().set_parallel(true)
+	twn.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	twn.tween_property($HUD/Hit, "modulate:a", 1, 0.4).from(0.0)
+	twn.tween_property($HUD/Hit, "scale", Vector2(1.0,1.0), 0.4).from(Vector2(0.8,0.8))
+	twn.tween_property($HUD/Hit/delay, "position:y", 50.0, 0.4).from(12.0)
+	
+	match(rating):
+		"Perfect":
+			ScoreData.Perfects += 1
+		"Good":
+			ScoreData.Goods += 1
+		"Bad":
+			ScoreData.Bads += 1
+
 func BeatHit(beat):
 	if Utils.CurrentPulse != null:
 		if int(Utils.CurrentPulse.interval) != 0:
@@ -120,7 +150,11 @@ func TogglePause():
 	Paused = not Paused
 	
 	$EffectHandler.TogglePauseState(Paused)
-	if (Paused): $Pause.Pause()
+	if (Paused):
+		$Pause.Pause()
+		$VideoBackground.pause()
+	else:
+		$VideoBackground.resume()
 	Conductor.stream_paused = Paused
 
 func _process(dt:float):
@@ -137,10 +171,14 @@ class PlayerStatistics:
 	var Misses := 0
 	var NotesHit := 0
 	var Accuracy := "100%"
+	var Perfects := 0
+	var Goods := 0
+	var Bads := 0
 
 func _on_second_intro_timer_timeout():
 	Conductor.play()
 	Utils.DoTweenProperty($Overlay/Background, "color:a", 0.0, 0.8, Tween.EASE_OUT, Tween.TRANS_CIRC)
+	$VideoBackground.play_from_start()
 
 func _on_pause_unpause() -> void:
 	TogglePause()

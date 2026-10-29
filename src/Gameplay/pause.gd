@@ -8,6 +8,10 @@ func Setup(Icon:String):
 	%Icon.texture = load("res://Songs/"+Utils.NextSongToPlay+"/"+Icon)
 
 func Pause():
+	$Buttons.position.x = 35
+	$Background.color.a = 0.3
+	%IconContainer.position.x = 961
+	$Counter.visible = false
 	self.visible = true
 	
 	Music.pitch_scale = 0.1

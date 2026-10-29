@@ -66,7 +66,7 @@ const defaultOptions = {
 			"Default Value" = 2.4,
 			"Save Variable" = "ScrollSpeed"
 		},
-		"Disable Visual Effects" = {
+		"Visual Effects" = {
 			"Type" = "Checkbox",
 			"Default Value" = true,
 			"Save Variable" = "VisualEffectsEnabled"

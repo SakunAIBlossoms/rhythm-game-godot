@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgmvkmb51l4o2" path="res://src/Gameplay/Lane.gd" id="1_ddann"]
 [ext_resource type="Texture2D" uid="uid://cdhx2d0a8tmxm" path="res://Assets/Skins/Default/Receptor/Up.png" id="2_ddann"]
+[ext_resource type="AudioStream" uid="uid://df8xltqgsk77q" path="res://Assets/Sounds/hitsound.mp3" id="2_gxy6v"]
 [ext_resource type="Script" uid="uid://caktd5e0obf5w" path="res://src/Gameplay/receptor.gd" id="2_xg7bb"]
 [ext_resource type="Texture2D" uid="uid://dgnd2votcd1iy" path="res://Assets/Skins/Default/Receptor/Down.png" id="4_uq4fe"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="5_uq4fe"]
@@ -22,6 +23,10 @@ anchors_preset = 0
 offset_right = 90.0
 offset_bottom = 720.0
 script = ExtResource("1_ddann")
+
+[node name="Hitsound" type="AudioStreamPlayer" parent="." unique_id=694195475]
+stream = ExtResource("2_gxy6v")
+bus = &"Hitsounds"
 
 [node name="Background" type="ColorRect" parent="." unique_id=2060832094]
 layout_mode = 1

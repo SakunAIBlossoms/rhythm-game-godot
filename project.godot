@@ -43,7 +43,7 @@ project/assembly_name="Rhythm Game Godot"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dear-imgui-godot/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/lua-gdextension/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg")
+enabled=PackedStringArray("res://addons/MP4Player/plugin.cfg", "res://addons/dear-imgui-godot/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/lua-gdextension/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg")
 
 [input]
 

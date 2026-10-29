@@ -41,7 +41,7 @@ var Effects = {
 }
 
 # Configuration
-@onready var canUseShaders = Config.GetOption("GraphicsShadersEnabled")
+@onready var canUseShaders = Config.GetOption("GraphicsShadersEnabled") if Config.GetOption("GraphicsShadersEnabled") == false else true
 
 func sort_descending(a, b):
 	if a.get("time") > b.get("time"):
