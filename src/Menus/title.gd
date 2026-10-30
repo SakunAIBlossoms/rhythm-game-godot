@@ -2,7 +2,7 @@ extends Control
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
 	Overlay.get_node("Fade").color = Color.BLACK
 	Utils.DoTweenProperty(Overlay.get_node("Fade"), "color", Color(0,0,0,0), 1.2, Tween.EASE_OUT, Tween.TRANS_CIRC)
 

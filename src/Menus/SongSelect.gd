@@ -96,3 +96,7 @@ func _on_options_pressed() -> void:
 
 func _on_issue_report_pressed() -> void:
 	$UserFeedbackGUI.visible = true
+	inputEnabled = false
+
+func _on_user_feedback_gui_visibility_changed() -> void:
+	if not $UserFeedbackGUI.visible: _input_enable()
