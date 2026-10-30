@@ -93,3 +93,6 @@ func _on_options_pressed() -> void:
 	var twn = create_tween()
 	twn.tween_property(Overlay.get_node("Fade"), "color", Color.BLACK, 0.8).from(Color(0,0,0,0))
 	twn.finished.connect(func():get_tree().change_scene_to_file("uid://krri1aoirckl"))
+
+func _on_issue_report_pressed() -> void:
+	$UserFeedbackGUI.visible = true

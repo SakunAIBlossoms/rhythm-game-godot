@@ -30,6 +30,10 @@ Overlay="*uid://t12g51ajhigq"
 ImGui="*uid://batmd17pvevqu"
 Debug="*uid://pay2sleakuyj"
 
+[debug]
+
+settings/gdscript/always_track_call_stacks=true
+
 [display]
 
 window/size/viewport_width=1280
@@ -43,7 +47,7 @@ project/assembly_name="Rhythm Game Godot"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MP4Player/plugin.cfg", "res://addons/dear-imgui-godot/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/lua-gdextension/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg")
+enabled=PackedStringArray("res://addons/MP4Player/plugin.cfg", "res://addons/dear-imgui-godot/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg")
 
 [input]
 
@@ -73,3 +77,11 @@ rendering_device/driver.windows="d3d12"
 anti_aliasing/quality/msaa_2d=3
 anti_aliasing/quality/screen_space_aa=2
 anti_aliasing/quality/use_taa=true
+
+[sentry]
+
+schema_version=5
+options/dsn="https://cec770c3655bb45bd13351535fd647d2@o4512344067801088.ingest.de.sentry.io/4512344087855184"
+godot_logger/events=15
+godot_logger/logs=143
+experimental/attach_screenshot=true

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bq2yojqsl6i0o" path="res://Assets/Images/Menus/SongSelect/Highlight.png" id="3_dksta"]
 [ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://Assets/Shaders/SongSelect.gdshader" id="4_30wvq"]
 [ext_resource type="Texture2D" uid="uid://b55wq5iig0pqp" path="res://Assets/Icons/gear-fill.svg" id="6_bdm1n"]
+[ext_resource type="PackedScene" uid="uid://d3cll30toja8f" path="res://addons/sentry/user_feedback/user_feedback_gui.tscn" id="7_dksta"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyu2m"]
 shader = ExtResource("4_30wvq")
@@ -395,5 +396,30 @@ text = "Options"
 icon = ExtResource("6_bdm1n")
 expand_icon = true
 
+[node name="IssueReport" type="Button" parent="." unique_id=278930127]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_top = 666.0
+offset_right = -15.0
+offset_bottom = 701.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_c7kw3")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dksta")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d1bvp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lisw7")
+text = "Report an issue"
+expand_icon = true
+
+[node name="UserFeedbackGUI" parent="." unique_id=318730296 instance=ExtResource("7_dksta")]
+visible = false
+layout_mode = 1
+auto_scale_master_resolution = 1280
+
 [connection signal="timeout" from="InputActivateTimer" to="." method="_input_enable"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="IssueReport" to="." method="_on_issue_report_pressed"]
