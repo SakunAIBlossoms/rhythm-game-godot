@@ -341,7 +341,27 @@ text = "Options"
 icon = ExtResource("6_bdm1n")
 expand_icon = true
 
+[node name="Quit" type="Button" parent="." unique_id=201438199]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_top = 670.0
+offset_right = -15.0
+offset_bottom = 705.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_c7kw3")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dksta")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d1bvp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lisw7")
+text = "Quit"
+expand_icon = true
+
 [node name="Loading" type="Panel" parent="." unique_id=1287150088]
+visible = false
 custom_minimum_size = Vector2(450, 250)
 layout_mode = 1
 anchors_preset = 8
@@ -400,3 +420,4 @@ vertical_alignment = 1
 
 [connection signal="timeout" from="InputActivateTimer" to="." method="_input_enable"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

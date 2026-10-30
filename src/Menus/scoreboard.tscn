@@ -3,7 +3,21 @@
 [ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="1_5qd1u"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="1_6i5ts"]
 [ext_resource type="Script" uid="uid://b2e1f0nlff30o" path="res://src/Menus/scoreboard.gd" id="1_wgyx1"]
+[ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://Assets/Shaders/SongSelect.gdshader" id="2_2o70j"]
 [ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="4_b12wn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c16ru"]
+shader = ExtResource("2_2o70j")
+shader_parameter/speed = 0.3
+shader_parameter/pixelation = 1.0
+shader_parameter/zoom = 10.0
+shader_parameter/gradient_pixelation = 0.0010000000475
+shader_parameter/background_threshold = 0.0
+shader_parameter/color_low_threshold = 0.25600001216
+shader_parameter/color_mid_threshold = 0.31600001501
+shader_parameter/color_low = Color(0.011137841, 0.44593006, 0.55052865, 1)
+shader_parameter/color_mid = Color(0.2973955, 0.32764742, 0.7043561, 1)
+shader_parameter/color_high = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v3k3"]
 bg_color = Color(0.050708726, 0, 0.37342674, 0.102000006)
@@ -66,6 +80,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wgyx1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1015100374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Shader" type="ColorRect" parent="Background" unique_id=939637057]
+material = SubResource("ShaderMaterial_c16ru")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Scores" type="Panel" parent="." unique_id=290725952]
 layout_mode = 0
@@ -164,12 +196,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/default_color = Color(0.58611006, 0.9999997, 0.9983652, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
+theme_override_constants/shadow_outline_size = 6
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/normal_font = ExtResource("1_6i5ts")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "[wave]Press Enter to return to the song select."
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="SongName" type="RichTextLabel" parent="." unique_id=20784222]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+clip_contents = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 363.0
+offset_top = -665.0
+offset_bottom = -559.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.58611006, 0.9999997, 0.9983652, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
+theme_override_constants/shadow_outline_size = 6
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("1_6i5ts")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[wave]Song Name"
+vertical_alignment = 2
+
+[node name="Credit" type="RichTextLabel" parent="." unique_id=1017610449]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+clip_contents = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 363.0
+offset_top = -562.0
+offset_bottom = -456.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.58611006, 0.9999997, 0.9983652, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
+theme_override_constants/shadow_outline_size = 6
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("1_6i5ts")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[wave]Artist - Mapper"
 
 [node name="IconShadow" type="Panel" parent="." unique_id=857018821]
 unique_name_in_owner = true

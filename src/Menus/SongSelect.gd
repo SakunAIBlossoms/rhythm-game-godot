@@ -100,3 +100,6 @@ func _on_issue_report_pressed() -> void:
 
 func _on_user_feedback_gui_visibility_changed() -> void:
 	if not $UserFeedbackGUI.visible: _input_enable()
+
+func _on_quit_pressed() -> void:
+	get_tree().quit(0)

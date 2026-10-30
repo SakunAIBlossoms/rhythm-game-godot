@@ -49,15 +49,16 @@ const defaultOptions = {
 			"Default Value" = 0,
 			"Save Variable" = "DisplayResolutionOption"
 		},
+		"Antialiasing" = {
+			"Type" = "Dropdown",
+			"Values" = ["Disabled", "MSAA 2x", "MSAA 4x", "MSAA 8x"],
+			"Default Value" = 2,
+			"Save Variable" = "AntialiasingMode"
+		},
 		"Shaders" = {
 			"Type" = "Checkbox",
 			"Default Value" = true,
 			"Save Variable" = "GraphicsShadersEnabled"
-		},
-		"Antialiasing" = {
-			"Type" = "Checkbox",
-			"Default Value" = true,
-			"Save Variable" = "AntialiasingEnabled"
 		}
 	},
 	"Gameplay" = {

@@ -28,9 +28,6 @@ var Antialiasing: Viewport.MSAA:
 	get: return Antialiasing
 
 func _ready():
-	Antialiasing = get_viewport().msaa_2d
-	Log.pr("Antialiasing is ", Antialiasing)
-
 	if (FileAccess.file_exists("user://SettingsData.json")):
 		var file = FileAccess.open("user://SettingsData.json", FileAccess.READ)
 		var rawtxt = file.get_as_text()
@@ -40,10 +37,25 @@ func _ready():
 		Options = {}
 
 func UpdateOption(Option:String, value:Variant) -> bool:
-	return Options.set(Option, value)
+	var success = Options.set(Option, value)
+	
+	ForceUpdateSettings(Option)
+	
+	return success
 
 func GetOption(Option:String) -> Variant:
 	return Options.get(Option, null)
+
+func ForceUpdateSettings(Option:String):
+	match(Option):
+		"AntialiasingMode": get_viewport().msaa_2d = Options.get(Option, Viewport.MSAA_DISABLED)
+		"VolumeCompletelyMuted": AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), Options.get(Option, false))
+		"MasterVolume": Volume.volume = Options.get(Option, 0.0)
+		"MusicVolume": AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), Options.get(Option, 0.0))
+		"HitsoundVolume": AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Hitsounds"), Options.get(Option, 0.0))
+		"FullscreenDisplayMode": get_window().mode = Window.MODE_FULLSCREEN if Options.get(Option, false) else Window.MODE_WINDOWED
+		"DisplayResolutionOption": get_window().size = Utils.resolutions.get(Options.get(Option, 0))
+		_: Log.pr("No value for forcing a value update.")
 
 func Save():
 	var OptionsFile = FileAccess.open("user://SettingsData.json", FileAccess.WRITE)
