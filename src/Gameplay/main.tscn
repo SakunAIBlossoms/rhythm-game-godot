@@ -61,6 +61,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("3_07fvg")
 autoplay = false
+stretch_mode = 6
 metadata/_custom_type_script = "uid://qrfv77io56w"
 
 [node name="Gameplay" type="CanvasLayer" parent="." unique_id=43334772]

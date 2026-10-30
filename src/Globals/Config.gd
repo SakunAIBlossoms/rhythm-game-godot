@@ -50,7 +50,7 @@ func ForceUpdateSettings(Option:String):
 	match(Option):
 		"AntialiasingMode": get_viewport().msaa_2d = Options.get(Option, Viewport.MSAA_DISABLED)
 		"VolumeCompletelyMuted": AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), Options.get(Option, false))
-		"MasterVolume": Volume.volume = Options.get(Option, 0.0)
+		"MasterVolume":AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), Options.get(Option, 0.0))
 		"MusicVolume": AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), Options.get(Option, 0.0))
 		"HitsoundVolume": AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Hitsounds"), Options.get(Option, 0.0))
 		"FullscreenDisplayMode": get_window().mode = Window.MODE_FULLSCREEN if Options.get(Option, false) else Window.MODE_WINDOWED

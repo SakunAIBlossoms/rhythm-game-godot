@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dijafmod0pjx6"
+path="res://.godot/imported/[Kanaria Feat. GUMI] KING (English Subs).mp3-d3522e55cf9e84bc1f1257652aee9515.mp3str"
+
+[deps]
+
+source_file="res://Songs/king/[Kanaria Feat. GUMI] KING (English Subs).mp3"
+dest_files=["res://.godot/imported/[Kanaria Feat. GUMI] KING (English Subs).mp3-d3522e55cf9e84bc1f1257652aee9515.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

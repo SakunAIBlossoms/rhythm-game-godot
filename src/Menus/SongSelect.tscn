@@ -212,7 +212,7 @@ process_material = SubResource("ParticleProcessMaterial_dksta")
 
 [node name="SongList" type="Control" parent="." unique_id=708210038]
 anchors_preset = 0
-offset_right = 480.0
+offset_right = 1001.0
 offset_bottom = 720.0
 
 [node name="CurrentSong" type="Control" parent="." unique_id=355762994]
@@ -260,7 +260,7 @@ grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_30wvq")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="Outline" type="Panel" parent="CurrentSong/IconContainer" unique_id=1157408139]
 layout_mode = 0
@@ -273,7 +273,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_top = 360.0
 offset_right = 340.0
-offset_bottom = 427.0
+offset_bottom = 569.0
 theme_override_colors/default_color = Color(0.58611006, 0.9999997, 0.9983652, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
 theme_override_constants/shadow_outline_size = 6
@@ -284,14 +284,13 @@ theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "[wave amp=60.0 freq=2.0 connected=0]Song Name"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Artist" type="RichTextLabel" parent="CurrentSong" unique_id=539991513]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = 427.0
+offset_top = 572.0
 offset_right = 336.0
-offset_bottom = 467.0
+offset_bottom = 612.0
 theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
 theme_override_constants/text_highlight_h_padding = 3
@@ -304,9 +303,9 @@ vertical_alignment = 1
 [node name="Mapper" type="RichTextLabel" parent="CurrentSong" unique_id=624146450]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = 467.0
+offset_top = 612.0
 offset_right = 336.0
-offset_bottom = 507.0
+offset_bottom = 652.0
 theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
 theme_override_constants/text_highlight_h_padding = 3

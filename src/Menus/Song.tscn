@@ -7,8 +7,10 @@
 content_margin_left = 15.0
 
 [node name="Song" type="RichTextLabel" unique_id=352103893]
-custom_minimum_size = Vector2(480, 60)
+custom_minimum_size = Vector2(1001, 60)
 clip_contents = false
+offset_right = 1001.0
+offset_bottom = 60.0
 theme_override_colors/default_color = Color(0.50980395, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_fonts/normal_font = ExtResource("1_xi2xo")

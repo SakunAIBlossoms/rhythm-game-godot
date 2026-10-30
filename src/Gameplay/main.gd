@@ -184,7 +184,7 @@ func TogglePause():
 		$Pause.Pause()
 		if get_node("VideoBackground") != null: $VideoBackground.pause()
 	else:
-		if get_node("VideoBackground") != null: $VideoBackground.resume()
+		if get_node("VideoBackground") != null: $VideoBackground.play()
 	Conductor.stream_paused = Paused
 
 func _process(dt:float):

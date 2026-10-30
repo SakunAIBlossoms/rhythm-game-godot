@@ -90,6 +90,14 @@ func HitNote(event:InputEventKey):
 			$Hitsound.play()
 		else:
 			if OS.is_debug_build(): Log.pr("No note hit")
+	elif note.type == 2:
+		if delay > -240 and delay < 240:
+			note.Hit(false)
+			note.visible = false
+			if OS.is_debug_build(): Log.pr("Hit failed because you hit a mine stupid")
+			HitWindowCalculations(delay)
+			emit_signal("Missed")
+			$Hitsound.play()
 
 func HitWindowCalculations(delay:float):
 	# Perfect
@@ -141,12 +149,16 @@ func _physics_process(_delta: float) -> void:
 					note.Hit(true)
 					$Hitsound.play()
 			
-			if note.position.y >= Hitpoint and Utils.autoplay:
+			if note.position.y >= Hitpoint and Utils.autoplay and note.type != 2:
 				note.Hit(true)
 				$Hitsound.play()
 				emit_signal("Hit", "Perfect", 0)
-
-			if Conductor.songPosition - note.time > 240:
+			
+			if Conductor.songPosition - note.time > 240 and note.type != 2:
 				note.Hit(false)
 				note.visible = false
 				emit_signal("Missed")
+			elif Conductor.songPosition - note.time > 240 and note.type == 2:
+				note.Hit(true)
+				note.visible = false
+				emit_signal("Hit", "Perfect", 0.0)

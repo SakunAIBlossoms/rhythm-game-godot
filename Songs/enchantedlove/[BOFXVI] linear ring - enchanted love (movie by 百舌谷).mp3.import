@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7twj4q1hvwcg"
+path="res://.godot/imported/[BOFXVI] linear ring - enchanted love (movie by 百舌谷).mp3-799cb95acedd3f0ea0fedc75319b1a89.mp3str"
+
+[deps]
+
+source_file="res://Songs/enchantedlove/[BOFXVI] linear ring - enchanted love (movie by 百舌谷).mp3"
+dest_files=["res://.godot/imported/[BOFXVI] linear ring - enchanted love (movie by 百舌谷).mp3-799cb95acedd3f0ea0fedc75319b1a89.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

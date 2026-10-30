@@ -50,9 +50,9 @@ func _ready() -> void:
 
 func _input(event:InputEvent):
 	if event is InputEventKey and inputEnabled:
-		if event.is_action_released("ui_down"):
+		if event.is_action_released("down"):
 			ChangeID(-1)
-		if event.is_action_released("ui_up"):
+		if event.is_action_released("up"):
 			ChangeID(1)
 		
 		if event.is_action_released("ui_accept"):
@@ -84,7 +84,7 @@ func _process(dt: float):
 	%IconContainer.rotation = sin(deg_to_rad(Time.get_ticks_msec() * 0.2)) * 0.08
 	%IconShadow.rotation = %IconContainer.rotation
 	for child in $SongList.get_children():
-		child.position.y = lerp(child.position.y, child.size.y+100*child.ID, 12*dt)
+		child.position.y = lerp(child.position.y, child.size.y+50*child.ID, 12*dt)
 
 func _input_enable() -> void:
 	inputEnabled = true
