@@ -60,6 +60,7 @@ script/source = "extends RichTextLabel
 var count = 3
 
 func StartTickdown():
+	text = \"3\"
 	$Timer.start(1)
 	visible = true
 	$Tick.play()

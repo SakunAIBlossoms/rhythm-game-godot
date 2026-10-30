@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://d3jjferclrafi"]
+
+[ext_resource type="FontFile" uid="uid://cvpcexv6xqhdx" path="res://Assets/Fonts/Akira Expanded.otf" id="1_5qd1u"]
+[ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="1_6i5ts"]
+[ext_resource type="Script" uid="uid://b2e1f0nlff30o" path="res://src/Menus/scoreboard.gd" id="1_wgyx1"]
+[ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="4_b12wn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v3k3"]
+bg_color = Color(0.050708726, 0, 0.37342674, 0.102000006)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.13816993, 0.106126174, 0.53412783, 0.48800004)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 20
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+shadow_color = Color(0, 0, 0, 0.416)
+shadow_size = 6
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o70j"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c16ru"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujsg0"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.31300002)
+border_blend = true
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
+
+[node name="Scoreboard" type="Control" unique_id=2122081692]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wgyx1")
+
+[node name="Scores" type="Panel" parent="." unique_id=290725952]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 370.0
+offset_right = 950.0
+offset_bottom = 616.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8v3k3")
+
+[node name="List" type="VBoxContainer" parent="Scores" unique_id=405916557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Perfects" type="RichTextLabel" parent="Scores/List" unique_id=570623289]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5qd1u")
+theme_override_font_sizes/normal_font_size = 26
+text = "Perfects: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Goods" type="RichTextLabel" parent="Scores/List" unique_id=803304120]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5qd1u")
+theme_override_font_sizes/normal_font_size = 26
+text = "Goods: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bads" type="RichTextLabel" parent="Scores/List" unique_id=311449734]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5qd1u")
+theme_override_font_sizes/normal_font_size = 26
+text = "Bads: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Misses" type="RichTextLabel" parent="Scores/List" unique_id=211887010]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5qd1u")
+theme_override_font_sizes/normal_font_size = 26
+text = "Misses: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notes Hit" type="RichTextLabel" parent="Scores/List" unique_id=774017584]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5qd1u")
+theme_override_font_sizes/normal_font_size = 26
+text = "Notes Hit: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accuracy" type="RichTextLabel" parent="Scores/List" unique_id=38271988]
+visible = false
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+text = "Accuracy: 0"
+
+[node name="Fail" type="RichTextLabel" parent="Scores" unique_id=1247963273]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.694361, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_fonts/normal_font = ExtResource("1_5qd1u")
+theme_override_font_sizes/normal_font_size = 80
+text = "Failed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnterLabel" type="RichTextLabel" parent="." unique_id=711124418]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("1_6i5ts")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[wave]Press Enter to return to the song select."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="IconShadow" type="Panel" parent="." unique_id=857018821]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 36.0
+offset_top = 41.0
+offset_right = 336.0
+offset_bottom = 341.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2o70j")
+
+[node name="IconContainer" type="Panel" parent="." unique_id=1259872612]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 41.0
+offset_right = 336.0
+offset_bottom = 341.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_c16ru")
+
+[node name="Icon" type="TextureRect" parent="IconContainer" unique_id=1254879021]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_b12wn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Outline" type="Panel" parent="IconContainer" unique_id=2115907028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujsg0")

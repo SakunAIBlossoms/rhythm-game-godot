@@ -3,3 +3,4 @@ If you want to see debug information press the F3 button on your keyboard!
 Default keybinds are dfjk or dfspacejk
 Arrows to navigate the songs in the song select and enter to select a song
 Click on buttons like the options one and in the options menu for each setting.
+By default shaders and mp4 videos are enabled, but both of those can cause extreme lag, if you don't think your device can run them, turn them off!

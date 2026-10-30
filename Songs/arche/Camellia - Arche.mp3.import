@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Camellia - Arche.mp3-8b8160b19a309f2b6ea4adc5
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0.0
 bpm=0.0
 beat_count=0

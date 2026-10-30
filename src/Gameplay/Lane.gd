@@ -68,7 +68,7 @@ func HitNote(event:InputEventKey):
 	var note = closest(Conductor.songPosition, Notes)
 	if note == null: return
 	var delay = Conductor.songPosition - note.time
-	Log.pr("Attempting to hit note with time difference of ", delay)
+	if OS.is_debug_build(): Log.pr("Attempting to hit note with time difference of ", delay)
 	if note.type == 0:
 		if delay < 160 and delay > -160:
 			note.Hit(true)
@@ -76,18 +76,20 @@ func HitNote(event:InputEventKey):
 			$Hitsound.play()
 		elif delay > 160 and delay < 240:
 			note.Hit(false)
-			Log.pr("Hit failed because you were TOO LATE OR EARLY NOOB")
+			note.visible = false
+			if OS.is_debug_build(): Log.pr("Hit failed because you were TOO LATE OR EARLY NOOB")
 			HitWindowCalculations(delay)
 			emit_signal("Missed")
 			$Hitsound.play()
 		elif delay < -160 and delay > -240:
 			note.Hit(false)
-			Log.pr("Hit failed because you were TOO LATE OR EARLY NOOB")
+			note.visible = false
+			if OS.is_debug_build(): Log.pr("Hit failed because you were TOO LATE OR EARLY NOOB")
 			HitWindowCalculations(delay)
 			emit_signal("Missed")
 			$Hitsound.play()
 		else:
-			Log.pr("No note hit")
+			if OS.is_debug_build(): Log.pr("No note hit")
 
 func HitWindowCalculations(delay:float):
 	# Perfect
@@ -99,6 +101,7 @@ func HitWindowCalculations(delay:float):
 		emit_signal("Hit", "Bad", delay)
 	else:
 		emit_signal("Hit", "Horrid", delay)
+		emit_signal("Missed")
 
 func closest(timestamp:float, n:Array):
 	# Initialize
@@ -137,9 +140,13 @@ func _physics_process(_delta: float) -> void:
 				if note.position.y >= Hitpoint and Receptor.state:
 					note.Hit(true)
 					$Hitsound.play()
-		
-		if note.HasBeenHit or note.Missed:
-			note.visible = false
-			note.canHit = false
-			Notes.remove_at(Notes.find(note))
-			if OS.is_debug_build(): Log.pr("note freed at "+str(note.time) + " the current time is "+str(Conductor.songPosition))
+			
+			if note.position.y >= Hitpoint and Utils.autoplay:
+				note.Hit(true)
+				$Hitsound.play()
+				emit_signal("Hit", "Perfect", 0)
+
+			if Conductor.songPosition - note.time > 240:
+				note.Hit(false)
+				note.visible = false
+				emit_signal("Missed")

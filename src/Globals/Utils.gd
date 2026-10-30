@@ -6,6 +6,9 @@ signal SetVolumeState(enabled:bool)
 var NextSongToPlay = ""
 var CurrentPulse = null
 var CurrentKeycount = 4
+var PlayerCurrentScore = null
+
+var autoplay:bool = false
 
 var resolutions = [
 	Vector2i(1280,720),

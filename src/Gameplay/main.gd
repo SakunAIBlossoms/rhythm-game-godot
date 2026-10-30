@@ -21,6 +21,8 @@ var roundedvaluesfordebug = false
 
 var ScoreData:PlayerStatistics
 
+var health:float = 100
+
 func _ready():
 	ScoreData = PlayerStatistics.new()
 	# Conductor debug
@@ -47,16 +49,21 @@ func _ready():
 	chartdata = ChartParser.ParseCustomChart(rawchart.get_as_text())
 	Log.pr("Chart loaded")
 	
+	Log.pr("Checking for video background")
 	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4"):
+		Log.pr("Video background found")
 		if Config.GetOption("VideoBackgroundEnabled") == false:
-			$VideoBackground.visible = false
+			Log.pr("Video background disabled in options, destroying node...")
 			$VideoBackground.queue_free()
 		else:
+			Log.pr("Loading video...")
 			$VideoBackground.open("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4")
+			Log.pr("Video loaded!")
 	else:
+		# Cant find it so we delete it to save space.
+		Log.pr("Couldn't find video file, destroying node.")
 		$VideoBackground.queue_free()
-		$VideoBackground.visible = false
-	
+		
 	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/meta.txt"):
 		Log.pr("Loading ", Utils.NextSongToPlay, " metadata")
 		var file = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/meta.txt", FileAccess.READ)
@@ -83,7 +90,9 @@ func _ready():
 		playfields.push_front(pf)
 		for lane in pf.get_children():
 			lane.Hit.connect(_hit)
-			lane.Missed.connect(func(): ScoreData.Misses += 1)
+			lane.Missed.connect(_miss)
+		
+		Log.pr("Playfield ", pf, " setup complete.")
 		
 		#playfields.push_front($"Gameplay/Playfields/1")
 		#$"Gameplay/Playfields/1".texture = pf.get_texture()
@@ -97,18 +106,24 @@ func _ready():
 		#		$Gameplay/Playfields.add_child(fakepf)
 		#		fakepf.modulate.a = 0
 
+		Log.pr("Setup pause")
 		$Pause.Setup(data[1])
+		Log.pr("Pause setup complete")
 	else:
 		Log.error("Cannot find the metadata file")
 	
+	# Updating all positions just in-case
+	Log.pr("Begin updating playfield positions to defaults.")
 	for playfield in $Gameplay/Playfields.get_children():
 		@warning_ignore("integer_division")
 		playfield.position.x = (1280/2) - (playfield.size.x/2)
-		
+		Log.pr("Updated ", playfield, " x position to ", playfield.position.x)
+	
 	if Config.GetOption("VisualEffectsEnabled") == false:
 		Log.pr("User disabled visual effects, skipping creation and destroying the effect node for performance.")
 		$EffectHandler.queue_free()
 	else:
+		Log.pr("Checking for visual effects file")
 		if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/effects.json"):
 			Log.pr("Found an effect file!")
 			var file = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/effects.json", FileAccess.READ)
@@ -119,9 +134,12 @@ func _ready():
 			Log.pr("Cannot find an effect file, skipping!")
 			$EffectHandler.queue_free()
 	
+	Conductor.finished.connect(_song_finished)
+
 	$"3SecondIntroTimer".start(3.0)
 
 func _hit(rating:String, delay:float):
+	if health < 100: health += 3
 	ScoreData.NotesHit += 1
 	$HUD/Hit.text = rating
 	$HUD/Hit/delay.text = str(roundi(delay))+"ms"
@@ -140,6 +158,10 @@ func _hit(rating:String, delay:float):
 		"Bad":
 			ScoreData.Bads += 1
 
+func _miss():
+	ScoreData.Misses += 1
+	if health > 0: health -= 5
+
 func BeatHit(beat):
 	if Utils.CurrentPulse != null:
 		if int(Utils.CurrentPulse.interval) != 0:
@@ -150,11 +172,14 @@ func _input(event:InputEvent):
 	if event is InputEventKey:
 		if event.is_pressed() and event.keycode == Key.KEY_ESCAPE and not Paused:
 			TogglePause()
+		
+		if event.keycode == Key.KEY_9 and event.is_released():
+			Utils.autoplay = not Utils.autoplay
 
 func TogglePause():
 	Paused = not Paused
 	
-	$EffectHandler.TogglePauseState(Paused)
+	if get_node("EffectHandler") != null: $EffectHandler.TogglePauseState(Paused)
 	if (Paused):
 		$Pause.Pause()
 		if get_node("VideoBackground") != null: $VideoBackground.pause()
@@ -167,10 +192,19 @@ func _process(dt:float):
 	else: Camera.zoom = lerp(Camera.zoom, Camera.BaseCamZoom, 12*dt)
 	if $"3SecondIntroTimer".time_left > 0: $Overlay/Countdown.text = str(int($"3SecondIntroTimer".time_left+1))
 	else: $Overlay/Countdown.visible = false
+	$Overlay/AutoplayText.visible = Utils.autoplay
+	if health <= 0: 
+		$HUD/Health/Fail.visible = true
+	else:
+		$HUD/Health.set_value_no_signal(lerp($HUD/Health.value, health, 12*dt))
+	
+	if $HUD/Health/Fail.visible: $HUD/Health.set_value_no_signal(0.)
 
 func _song_finished():
 	# Replace this with a score screen later.
-	get_tree().change_scene_to_file("res://src/Menus/SongSelect.tscn")
+	if not $HUD/Health/Fail.visible: Utils.PlayerCurrentScore = ScoreData
+	else: Utils.PlayerCurrentScore = null
+	get_tree().change_scene_to_file("res://src/Menus/scoreboard.tscn")
 
 class PlayerStatistics:
 	var Misses := 0
