@@ -8,12 +8,17 @@ var CategoryTitleNode = preload("uid://dhb4mw5vfifol")
 const cog_spin_speed:float = 2.0
 
 # Using a dictionary for this internally, not working with a team so I don't need to make it easily readable.
-const defaultOptions = {
+var defaultOptions = {
 	"Volume" = {
 		"Muted" = {
 			"Type" = "Checkbox",
 			"Default Value" = false,
 			"Save Variable" = "VolumeCompletelyMuted"
+		},
+		"Mute when tabbed out" = {
+			"Type" = "Checkbox",
+			"Default Value" = true,
+			"Save Variable" = "MuteTabbedOut"
 		},
 		"Master Volume" = {
 			"Type" = "Slider",
@@ -61,7 +66,18 @@ const defaultOptions = {
 			"Save Variable" = "GraphicsShadersEnabled"
 		}
 	},
+	"Customization" = {
+		"Video Background" = {
+			"Type" = "Checkbox",
+			"Default Value" = true,
+			"Save Variable" = "VideoBackgroundEnabled"
+		},
+	},
 	"Gameplay" = {
+		"Rebind Keys" = {
+			"Type" = "Button",
+			"Function" = _bind_keys
+		},
 		"Scroll Speed" = {
 			"Type" = "Number",
 			"Default Value" = 2.4,
@@ -72,10 +88,15 @@ const defaultOptions = {
 			"Default Value" = true,
 			"Save Variable" = "VisualEffectsEnabled"
 		},
-		"Video Background" = {
+		"Time Bar" = {
 			"Type" = "Checkbox",
 			"Default Value" = true,
-			"Save Variable" = "VideoBackgroundEnabled"
+			"Save Variable" = "TimeBarEnabled"
+		},
+		"Star Background Overlay" = {
+			"Type" = "Checkbox",
+			"Default Value" = true,
+			"Save Variable" = "GameplayStarShaderBackground"
 		}
 	}
 }
@@ -109,30 +130,33 @@ func _ready() -> void:
 			if newoptionnode == null: return
 			# Change Title
 			newoptionnode.get_node("Title").text = option
-
-			var value = newoptionnode.get_node("Value")
-			var defaultvalue = Config.GetOption(data.get("Save Variable")) if Config.GetOption(data.get("Save Variable")) != null else data.get("Default Value")
-			# Setup callbacks
-			if (value is Slider):
-				value.max_value = data.get("Max")
-				value.min_value = data.get("Min")
-				value.set_value_no_signal(defaultvalue)
+			
+			if data.get("Type") != "Button":
+				var value = newoptionnode.get_node("Value")
+				var defaultvalue = Config.GetOption(data.get("Save Variable")) if Config.GetOption(data.get("Save Variable")) != null else data.get("Default Value")
+				# Setup callbacks
+				if (value is Slider):
+					value.max_value = data.get("Max")
+					value.min_value = data.get("Min")
+					value.set_value_no_signal(defaultvalue)
+					
+					# Finish config before letting this be configured.
+					value.value_changed.connect(func(v:float): Config.UpdateOption(data.get("Save Variable"), v))
+							
+				if (value is CheckButton):
+					value.button_pressed = defaultvalue
+					value.toggled.connect(func(state:bool): Config.UpdateOption(data.get("Save Variable"), state))
 				
-				# Finish config before letting this be configured.
-				value.value_changed.connect(func(v:float): Config.UpdateOption(data.get("Save Variable"), v))
-						
-			if (value is CheckButton):
-				value.button_pressed = defaultvalue
-				value.toggled.connect(func(state:bool): Config.UpdateOption(data.get("Save Variable"), state))
-			
-			if (value is SpinBox):
-				value.set_value_no_signal(defaultvalue)
-				value.value_changed.connect(func(newvalue:float): Config.UpdateOption(data.get("Save Variable"), newvalue))
-			
-			if (value is OptionButton):
-				newoptionnode.Setup(data.get("Values"))
-				value.select(defaultvalue)
-				value.item_selected.connect(func(index:int): Config.UpdateOption(data.get("Save Variable"), index))
+				if (value is SpinBox):
+					value.set_value_no_signal(defaultvalue)
+					value.value_changed.connect(func(newvalue:float): Config.UpdateOption(data.get("Save Variable"), newvalue))
+				
+				if (value is OptionButton):
+					newoptionnode.Setup(data.get("Values"))
+					value.select(defaultvalue)
+					value.item_selected.connect(func(index:int): Config.UpdateOption(data.get("Save Variable"), index))
+			else:
+				newoptionnode.get_node("Button").pressed.connect(data.get("Function"))
 			
 			newoptionnode.add_to_group(category)
 			OptionList.add_child(newoptionnode)
@@ -157,12 +181,16 @@ func get_option_type(type:String):
 		"Checkbox": return load("res://src/Menus/Options/Checkbox.tscn").instantiate()
 		"Number": return load("res://src/Menus/Options/NumberBox.tscn").instantiate()
 		"Dropdown": return load("res://src/Menus/Options/Dropdown.tscn").instantiate()
+		"Button": return load("res://src/Menus/Options/Button.tscn").instantiate()
 		_: return null
 
 func _process(delta: float) -> void:
 	$Topbar/Cog.scale = Vector2(lerpf($Topbar/Cog.scale.x, 1.0, 6.0*delta), lerpf($Topbar/Cog.scale.y, 1.0, 6.0*delta))
 	$Topbar/Title.rotation = sin(deg_to_rad(Time.get_ticks_msec() * 0.16)) * 0.03
 	$Topbar/Cog.rotation_degrees += 2 * cog_spin_speed
+
+func _bind_keys():
+	$BindKeys.visible = true
 
 func show_category(category:String):
 	for node in OptionList.get_children():

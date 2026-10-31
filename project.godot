@@ -31,6 +31,10 @@ Overlay="*uid://t12g51ajhigq"
 ImGui="*uid://batmd17pvevqu"
 Debug="*uid://pay2sleakuyj"
 
+[copy_files_on_export]
+
+files=Array[PackedStringArray]([PackedStringArray("res://READ ME!!!!.txt", "READ ME!!!!.txt", ""), PackedStringArray("res://sources.txt", "sources.txt", ""), PackedStringArray("res://addons/MP4Player/bin/avcodec-62.dll", "avcodec-62.dll", ""), PackedStringArray("res://addons/MP4Player/bin/avdevice-62.dll", "avdevice-62.dll", ""), PackedStringArray("res://addons/MP4Player/bin/avfilter-11.dll", "avfilter-11.dll", ""), PackedStringArray("res://addons/MP4Player/bin/avformat-62.dll", "avformat-62.dll", ""), PackedStringArray("res://addons/MP4Player/bin/avutil-60.dll", "avutil-60.dll", ""), PackedStringArray("res://addons/MP4Player/bin/pkgconf-7.dll", "pkgconf-7.dll", ""), PackedStringArray("res://addons/MP4Player/bin/swresample-6.dll", "swresample-6.dll", ""), PackedStringArray("res://addons/MP4Player/bin/swscale-9.dll", "swscale-9.dll", ""), PackedStringArray("res://Videos/angelanddemon.mp4", "Videos/angelanddemon.mp4", ""), PackedStringArray("res://Videos/armageddon.mp4", "Videos/armageddon.mp4", ""), PackedStringArray("res://Videos/confessions.mp4", "Videos/confessions.mp4", ""), PackedStringArray("res://Videos/enchantedlove.mp4", "Videos/enchantedlove.mp4", ""), PackedStringArray("res://Videos/pppp.mp4", "Videos/pppp.mp4", ""), PackedStringArray("res://Videos/videogamelobby.mp4", "Videos/videogamelobby.mp4", "")])
+
 [debug]
 
 settings/gdscript/always_track_call_stacks=true
@@ -48,7 +52,7 @@ project/assembly_name="Rhythm Game Godot"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MP4Player/plugin.cfg", "res://addons/dear-imgui-godot/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg")
+enabled=PackedStringArray("res://addons/MP4Player/plugin.cfg", "res://addons/copy_files_on_export/plugin.cfg", "res://addons/dear-imgui-godot/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg")
 
 [input]
 

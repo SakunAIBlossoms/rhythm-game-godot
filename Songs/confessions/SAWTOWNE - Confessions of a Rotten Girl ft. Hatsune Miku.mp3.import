@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://py2p7pf325s4"
+path="res://.godot/imported/SAWTOWNE - Confessions of a Rotten Girl ft. Hatsune Miku.mp3-db2ece8b2af11a95c69b355288f06379.mp3str"
+
+[deps]
+
+source_file="res://Songs/confessions/SAWTOWNE - Confessions of a Rotten Girl ft. Hatsune Miku.mp3"
+dest_files=["res://.godot/imported/SAWTOWNE - Confessions of a Rotten Girl ft. Hatsune Miku.mp3-db2ece8b2af11a95c69b355288f06379.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

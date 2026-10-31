@@ -31,6 +31,30 @@ corner_radius_bottom_left = 13
 content_margin_left = 10.0
 content_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07fvg"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.48565158, 0.48565158, 0.48565158, 0.41500002)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 6
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ipog"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [sub_resource type="GDScript" id="GDScript_g2td4"]
 script/source = "extends Camera2D
 
@@ -39,6 +63,35 @@ script/source = "extends Camera2D
 
 [node name="Main" type="Node2D" unique_id=866178733]
 script = ExtResource("1_7alqp")
+
+[node name="BlackBG" type="ColorRect" parent="." unique_id=1617718069]
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ImageBG" type="TextureRect" parent="." unique_id=1879976267]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VideoBackground" type="Control" parent="." unique_id=1960571500]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("3_07fvg")
+autoplay = false
+stretch_mode = 6
+metadata/_custom_type_script = "uid://qrfv77io56w"
 
 [node name="BG" type="ColorRect" parent="." unique_id=2092143727]
 material = SubResource("ShaderMaterial_07fvg")
@@ -54,15 +107,6 @@ grow_vertical = 2
 [node name="3SecondIntroTimer" type="Timer" parent="." unique_id=1509939670]
 wait_time = 3.0
 one_shot = true
-
-[node name="VideoBackground" type="Control" parent="." unique_id=1960571500]
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("3_07fvg")
-autoplay = false
-stretch_mode = 6
-metadata/_custom_type_script = "uid://qrfv77io56w"
 
 [node name="Gameplay" type="CanvasLayer" parent="." unique_id=43334772]
 layer = 3
@@ -171,6 +215,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Time" type="ProgressBar" parent="HUD" unique_id=1322378197]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = 15.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_07fvg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6ipog")
+show_percentage = false
+
+[node name="Details" type="Control" parent="HUD/Time" unique_id=2011864463]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 15.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="CurrentTime" type="RichTextLabel" parent="HUD/Time/Details" unique_id=608305271]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_47auu")
+theme_override_font_sizes/normal_font_size = 20
+text = "0:0"
+
+[node name="EndTime" type="RichTextLabel" parent="HUD/Time/Details" unique_id=348238548]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_47auu")
+theme_override_font_sizes/normal_font_size = 20
+text = "0:0"
+horizontal_alignment = 2
+
+[node name="Percentage" type="RichTextLabel" parent="HUD/Time/Details" unique_id=1252765044]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_47auu")
+theme_override_font_sizes/normal_font_size = 20
+text = "0%"
+horizontal_alignment = 1
+
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=937613068]
 layer = 14
 
@@ -180,7 +280,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.6)
 
 [node name="Countdown" type="RichTextLabel" parent="Overlay" unique_id=1170538140]
 anchors_preset = 15
@@ -197,9 +297,12 @@ vertical_alignment = 1
 [node name="AutoplayText" type="RichTextLabel" parent="Overlay" unique_id=454530508]
 visible = false
 custom_minimum_size = Vector2(0, 45)
-anchors_preset = 10
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("5_47auu")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true

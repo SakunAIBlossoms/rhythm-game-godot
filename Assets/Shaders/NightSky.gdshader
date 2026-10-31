@@ -77,5 +77,5 @@ void fragment()
     }
     color*=vec3(.5,.7,1.);
     color = floor(0.01 + color * 16.0) / 16.0;
-    COLOR=vec4(color,1.);
+    COLOR=vec4(color,.4);
 }

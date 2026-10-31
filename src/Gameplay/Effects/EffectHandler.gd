@@ -66,18 +66,22 @@ func Setup(sent, pfs, cam):
 				var newpulse = BeatPulseClass.new()
 				newpulse.setup(o)
 				Effects.beatpulse.push_front(newpulse)
-			"shader": for o in sent[obj]:
-				if canUseShaders:
-					var newshader = ShaderClass.new()
-					newshader.setup(o)
-					Effects.shader.push_front(newshader)
-				else:
-					# There are no shaders enabled so we skip processing the events and will dump the nodes for it by freeing them all.
-					Log.pr("Shaders are disabled")
-					for shader in $Shaders.get_children():
-						# Free all the shaders
-						shader.queue_free()
-					ShaderNodes = null
+			"shader": 
+				var prev = null
+				for o in sent[obj]:
+					if prev != null: if prev.get("time") == o.get("time"): o.set("time", o.get("time")+1.)
+					if canUseShaders:
+						var newshader = ShaderClass.new()
+						newshader.setup(o)
+						Effects.shader.push_front(newshader)
+						prev = o
+					else:
+						# There are no shaders enabled so we skip processing the events and will dump the nodes for it by freeing them all.
+						Log.pr("Shaders are disabled")
+						for shader in $Shaders.get_children():
+							# Free all the shaders
+							shader.queue_free()
+						ShaderNodes = null
 			"playfieldmove": for o in sent[obj]:
 				var newmovement = PlayfieldMoveClass.new()
 				newmovement.setup(o)
@@ -114,14 +118,15 @@ func TogglePauseState(state:bool):
 			if twn.is_valid():
 				twn.pause()
 			else:
-				Log.pr("Tween has already ended and cannot be paused again, skipping...")
+				tweenlist.remove_at(tweenlist.find(twn))
+			#	Log.pr("Tween has already ended and cannot be paused again, skipping...")
 	else:
 		Log.pr("Resuming all tweens to unpause the game.")
 		for twn in tweenlist:
 			if twn.is_valid():
 				twn.play()
-			else:
-				Log.pr("Tween has already ended and should not be restarted, skipping...")
+			#else:
+			#	Log.pr("Tween has already ended and should not be restarted, skipping...")
 		
 
 func _physics_process(_delta: float) -> void:
@@ -195,11 +200,13 @@ func _scaleplayfield(duration:float, scaleto:Vector2, playfield:int, subfield:in
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	if subfield != 0: 
-		var pf = playfields.get(subfield)
+		var pf = playfields.get(subfield-1) if playfields.get(subfield-1) != null else playfields.get(0)
 		twn.tween_property(pf, "scale", scaleto, duration)
 	else:
 		for field in playfields:
 			twn.parallel().tween_property(field, "scale", scaleto, duration)
+	
+	if not twn.has_tweeners(): Log.pr("Cannot scale playfield, no tweeners!", duration, scaleto, playfield, subfield, easing)
 	
 	return twn
 
@@ -209,11 +216,13 @@ func _rotateplayfield(duration:float, roll:float, playfield:int, subfield:int, e
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	if subfield != 0: 
-		var pf = playfields.get(subfield)
+		var pf = playfields.get(subfield-1) if playfields.get(subfield-1) != null else playfields.get(0)
 		twn.tween_property(pf, "rotation_degrees", roll, duration)
 	else:
 		for field in playfields:
 			twn.parallel().tween_property(field, "rotation_degrees", roll, duration)
+	
+	if not twn.has_tweeners(): Log.pr("Cannot rotate playfield, no tweeners!", duration, roll, playfield, subfield, easing)
 	
 	return twn
 
@@ -239,11 +248,13 @@ func _moveplayfield(duration:float, position:Vector3, playfield:int, subfield:in
 	twn.set_ease(Utils.GetfluXisEasing(easing))
 	twn.set_trans(Utils.GetfluXisTrans(easing))
 	if subfield != 0: 
-		var pf = playfields.get(subfield)
+		var pf = playfields.get(subfield-1) if playfields.get(subfield-1) != null else playfields.get(0)
 		twn.tween_property(pf, "position", position, duration)
 	else:
 		for field in playfields:
 			twn.parallel().tween_property(field, "position", position, duration)
+	
+	if not twn.has_tweeners(): Log.pr("Cannot move playfield, no tweeners!", duration, position, playfield, subfield, easing)
 	
 	return twn
 
@@ -264,7 +275,7 @@ func _layerfade(duration:float, alpha:float, playfield:int, coollayer:int, subfi
 		#				twn.parallel().tween_property(lane.get_node("Notes"), "modulate:a", alpha, duration)
 		3:
 			if subfield != 0: 
-				var pf = playfields.get(subfield)
+				var pf = playfields.get(subfield) if playfields.get(subfield-1) != null else playfields.get(0)
 				twn.tween_property(pf, "modulate:a", alpha, duration)
 			else:
 				for field in playfields:

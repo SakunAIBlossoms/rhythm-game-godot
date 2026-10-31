@@ -6,7 +6,7 @@ signal Missed()
 var BaseNote = preload("res://src/Gameplay/note.tscn")
 
 @export var ID = -1
-@export var Hitpoint:float = Config.Hitpoint
+@export var Hitpoint:float = Config.GetOption("Hitpoint") if typeof(Config.GetOption("Hitpoint")) == TYPE_FLOAT else 580.0
 @export var BackgroundAlpha:float = 0.4
 @export var fake:bool = false
 
@@ -38,7 +38,6 @@ func CreateNotes(notes):
 		unspawnedNotes.push_back(nobj)
 		$Notes.add_child(nobj)
 		nobj.visible = false
-		nobj.position.y = (Hitpoint + (Conductor.songPosition - nobj.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
 	
 	Notes.sort_custom(func(a, b):
 		if a.time < b.time:
@@ -52,17 +51,15 @@ func _process(delta: float) -> void:
 	if Background != null:
 		if Background.color.a != BackgroundAlpha:
 			Background.color.a = lerpf(Background.color.a, BackgroundAlpha, 12*delta)
-	#if Config.Upscroll:
-	#	Receptor.get_node("Timing").position.y = Receptor.get_node("Timing").position.y
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventKey:
-		if Bind == event.keycode and event.is_pressed():
+		if Bind == event.keycode and event.is_pressed() and Utils.inputEnabled:
 			HitNote(event)
-		if Bind == event.keycode and event.is_released():
+		if Bind == event.keycode and event.is_released() and Utils.inputEnabled:
 			LetGo(event)
 
-func HitNote(event:InputEventKey):
+func HitNote(_event:InputEventKey):
 	Receptor.Press(true)
 	
 	var note = closest(Conductor.songPosition, Notes)
@@ -126,12 +123,14 @@ func closest(timestamp:float, n:Array):
 	# Return closest number found
 	return closest_num
 
-func LetGo(event:InputEventKey):
+func LetGo(_event:InputEventKey):
 	Receptor.Press(false)
 
 func _physics_process(_delta: float) -> void:
+	var scrollspeed = Config.GetOption("ScrollSpeed") if typeof(Config.GetOption("ScrollSpeed")) == TYPE_FLOAT else 2.4
+	
 	for note in unspawnedNotes:
-		var calculatedtiming = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
+		var calculatedtiming = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(scrollspeed, 2)))
 		if calculatedtiming > 720 or calculatedtiming < -150:
 			if note.visible: note.visible = false
 		else:
@@ -143,7 +142,7 @@ func _physics_process(_delta: float) -> void:
 	for note in Notes:
 		if note.canHit:
 			note.visible = true
-			note.position.y = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(Config.ScrollSpeed, 2)))
+			note.position.y = (Hitpoint + (Conductor.songPosition - note.time) * (0.45 * Utils.round_to_dec(scrollspeed, 2)))
 			if note.type == 1:
 				if note.position.y >= Hitpoint and Receptor.state:
 					note.Hit(true)

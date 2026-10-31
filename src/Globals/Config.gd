@@ -1,19 +1,10 @@
 extends Node
 
 var Options = {}
+var Binds = {}
 
-var ScrollSpeed = 2.4
-var Upscroll = true
 var CurrentResolution = Utils.resolutions[0]
-var Binds = {
-	"0" = [],
-	"1" = [Key.KEY_SPACE],
-	"2" = [Key.KEY_F, Key.KEY_J],
-	"3" = [Key.KEY_F, Key.KEY_SPACE, Key.KEY_J],
-	"4" = [Key.KEY_D, Key.KEY_F, Key.KEY_J, Key.KEY_K],
-	"5" = [Key.KEY_D, Key.KEY_F, Key.KEY_SPACE, Key.KEY_J, Key.KEY_K],
-	"6" = [Key.KEY_S, Key.KEY_D, Key.KEY_F, Key.KEY_J, Key.KEY_K, Key.KEY_L]
-}
+
 var Hitpoint = 580
 var NoteSkin = {
 	HitObject = [
@@ -35,6 +26,22 @@ func _ready():
 		if json != null: Options = json
 	else:
 		Options = {}
+	
+	if FileAccess.file_exists("user://binds.json"):
+		var file = FileAccess.open("user://binds.json", FileAccess.READ)
+		var rawtxt = file.get_as_text()
+		var json = JSON.parse_string(rawtxt)
+		if json != null: Binds = json
+	else:
+		Binds = {
+			"0" = [],
+			"1" = [Key.KEY_SPACE],
+			"2" = [Key.KEY_F, Key.KEY_J],
+			"3" = [Key.KEY_F, Key.KEY_SPACE, Key.KEY_J],
+			"4" = [Key.KEY_D, Key.KEY_F, Key.KEY_J, Key.KEY_K],
+			"5" = [Key.KEY_D, Key.KEY_F, Key.KEY_SPACE, Key.KEY_J, Key.KEY_K],
+			"6" = [Key.KEY_S, Key.KEY_D, Key.KEY_F, Key.KEY_J, Key.KEY_K, Key.KEY_L]
+		}
 
 func UpdateOption(Option:String, value:Variant) -> bool:
 	var success = Options.set(Option, value)
@@ -50,15 +57,28 @@ func ForceUpdateSettings(Option:String):
 	match(Option):
 		"AntialiasingMode": get_viewport().msaa_2d = Options.get(Option, Viewport.MSAA_DISABLED)
 		"VolumeCompletelyMuted": AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), Options.get(Option, false))
+		"MuteTabbedOut": Utils.mutestuff = Options.get(Option, true)
 		"MasterVolume":AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), Options.get(Option, 0.0))
 		"MusicVolume": AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), Options.get(Option, 0.0))
 		"HitsoundVolume": AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Hitsounds"), Options.get(Option, 0.0))
-		"FullscreenDisplayMode": get_window().mode = Window.MODE_FULLSCREEN if Options.get(Option, false) else Window.MODE_WINDOWED
-		"DisplayResolutionOption": get_window().size = Utils.resolutions.get(Options.get(Option, 0))
+		"FullscreenDisplayMode":
+			get_window().mode = Window.MODE_FULLSCREEN if Options.get(Option, false) else Window.MODE_WINDOWED
+			if get_window().mode == Window.MODE_WINDOWED:
+				get_window().size = Utils.resolutions.get(Options.get(Option, 0))
+		"DisplayResolutionOption":
+			if get_window().mode == Window.MODE_WINDOWED: get_window().size = Utils.resolutions.get(Options.get(Option, 0))
+			else: Log.pr("Refusing to change resolution because game is fullscreen")
 		_: Log.pr("No value for forcing a value update.")
 
 func Save():
 	var OptionsFile = FileAccess.open("user://SettingsData.json", FileAccess.WRITE)
-	var tostring = JSON.stringify(Options)
-	OptionsFile.store_string(tostring)
+	var tostringoptions = JSON.stringify(Options)
+	OptionsFile.store_string(tostringoptions)
 	OptionsFile.close()
+	
+	var BindsFile = FileAccess.open("user://binds.json", FileAccess.WRITE)
+	var tostringbinds = JSON.stringify(Binds)
+	BindsFile.store_string(tostringbinds)
+	BindsFile.close()
+
+func _exit_tree(): Save()

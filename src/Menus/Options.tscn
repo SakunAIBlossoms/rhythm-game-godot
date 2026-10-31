@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="7_ld8y6"]
 [ext_resource type="PackedScene" uid="uid://dvtg45p43ejlq" path="res://src/Menus/Options/category.tscn" id="7_u25d3"]
 [ext_resource type="Texture2D" uid="uid://d1ili5wygyhoo" path="res://Assets/Icons/All.svg" id="8_ue33l"]
+[ext_resource type="PackedScene" uid="uid://clmdlp7mx66d7" path="res://src/Menus/bind_keys.tscn" id="10_ue33l"]
 
 [sub_resource type="Gradient" id="Gradient_u25d3"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -132,6 +133,7 @@ grow_vertical = 2
 [node name="BackgroundMusic" parent="." unique_id=1849668629 instance=ExtResource("1_k8jn6")]
 stream = ExtResource("3_arff4")
 autoplay = true
+bus = &"Music"
 BPM = 170.0
 
 [node name="Topbar" type="Control" parent="." unique_id=1231205173]
@@ -254,6 +256,10 @@ grow_vertical = 2
 
 [node name="List" type="VBoxContainer" parent="IndividualOptions/Scroll" unique_id=546228946]
 layout_mode = 2
+
+[node name="BindKeys" parent="." unique_id=361297333 instance=ExtResource("10_ue33l")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Topbar/ReturnToMenu" to="." method="_return_to_menu"]
 [connection signal="pressed" from="Categories/Scroll/List/All/Button" to="." method="show_all_categories"]

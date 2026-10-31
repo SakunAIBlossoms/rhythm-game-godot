@@ -7,6 +7,7 @@ var NextSongToPlay = ""
 var CurrentPulse = null
 var CurrentKeycount = 4
 var PlayerCurrentScore = null
+var inputEnabled = false
 
 var autoplay:bool = false
 
@@ -106,6 +107,9 @@ func GetKeyEnumFromString(string:String):
 		"M": return Key.KEY_M
 		_: return Key.KEY_NONE
 
+func CalculatePercentage(numerator: int, denominator: int) -> float:
+	return ((float(numerator) / denominator) - 1) * 100
+
 func DoTweenProperty(object, property:NodePath, value,length:float, easing:Tween.EaseType = Tween.EaseType.EASE_IN_OUT, transition:Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR, callback:Callable = Callable()) -> Tween:
 	var twn = create_tween()
 	twn.set_ease(easing)
@@ -115,3 +119,16 @@ func DoTweenProperty(object, property:NodePath, value,length:float, easing:Tween
 	twn.tween_property(object, property, value, length)
 	
 	return twn
+
+func GetTimestamp(time:float) -> String:
+	return str(int(time / 60000.))+":"+str(int(time / 1000) % 60)
+
+var mutestuff = true
+#func _notification(what: int) -> void:
+#	if mutestuff:
+#		if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+#			AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+#		if what == NOTIFICATION_APPLICATION_FOCUS_IN:
+#			AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), Config.GetOption("VolumeCompletelyMuted") if typeof(Config.GetOption("VolumeCompletelyMuted")) == TYPE_BOOL else false)
+
+func _ready(): mutestuff = Config.GetOption("MuteTabbedOut") if typeof(Config.GetOption("MuteTabbedOut")) == TYPE_BOOL else true

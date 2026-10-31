@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dm1y8bncvwxbk" path="res://src/Menus/SongSelect.gd" id="1_t7agu"]
 [ext_resource type="Texture2D" uid="uid://bg6nat5s1ndc" path="res://icon.svg" id="2_30wvq"]
+[ext_resource type="Script" uid="uid://qrfv77io56w" path="res://addons/MP4Player/MP4VideoPlayer.gd" id="2_dksta"]
 [ext_resource type="FontFile" uid="uid://dx2eu4hirguo2" path="res://Assets/Fonts/Default.ttf" id="3_c7kw3"]
 [ext_resource type="Texture2D" uid="uid://bq2yojqsl6i0o" path="res://Assets/Images/Menus/SongSelect/Highlight.png" id="3_dksta"]
 [ext_resource type="Shader" uid="uid://1yr7kqn0hu40" path="res://Assets/Shaders/SongSelect.gdshader" id="4_30wvq"]
@@ -164,15 +165,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Shader" type="ColorRect" parent="Background" unique_id=1166524252]
-material = SubResource("ShaderMaterial_oyu2m")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Overlay" type="ColorRect" parent="." unique_id=1056507634]
 layout_mode = 1
 anchors_preset = 15
@@ -181,6 +173,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
+
+[node name="BG" type="Parallax2D" parent="." unique_id=413881336]
+
+[node name="BackgroundImg" type="TextureRect" parent="BG" unique_id=1981175786]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackgroundVideo" type="Control" parent="BG" unique_id=2016538749]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.1, 1.1)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("2_dksta")
+autoplay = false
+stretch_mode = 6
+metadata/_custom_type_script = "uid://qrfv77io56w"
+
+[node name="Shader" type="ColorRect" parent="BG" unique_id=1166524252]
+material = SubResource("ShaderMaterial_oyu2m")
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 355.0
+scale = Vector2(1.1, 1.1)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="BackgroundOverlay" type="ColorRect" parent="." unique_id=2675616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2)
 
 [node name="SelectedHighlight" type="Control" parent="." unique_id=626997239]
 modulate = Color(1, 1, 1, 0)
@@ -210,10 +250,16 @@ trail_enabled = true
 trail_lifetime = 0.05
 process_material = SubResource("ParticleProcessMaterial_dksta")
 
-[node name="SongList" type="Control" parent="." unique_id=708210038]
-anchors_preset = 0
+[node name="ScrollSongs" type="ScrollContainer" parent="." unique_id=463464305]
+layout_mode = 0
 offset_right = 1001.0
 offset_bottom = 720.0
+
+[node name="SongList" type="VBoxContainer" parent="ScrollSongs" unique_id=542407773]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 720)
+layout_mode = 2
+alignment = 1
 
 [node name="CurrentSong" type="Control" parent="." unique_id=355762994]
 layout_mode = 1
@@ -268,12 +314,12 @@ offset_right = 181.5
 offset_bottom = 181.5
 theme_override_styles/panel = SubResource("StyleBoxFlat_c7kw3")
 
-[node name="Name" type="RichTextLabel" parent="CurrentSong" unique_id=1181381457]
+[node name="Information" type="RichTextLabel" parent="CurrentSong" unique_id=1181381457]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 360.0
-offset_right = 340.0
-offset_bottom = 569.0
+offset_right = 337.0
+offset_bottom = 664.0
 theme_override_colors/default_color = Color(0.58611006, 0.9999997, 0.9983652, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
 theme_override_constants/shadow_outline_size = 6
@@ -282,38 +328,8 @@ theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/normal_font = ExtResource("3_c7kw3")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
-text = "[wave amp=60.0 freq=2.0 connected=0]Song Name"
+text = "[wave amp=60.0 freq=2.0 connected=0]Song information goes here"
 horizontal_alignment = 1
-
-[node name="Artist" type="RichTextLabel" parent="CurrentSong" unique_id=539991513]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 572.0
-offset_right = 336.0
-offset_bottom = 612.0
-theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
-theme_override_constants/text_highlight_h_padding = 3
-theme_override_fonts/normal_font = ExtResource("3_c7kw3")
-bbcode_enabled = true
-text = "[wave amp=60.0 freq=2.0 connected=0]Artist Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Mapper" type="RichTextLabel" parent="CurrentSong" unique_id=624146450]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 612.0
-offset_right = 336.0
-offset_bottom = 652.0
-theme_override_colors/default_color = Color(0.7411765, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
-theme_override_constants/text_highlight_h_padding = 3
-theme_override_fonts/normal_font = ExtResource("3_c7kw3")
-bbcode_enabled = true
-text = "[wave amp=60.0 freq=2.0 connected=0]Mapper Name"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="InputActivateTimer" type="Timer" parent="." unique_id=1935649249]
 wait_time = 0.5
@@ -340,6 +356,25 @@ text = "Options"
 icon = ExtResource("6_bdm1n")
 expand_icon = true
 
+[node name="Select" type="Button" parent="." unique_id=2140859157]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -277.0
+offset_top = 670.0
+offset_right = -157.0
+offset_bottom = 705.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_c7kw3")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dksta")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d1bvp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lisw7")
+text = "Play Song"
+expand_icon = true
+
 [node name="Quit" type="Button" parent="." unique_id=201438199]
 layout_mode = 1
 anchors_preset = 1
@@ -360,7 +395,6 @@ text = "Quit"
 expand_icon = true
 
 [node name="Loading" type="Panel" parent="." unique_id=1287150088]
-visible = false
 custom_minimum_size = Vector2(450, 250)
 layout_mode = 1
 anchors_preset = 8
@@ -419,4 +453,5 @@ vertical_alignment = 1
 
 [connection signal="timeout" from="InputActivateTimer" to="." method="_input_enable"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Select" to="." method="SelectSong"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

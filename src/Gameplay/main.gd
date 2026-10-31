@@ -23,6 +23,8 @@ var ScoreData:PlayerStatistics
 
 var health:float = 100
 
+var songstarted = false
+
 func _ready():
 	ScoreData = PlayerStatistics.new()
 	# Conductor debug
@@ -49,28 +51,40 @@ func _ready():
 	chartdata = ChartParser.ParseCustomChart(rawchart.get_as_text())
 	Log.pr("Chart loaded")
 	
+	Log.pr("Checking for image background")
+	if ResourceLoader.exists("res://Songs/"+Utils.NextSongToPlay+"/bgimg.png"):
+		$ImageBG.texture = load("res://Songs/"+Utils.NextSongToPlay+"/bgimg.png")
+		Log.pr("Found image background and set it")
+	else:
+		Log.pr("Cannot find image background")
+	
 	Log.pr("Checking for video background")
-	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4"):
+	var videofile = OS.get_executable_path().get_base_dir()+"/Videos/"+Utils.NextSongToPlay+".mp4" if not OS.is_debug_build() else "res://Videos/"+Utils.NextSongToPlay+".mp4"
+	if FileAccess.file_exists(videofile):
 		Log.pr("Video background found")
 		if Config.GetOption("VideoBackgroundEnabled") == false:
 			Log.pr("Video background disabled in options, destroying node...")
 			$VideoBackground.queue_free()
 		else:
 			Log.pr("Loading video...")
-			$VideoBackground.open("res://Songs/"+Utils.NextSongToPlay+"/videobg.mp4")
+			$VideoBackground.open(videofile)
 			Log.pr("Video loaded!")
 	else:
 		# Cant find it so we delete it to save space.
 		Log.pr("Couldn't find video file, destroying node.")
 		$VideoBackground.queue_free()
-		
+	
+	Log.pr("Checking configuration for background overlay")
+	$BG.visible = Config.GetOption("GameplayStarShaderBackground") if typeof(Config.GetOption("GameplayStarShaderBackground")) == TYPE_BOOL else true
+	
+	
 	if FileAccess.file_exists("res://Songs/"+Utils.NextSongToPlay+"/meta.txt"):
 		Log.pr("Loading ", Utils.NextSongToPlay, " metadata")
 		var file = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/meta.txt", FileAccess.READ)
 		var raw = file.get_as_text()
 		var data = raw.split(":")
 		Log.pr("Metadata loaded")
-
+		
 		Log.pr("Setting up playfields")
 		Utils.CurrentKeycount = int(data[8])
 		
@@ -78,7 +92,7 @@ func _ready():
 		else: Conductor.BPM = float(data[2])
 		if data[4] == null: Log.error("Failed to parse song file location")
 		else: Conductor.stream = load("res://Songs/"+Utils.NextSongToPlay+"/"+data[4])
-
+		
 		$HUD/SongName.text = "[wave]Song: "+data[0]
 		
 		# Playfield
@@ -134,12 +148,14 @@ func _ready():
 			Log.pr("Cannot find an effect file, skipping!")
 			$EffectHandler.queue_free()
 	
+	var timebarenabled = Config.GetOption("TimeBarEnabled") if typeof(Config.GetOption("TimeBarEnabled")) == TYPE_BOOL else true
+	$HUD/Time.visible = timebarenabled
+	
 	Conductor.finished.connect(_song_finished)
-
 	$"3SecondIntroTimer".start(3.0)
 
 func _hit(rating:String, delay:float):
-	if health < 100: health += 3
+	if health <= 100: health += 3
 	ScoreData.NotesHit += 1
 	$HUD/Hit.text = rating
 	$HUD/Hit/delay.text = str(roundi(delay))+"ms"
@@ -170,7 +186,7 @@ func BeatHit(beat):
 
 func _input(event:InputEvent):
 	if event is InputEventKey:
-		if event.is_pressed() and event.keycode == Key.KEY_ESCAPE and not Paused:
+		if event.is_pressed() and event.keycode == Key.KEY_ESCAPE and not Paused and songstarted:
 			TogglePause()
 		
 		if event.keycode == Key.KEY_9 and event.is_released():
@@ -186,21 +202,29 @@ func TogglePause():
 	else:
 		if get_node("VideoBackground") != null: $VideoBackground.play()
 	Conductor.stream_paused = Paused
+	Utils.inputEnabled = not Paused
 
 func _process(dt:float):
-	if Utils.CurrentPulse != null: Camera.zoom = lerp(Camera.zoom, Camera.BaseCamZoom, (12*Utils.CurrentPulse.strength)*dt)
-	else: Camera.zoom = lerp(Camera.zoom, Camera.BaseCamZoom, 12*dt)
 	if $"3SecondIntroTimer".time_left > 0: $Overlay/Countdown.text = str(int($"3SecondIntroTimer".time_left+1))
 	else: $Overlay/Countdown.visible = false
 	$Overlay/AutoplayText.visible = Utils.autoplay
-	if health <= 0: 
-		$HUD/Health/Fail.visible = true
-	else:
-		$HUD/Health.set_value_no_signal(lerp($HUD/Health.value, health, 12*dt))
 	
-	if $HUD/Health/Fail.visible: $HUD/Health.set_value_no_signal(0.)
+	# All stuff that can happen once the song has started
+	if songstarted:
+		if Utils.CurrentPulse != null: Camera.zoom = lerp(Camera.zoom, Camera.BaseCamZoom, (12*Utils.CurrentPulse.strength)*dt)
+		else: Camera.zoom = lerp(Camera.zoom, Camera.BaseCamZoom, 12*dt)
+		
+		if health <= 0: 
+			$HUD/Health/Fail.visible = true
+		else:
+			$HUD/Health.value = health
+		if $HUD/Health/Fail.visible: $HUD/Health.set_value_no_signal(0.)
+		$HUD/Time.set_value_no_signal(Conductor.songPosition)
+		$HUD/Time/Details/Percentage.text = str(int($HUD/Time.get_as_ratio()*100))+"%"
+		$HUD/Time/Details/CurrentTime.text = Utils.GetTimestamp(Conductor.songPosition - (Conductor.stream.get_length()/1000))
 
 func _song_finished():
+	Utils.inputEnabled = false
 	# Replace this with a score screen later.
 	if not $HUD/Health/Fail.visible: Utils.PlayerCurrentScore = ScoreData
 	else: Utils.PlayerCurrentScore = null
@@ -218,6 +242,10 @@ func _on_second_intro_timer_timeout():
 	Conductor.play()
 	Utils.DoTweenProperty($Overlay/Background, "color:a", 0.0, 0.8, Tween.EASE_OUT, Tween.TRANS_CIRC)
 	if get_node("VideoBackground") != null: $VideoBackground.play_from_start()
+	$HUD/Time.max_value = Conductor.stream.get_length()*1000
+	$HUD/Time/Details/EndTime.text = Utils.GetTimestamp(Conductor.stream.get_length()*1000)
+	songstarted = true
+	Utils.inputEnabled = true
 
 func _on_pause_unpause() -> void:
 	TogglePause()

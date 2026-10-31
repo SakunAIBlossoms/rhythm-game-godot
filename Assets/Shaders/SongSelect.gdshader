@@ -36,7 +36,7 @@ uniform vec4 color_mid : source_color = vec4(.50, 0.10, 0.30, 1.0);
 uniform vec4 color_high : source_color = vec4(1.0, 1.0, 1.0, 1.0); 
 
 #define iTime (TIME * speed)
-#define iResolution 1.0/SCREEN_PIXEL_SIZE
+#define iResolution 1.0/TEXTURE_PIXEL_SIZE
 
 const mat2 mtx = mat2( vec2(0.80, -0.60), vec2(0.60, 0.80) );
 
@@ -111,5 +111,7 @@ void fragment()
     vec2 uv = floor(UV / SCREEN_PIXEL_SIZE / pixelation) * SCREEN_PIXEL_SIZE * pixelation; 
    	float shade = pattern(uv * zoom);
     
-    COLOR = colormap(shade, uv);
+	vec4 col = colormap(shade, uv);
+	col.a = 0.4;
+    COLOR = col;
 }

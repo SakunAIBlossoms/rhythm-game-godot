@@ -34,14 +34,15 @@ func setup(data, fake) -> void:
 			push_error(\"Cannot instantiate lane \"+str(key))
 
 func _physics_process(_delta: float) -> void:
-	if Config.Upscroll:
+	var upscroll = Config.GetOption(\"Upscroll\") if typeof(Config.GetOption(\"Upscroll\")) == TYPE_BOOL else false
+	if upscroll:
 		for lane in lanes:
 			lane.scale.y = -1
 			lane.position.y = 720
 	else:
 		for lane in lanes:
-			self.scale.y = 1
-			self.position.y = 0
+			lane.scale.y = 1
+			lane.position.y = 0
 "
 
 [node name="Playfield" type="Control" unique_id=359900010]
