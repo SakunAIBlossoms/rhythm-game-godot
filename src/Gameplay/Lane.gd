@@ -3,15 +3,15 @@ extends Control
 signal Hit(Rating:String, Delay:float)
 signal Missed()
 
-var BaseNote = preload("res://src/Gameplay/note.tscn")
+var BaseNote:PackedScene = preload("res://src/Gameplay/note.tscn")
 
-@export var ID = -1
+@export var ID:int = -1
 @export var Hitpoint:float = Config.GetOption("Hitpoint") if typeof(Config.GetOption("Hitpoint")) == TYPE_FLOAT else 580.0
 @export var BackgroundAlpha:float = 0.4
 @export var fake:bool = false
 
-var Notes = []
-var unspawnedNotes = []
+var Notes:Array = []
+var unspawnedNotes:Array = []
 
 @onready var Background:ColorRect = $Background
 @onready var Receptor:Control = $Receptor
@@ -26,7 +26,7 @@ func _ready() -> void:
 	else:
 		Receptor.get_node("Bind").visible = false
 
-func CreateNotes(notes):
+func CreateNotes(notes) -> void:
 	var id = -1
 	for note in notes:
 		id += 1
@@ -52,14 +52,14 @@ func _process(delta: float) -> void:
 		if Background.color.a != BackgroundAlpha:
 			Background.color.a = lerpf(Background.color.a, BackgroundAlpha, 12*delta)
 
-func _unhandled_input(event: InputEvent):
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if Bind == event.keycode and event.is_pressed() and Utils.inputEnabled:
+		if Bind == event.keycode and event.is_pressed() and Utils.inputEnabled and not Utils.autoplay:
 			HitNote(event)
-		if Bind == event.keycode and event.is_released() and Utils.inputEnabled:
+		if Bind == event.keycode and event.is_released() and Utils.inputEnabled and not Utils.autoplay:
 			LetGo(event)
 
-func HitNote(_event:InputEventKey):
+func HitNote(_event:InputEventKey) -> void:
 	Receptor.Press(true)
 	
 	var note = closest(Conductor.songPosition, Notes)
@@ -123,7 +123,7 @@ func closest(timestamp:float, n:Array):
 	# Return closest number found
 	return closest_num
 
-func LetGo(_event:InputEventKey):
+func LetGo(_event:InputEventKey) -> void:
 	Receptor.Press(false)
 
 func _physics_process(_delta: float) -> void:

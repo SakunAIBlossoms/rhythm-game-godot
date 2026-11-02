@@ -22,6 +22,7 @@ func _ready() -> void:
 	%Credit.position.y = -127.
 	
 	%Icon.texture = dict["Cover"]
+	$Background.texture = load("res://Songs/"+Utils.NextSongToPlay+"/bgimg.png")
 	%SongName.text = "[wave]"+dict["Name"]
 	%Credit.text = "[wave]"+dict["Artist"]+" - "+dict["Mapper"]
 	

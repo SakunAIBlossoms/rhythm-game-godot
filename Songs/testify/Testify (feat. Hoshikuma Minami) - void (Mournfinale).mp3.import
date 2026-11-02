@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cghy04oflv074"
+path="res://.godot/imported/Testify (feat. Hoshikuma Minami) - void (Mournfinale).mp3-72922a53c26b846aa648d0a78c6ce3a2.mp3str"
+
+[deps]
+
+source_file="res://Songs/testify/Testify (feat. Hoshikuma Minami) - void (Mournfinale).mp3"
+dest_files=["res://.godot/imported/Testify (feat. Hoshikuma Minami) - void (Mournfinale).mp3-72922a53c26b846aa648d0a78c6ce3a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
