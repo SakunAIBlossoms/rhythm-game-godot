@@ -28,18 +28,18 @@ func _ready() -> void:
 		var raw = file.get_as_text()
 		var data = raw.split(":")
 		var dict = {
-			"RawName" = song,
-			"Name" = data[0],
-			"Cover" = load("res://Songs/"+song+"/"+data[1]),
-			"BPM" = float(data[2]),
-			"PreviewTime" = float(data[3]),
-			"AudioFile" = data[4],
-			"Artist" = data[5],
-			"Mapper" = data[6],
-			"ExtraPlayfields" = data[7],
-			"Keycount" = data[8],
-			"HasEffects" = FileAccess.file_exists("res://Songs/"+song+"/effects.json"),
-			"HasVideoBG" = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/Videos/"+song+".mp4") if not OS.is_debug_build() else FileAccess.file_exists("res://Videos/"+song+".mp4")
+			"RawName" = song, # name of the folder that the song is in.
+			"Name" = data[0], # name of the song proper, this one gets shown to the player
+			"Cover" = load("res://Songs/"+song+"/"+data[1]), # texture data of the cover art
+			"BPM" = float(data[2]), # beats per minute for the song
+			"PreviewTime" = float(data[3]), # what time in milliseconds does the song preview from when hovered
+			"AudioFile" = data[4], # name of the file that contains the song, this only gets used once which is why I don't load it.
+			"Artist" = data[5], # just some text containing the name of the artist who made the song.
+			"Mapper" = data[6], # some credit for the person who mapped the notes for the song.
+			"ExtraPlayfields" = data[7], # how many extra playfields will it have? *UNUSED*
+			"Keycount" = data[8], # the amount of keys this song has.
+			"HasEffects" = FileAccess.file_exists("res://Songs/"+song+"/effects.json"), # Whether visual effects are present for this song.
+			"HasVideoBG" = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/Videos/"+song+".mp4") if not OS.is_debug_build() else FileAccess.file_exists("res://Videos/"+song+".mp4") # If a background can be found make sure to indicate that.
 		}
 		SongList.push_front(dict)
 		

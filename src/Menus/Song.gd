@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends Control
 
 var WaveSetup = "[wave amp=60.0 freq=2.0 connected=0]"
 var ID:int = 0
@@ -6,7 +6,7 @@ var _data
 
 func Setup(data):
 	_data = data
-	text = WaveSetup+data.get("Name")
+	$Label.text = WaveSetup+data.get("Name")
 	var loadedstream = load("res://Songs/"+data.get("RawName")+"/"+data.get("AudioFile"))
 	$Preview.stream = loadedstream
 	Log.pr(data.get("RawName")+" has loaded successfully")

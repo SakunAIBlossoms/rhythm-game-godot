@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Utils.NextSongToPlay == "": return
 	var file = FileAccess.open("res://Songs/"+Utils.NextSongToPlay+"/meta.txt", FileAccess.READ)
 	var raw = file.get_as_text()
 	var data = raw.split(":")
@@ -26,7 +27,7 @@ func _ready() -> void:
 	%SongName.text = "[wave]"+dict["Name"]
 	%Credit.text = "[wave]"+dict["Artist"]+" - "+dict["Mapper"]
 	
-	Utils.DoTweenProperty(%IconContainer, "position:x", 36.0, 0.8,Tween.EASE_IN_OUT, Tween.TRANS_EXPO)
+	Utils.DoTweenProperty(%IconContainer, "position:x", 36.0, 0.8,Tween.EASE_IN, Tween.TRANS_BACK)
 	Utils.DoTweenProperty(%SongName, "position:y", 55.0, 0.8,Tween.EASE_IN_OUT, Tween.TRANS_EXPO)
 	Utils.DoTweenProperty(%Credit, "position:y", 158.0, 0.8,Tween.EASE_IN_OUT, Tween.TRANS_EXPO)
 	
